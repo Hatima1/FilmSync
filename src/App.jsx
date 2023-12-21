@@ -1,12 +1,14 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import Login from "./pages/Singup";
-import Singin from "./pages/Singin";
+import Singup from "./pages/Singup";
+import Login from "./pages/Login";
 import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
+import ProtectedRoute from "./ui/ProtectedRoute";
+import AppLayout from "./ui/AppLayout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,12 +25,20 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <Routes>
-          <Route index element={<Navigate replace to="home" />} />
-          <Route path="home" element={<Home />} />
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate replace to="home" />} />
+            <Route path="home" element={<Home />} />
+            <Route path="Login" element={<Login />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
 
-          <Route path="login" element={<Login />} />
-          <Route path="singin" element={<Singin />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path="Singup" element={<Singup />} />
         </Routes>
       </BrowserRouter>
 

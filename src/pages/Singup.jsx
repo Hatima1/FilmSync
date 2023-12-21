@@ -1,6 +1,7 @@
 import { useState } from "react";
-import useUsers from "../features/login/uselogin";
+import useUsers from "../features/login/useAllusers";
 import useCreateCapin from "../features/login/ucreCreateUsers";
+import { useSignup } from "../features/Auth/UseSingup";
 
 function Singup() {
   const [name, setname] = useState("");
@@ -9,17 +10,24 @@ function Singup() {
   const { userss } = useUsers();
   console.log(userss);
   const { createusers } = useCreateCapin();
-  let id;
-
+  const { isLoading, signup } = useSignup();
+  if (isLoading)
+    return (
+      <div className=" bg-slate-500 h-screen text-center text-4xl">
+        {" "}
+        <p>is Loding man </p>
+      </div>
+    );
   function handlerclick(e) {
     e.preventDefault();
+    signup({ email, password });
     const input = {
       name,
       password,
       email,
-      id: 21,
+      id: 200000,
     };
-    createusers(input);
+    // createusers(input);
   }
   return (
     <form className=" p-10 " onSubmit={handlerclick}>

@@ -1,7 +1,13 @@
 import Hedeing from "../ui/Hedeing";
+import Logout from "../ui/Logout";
 
 function Home() {
-  return <Hedeing> hi </Hedeing>;
+  return (
+    <div>
+      <Hedeing> hi </Hedeing>
+      <Logout />
+    </div>
+  );
 }
 
 export default Home;
