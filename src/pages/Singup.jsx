@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useUsers from "../features/login/useAllusers";
 import useCreateCapin from "../features/login/ucreCreateUsers";
 import { useSignup } from "../features/Auth/UseSingup";
+import { UseUser } from "../features/Auth/useUser";
 
 function Singup() {
   const [name, setname] = useState("");
@@ -11,23 +12,31 @@ function Singup() {
   console.log(userss);
   const { createusers } = useCreateCapin();
   const { isLoading, signup } = useSignup();
-  if (isLoading)
+  const { isLoading: m, user } = UseUser();
+  if (isLoading) {
     return (
       <div className=" bg-slate-500 h-screen text-center text-4xl">
         {" "}
         <p>is Loding man </p>
       </div>
     );
+  }
+  // useEffect(function({
+  //   if (user) {
+  //     const input = {
+  //       name,
+  //       password,
+  //       email,
+  //       id: user?.user.id,
+  //     };
+  //     createusers(input);
+  //   }
+
+  // })[])
+
   function handlerclick(e) {
     e.preventDefault();
-    signup({ email, password });
-    const input = {
-      name,
-      password,
-      email,
-      id: 200000,
-    };
-    // createusers(input);
+    signup({ email, password, name });
   }
   return (
     <form className=" p-10 " onSubmit={handlerclick}>

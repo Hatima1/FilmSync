@@ -1,5 +1,9 @@
 function Hedeing({ children }) {
-  return <h1 className=" text-red-700">{children}</h1>;
+  return (
+    <div>
+      <h1 className=" text-red-700">{children}</h1>
+    </div>
+  );
 }
 
 export default Hedeing;

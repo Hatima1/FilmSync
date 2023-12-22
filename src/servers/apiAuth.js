@@ -1,3 +1,4 @@
+import CreateUser from "./apiUsers";
 import supabase from "./supabase";
 
 export async function login({ email, password }) {
@@ -28,14 +29,30 @@ export async function logout() {
   if (error) throw new Error(error.message);
 }
 
-export async function signup({ email, password }) {
+export async function signup({ email, password, name }) {
   const { data, error } = await supabase.auth.signUp({
     email,
-    password
-    
+    password,
   });
 
+  if (data) {
+    await CreateUser({ id: data.user.id, name, email });
+  }
+
   if (error) throw new Error(error.message);
+
+  return data;
+}
+export async function getdata({ id }) {
+  if (!id) return;
+  const { data, error } = await supabase
+    .from("users")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) throw new Error(error.message);
+  console.log(data);
 
   return data;
 }
