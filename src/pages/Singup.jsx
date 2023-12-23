@@ -18,6 +18,7 @@ function Singup() {
       <div className=" bg-slate-500 h-screen text-center text-4xl">
         {" "}
         <p>is Loding man </p>
+        <div className=" max-w-6xl mx-auto     "></div>
       </div>
     );
   }

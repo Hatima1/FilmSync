@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Singup from "./pages/Singup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Movie from "./pages/movie";
 import PageNotFound from "./pages/PageNotFound";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -37,6 +38,7 @@ function App() {
             <Route path="Login" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
+          <Route path="movie" element={<Movie />} />
 
           <Route path="Singup" element={<Singup />} />
         </Routes>

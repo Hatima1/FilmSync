@@ -13,7 +13,7 @@ function Home() {
   // const data = getdata({ id: user.id }).then((data) => setname(data.name));
 
   return (
-    <div className="max-w-6xl mx-auto  ">
+    <div>
       <Header />
       {/* <Hedeing> hi </Hedeing>
       <Logout /> */}

@@ -5,10 +5,16 @@ import styled from "styled-components";
 
 function header() {
   return (
-    <div className="  p-4   ">
-      C:\Users\hp\Desktop\movie\public\1917-006.jpg
-      <header className='bg-[url("../../../public/1917-006.jpg")] bg-cover h-[300px]  '>
-        <h1 className=" text-emerald-700"> hi</h1>
+    <div className=' bg-[url("../../../public/Gravity-023.jpg")] bg-cover h-[300px]  md:h-[400px] '>
+      <header className="max-w-6xl mx-auto     ">
+        <h1 className=" uppercase w-[700px] text-center    text-4xl    text-[#d9d9d9] font-semibold pt-[90px] pb-1   ">
+          {" "}
+          Discover Cinematic Wonders{" "}
+        </h1>
+        <p1 className="text-xl  font-semibold text-gray-200">
+          {" "}
+          Where Stories Come Alive
+        </p1>
       </header>
     </div>
   );
