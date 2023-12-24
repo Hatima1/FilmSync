@@ -10,6 +10,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AppLayout from "./ui/AppLayout";
+import Test from "./pages/Test";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,7 +39,8 @@ function App() {
             <Route path="Login" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
-          <Route path="movie" element={<Movie />} />
+
+          <Route path="Test" element={<Test />} />
 
           <Route path="Singup" element={<Singup />} />
         </Routes>
