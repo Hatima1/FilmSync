@@ -13,7 +13,7 @@ function TecketSelect() {
     setcount((count) => count - 1);
   }
   return (
-    <div className=" flex items-center transition-all duration-300 gap-[3px]   ">
+    <div className=" flex items-center transition-all duration-300 gap-[3px]    ">
       <button className="" onClick={delletehandler}>
         <span className="   text-xs inline-block bg-gray-900 text-white rounded-full px-2  py-1 hover:bg-gray-800  ">
           -

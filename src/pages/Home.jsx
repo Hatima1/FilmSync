@@ -1,6 +1,8 @@
 import Hedeing from "../ui/Hedeing";
 import Header from "../features/home/header";
 import Logout from "../ui/Logout";
+import Main from "../features/home/Main";
+import About from "../features/home/About";
 // import { getdata } from "../servers/apiAuth";
 
 // import { UseUser } from "../features/Auth/useUser";
@@ -13,8 +15,12 @@ function Home() {
   // const data = getdata({ id: user.id }).then((data) => setname(data.name));
 
   return (
-    <div>
+    <div className="   bg-teal-50 ">
       <Header />
+      <About />
+
+      <Main />
+
       {/* <Hedeing> hi </Hedeing>
       <Logout /> */}
     </div>

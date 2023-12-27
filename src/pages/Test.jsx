@@ -1,5 +1,5 @@
-import MovieDetails from "../Details/MovieDetails";
-import Comment from "../Details/Comment";
+import MovieDetails from "../features/Details/MovieDetails";
+import Comment from "../features/Details/Comment";
 // import StarRating from "../ui/StarRating";
 function Test() {
   return (

@@ -7,22 +7,24 @@ import TecketForm from "./TecketForm";
 
 function MovieDetails() {
   return (
-    <section className=" mt-10 mb-28     rounded-lg shadow-xl   ">
-      <div className=" grid    grid-cols-[auto_minmax(550px,_1fr)_minmax(0,_1fr)]    rounded-lg    ">
-        <div className="      ">
+    <section className=" mt-10 mb-28  bg-gray-50      rounded-lg shadow-xl   ">
+      <div className="  grid px-2 xl:px-0     xl:grid-cols-[auto_minmax(550px,_1fr)_minmax(0,_1fr)]         rounded-lg  grid-cols-1   ">
+        <div className=" mb-10   xl:mb-0  text-center     ">
           <img
-            className="  rounded-xl     "
+            className="  rounded-xl    inline-block  w-2/3  xl:w-full      "
             src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg"
           />
         </div>
-        <div className=" px-8  ">
+        <div className=" xl:px-8 mb-16 xl:mb-0 pt-2    px-2 ">
           <div className=" ">
             {/* <p className=" text-green-400 font-semibold ">2010</p> */}
             <h2 className=" text-6xl font-semibold inline-block  text-gray-800    ">
               RED
             </h2>{" "}
             <span>1900</span>
-            <p className=" text-gray-500 text-sm mb-3  ">Action.Comedy.Crime</p>
+            <p className=" text-gray-500 text-sm mb-3   ">
+              Action.Comedy.Crime
+            </p>
             <div>
               {/* icons */}
 
@@ -55,7 +57,7 @@ function MovieDetails() {
             </div>
             {/* icons */}
             {/* about */}
-            <p className=" text-gray-600 mb-5   ">
+            <p className=" text-gray-600 mb-5  xl:mb-0  ">
               {" "}
               <span className=" font-semibold text-base  text-gray-800">
                 About:
@@ -83,20 +85,20 @@ function MovieDetails() {
 
         {/*            Ticket         */}
 
-        <div className="    ">
-          <h2 className=" mb-9 text-2xl font-semibold inline-block  text-gray-800">
+        <div className=" pt-2     ">
+          <h2 className=" mb-5 text-2xl font-semibold inline-block  text-gray-800">
             Buy Ticket
           </h2>
 
           <TecketForm />
-          <div className=" w-3/4  mb-7 ">
+          <div className=" w-3/4  mb-8 ">
             <DataPicker />
           </div>
-          <div className=" mb-7">
+          <div className=" mb-7 ">
             <TecketSelect />
           </div>
           <div className=" flex justify-end w-full    ">
-            <button className="  text-gray-100  bg-teal-950 p-2  w-full  text-lg font-semibold hover:bg-teal-900  ">
+            <button className="  text-gray-100  bg-teal-950 p-2  w-screen  text-lg font-semibold hover:bg-teal-900  ">
               Checkout
             </button>
           </div>

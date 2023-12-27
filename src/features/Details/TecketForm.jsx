@@ -11,7 +11,7 @@ function tecketForm() {
             type=" text"
           />
         </div>
-        <div className=" mb-4">
+        <div className=" mb-5">
           <label className=" block text-lg font-semibold text-gray-900">
             Phone Number
           </label>
