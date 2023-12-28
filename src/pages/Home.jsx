@@ -15,7 +15,7 @@ function Home() {
   // const data = getdata({ id: user.id }).then((data) => setname(data.name));
 
   return (
-    <div className="   bg-teal-50 ">
+    <div className="    ">
       <Header />
       <About />
 

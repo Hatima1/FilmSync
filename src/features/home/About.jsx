@@ -1,3 +1,5 @@
+import AboutFI from "./AboutFI";
+import AboutSe from "./AboutSe";
 import AboutSha from "./AboutSha";
 
 {
@@ -9,7 +11,7 @@ about it first.”
 function About() {
   return (
     <>
-      <div className=" ">
+      <div className="  mb-40 ">
         <div className=" max-w-6xl mx-auto px-2 my-9 ">
           <div className="   grid grid-cols-2       gap-14   ">
             <div>
@@ -72,6 +74,8 @@ function About() {
         </div>
       </div>
       <AboutSha />
+      <AboutFI />
+      <AboutSe />
     </>
   );
 }

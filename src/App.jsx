@@ -11,6 +11,7 @@ import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AppLayout from "./ui/AppLayout";
 import Test from "./pages/Test";
+import Timeline from "./pages/Timeline";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,6 +42,7 @@ function App() {
           </Route>
 
           <Route path="Test" element={<Test />} />
+          <Route path="timeline" element={<Timeline />} />
 
           <Route path="Singup" element={<Singup />} />
         </Routes>

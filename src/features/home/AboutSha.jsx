@@ -1,12 +1,12 @@
 function AboutSha() {
   return (
-    <div className=" ">
-      <div className=" max-w-6xl mx-auto px-2 my-9 ">
+    <div className="mb-40  ">
+      <div className=" max-w-6xl mx-auto px-2 ">
         <div className="   grid grid-cols-2       gap-14   ">
           <div className=" flex justify-center    ">
             <img
-              className=" self-center   w-[470px]   "
-              src="public/The Shawshank Redemption (1994).jpg"
+              className=" self-center   w-[430px]    "
+              src="public/The Shawshank Redemption _ Die Verurteilten (1994).jpg"
             />
           </div>
           <div>
@@ -20,41 +20,37 @@ function AboutSha() {
             <div>
               <article className="font-semibold text-gray-900 text-base ">
                 <p className=" mb-3">
-                  In a single sweltering room, the pulse of justice beats amid
-                  heated deliberations. "12 Angry Men," a cinematic marvel,
-                  etches an indelible mark on the realm of courtroom dramas.
-                  Directed by Sidney Lumet, this film captivates audiences
-                  through its gripping narrative and timeless exploration of
-                  human nature.
+                  Within the bleak walls of Shawshank State Penitentiary resides
+                  a tale that transcends incarceration, a story that unfurls the
+                  human spirit's resilience against the cruelest of fates.
                 </p>
                 <p className=" mb-3">
-                  Set against the backdrop of a murder trial, the story
-                  encapsulates the clash of ideologies and prejudices within a
-                  diverse jury. Twelve men, each bearing unique perspectives,
-                  converge to decide the fate of a young man accused of murder.
-                  What ensues is a battle not merely of facts but of personal
-                  biases and moral convictions.
+                  Andy Dufresne, a man convicted of a crime he didn't commit,
+                  becomes the linchpin of this cinematic masterpiece. As the
+                  prison's somber walls bear witness to his journey, hope
+                  emerges as a beacon, guiding him through the darkness of
+                  injustice.
                 </p>
                 <p className=" mb-3">
-                  As the room's temperature rises, so does the intensity of the
-                  deliberation. The film's brilliance lies in its ability to
-                  unveil the intricacies of human behavior—how biases,
-                  upbringing, and individual experiences mold beliefs and
-                  judgments.
+                  In the heart of this gripping narrative lies an unlikely bond
+                  between Andy and Red, a seasoned inmate whose cynicism is
+                  gradually eroded by Andy's unwavering resolve. Their
+                  friendship, nurtured in the harsh confines of Shawshank,
+                  becomes a testament to the enduring power of camaraderie
                 </p>
                 <p className=" mb-3">
-                  At the story's core stands Juror #8, portrayed masterfully by
-                  Henry Fonda, who questions the seemingly unanimous guilty
-                  verdict. His unwavering pursuit of justice challenges the
-                  status quo, unraveling layers of doubt and prompting a
-                  gripping reexamination of the case.
+                  Through the ebb and flow of this poignant narrative, audiences
+                  are whisked away to a realm where hope thrives amidst the
+                  bleakness of incarceration. It's a symphony of defiance, an
+                  ode to the human spirit's unyielding resolve against the
+                  harshest of realities.
                 </p>
                 <p>
-                  With each impassioned argument, the film peels away societal
-                  facades, laying bare the vulnerabilities and complexities of
-                  the human psyche. It's a symphony of conflict, an intricate
-                  dance of doubt and certainty, woven with remarkable dialogue
-                  and compelling performances.
+                  "Shawshank Redemption" isn't just a tale of confinement; it's
+                  an allegory of resilience, a testament to the enduring power
+                  of the human will. It inspires, uplifts, and leaves an
+                  indelible mark—a reminder that even in the darkest of hours,
+                  hope remains a beacon guiding us toward redemption.
                 </p>
               </article>
             </div>
