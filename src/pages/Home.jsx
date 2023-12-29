@@ -3,6 +3,7 @@ import Header from "../features/home/header";
 import Logout from "../ui/Logout";
 import Main from "../features/home/Main";
 import About from "../features/home/About";
+import Share from "../features/Timeline/Share";
 // import { getdata } from "../servers/apiAuth";
 
 // import { UseUser } from "../features/Auth/useUser";

@@ -2,7 +2,7 @@ function Main() {
   return (
     <>
       <div className=" max-w-7xl     mx-auto  ">
-        <div className="  grid     ">
+        <div className="  grid     grid-cols-2  ">
           <div className="  rounded-md    p-2   border-b  border-r       ">
             <div className="    ">
               <div className=" justify-between flex">
@@ -38,7 +38,11 @@ function Main() {
               <blockquote>
                 <p className="text-base font-medium text-gray-700">
                   Tailwind CSS is the only framework that I've seen scale on
-                  large teams. It’s easy to customize, adapts to any design, and
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Dolore, blanditiis recusandae. Vero odit molestiae provident
+                  est veniam earum laborum distinctio laudantium quis odio
+                  officiis corporis autem, dignissimos enim unde dicta? large
+                  teams. It’s easy to customize, adapts to any design, and
                 </p>
               </blockquote>
               <figcaption className="font-medium"></figcaption>
