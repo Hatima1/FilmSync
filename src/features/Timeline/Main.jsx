@@ -1,8 +1,8 @@
-function Main() {
+function Main({ posts }) {
   return (
     <>
       <div className=" max-w-7xl     mx-auto  ">
-        <div className="  grid     grid-cols-2  ">
+        <div className="  grid     ">
           <div className="  rounded-md    p-2   border-b  border-r       ">
             <div className="    ">
               <div className=" justify-between flex">
@@ -27,7 +27,7 @@ function Main() {
                     src="../../public/Gravity-023.jpg  "
                   />
                   <div className=" text-gray-900 text-base font-semibold inline-block ml-2 pt-1   ">
-                    Sarah Dayan .
+                    {posts.createBy} .
                   </div>
                   <div className=" text-gray-400 text-sm pt-2   ">2m </div>
                 </div>
@@ -37,12 +37,7 @@ function Main() {
             <div className=" text-gray-800 p-2 text-left space-y-4">
               <blockquote>
                 <p className="text-base font-medium text-gray-700">
-                  Tailwind CSS is the only framework that I've seen scale on
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Dolore, blanditiis recusandae. Vero odit molestiae provident
-                  est veniam earum laborum distinctio laudantium quis odio
-                  officiis corporis autem, dignissimos enim unde dicta? large
-                  teams. It’s easy to customize, adapts to any design, and
+                  {posts.caption}
                 </p>
               </blockquote>
               <figcaption className="font-medium"></figcaption>

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { UseUser } from "../features/Auth/useUser";
 import Spinner from "../ui/Spinner";
 import styled from "styled-components";
@@ -13,9 +13,9 @@ const Fullpage = styled.div`
 `;
 
 function ProtectedRoute({ children }) {
+  const { isLoading, isaAthenticated, user } = UseUser();
+  console.log(isLoading, isaAthenticated, user);
   const navigate = useNavigate();
-  const { isLoading, isaAthenticated } = UseUser();
-  console.log(isLoading, isaAthenticated);
 
   useEffect(() => {
     if (!isLoading && !isaAthenticated) navigate("/login");

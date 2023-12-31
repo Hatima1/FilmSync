@@ -14,14 +14,16 @@ export async function login({ email, password }) {
 
 export async function getCurentUser() {
   const { data: session } = await supabase.auth.getSession();
-  console.log(session);
   if (!session.session) return null;
+  console.log(session.session.user.id);
+  console.log("lol");
 
   let { data, error } = await supabase.auth.getUser();
+  console.log(data);
 
   if (error) throw new Error(error.message);
 
-  return data?.user;
+  return [data?.user];
 }
 export async function logout() {
   const { error } = await supabase.auth.signOut();
@@ -43,16 +45,29 @@ export async function signup({ email, password, name }) {
 
   return data;
 }
-export async function getdata({ id }) {
-  if (!id) return;
+
+export async function userdata() {
+  const { data: session } = await supabase.auth.getSession();
+
+  if (!session.session) return null;
+  console.log(session.session.user.id);
+
   const { data, error } = await supabase
     .from("users")
     .select("*")
-    .eq("id", id)
+    .eq("id", session.session.user.id)
     .single();
+  // let yourdata;
+  // if (data) {
+  //   yourdata = await supabase
+  //     .from("users")
+  //     .select("*")
+  //     .eq("id", data.user.id)
+  //     .single();
+  // }
 
   if (error) throw new Error(error.message);
-  console.log(data);
 
   return data;
 }
+

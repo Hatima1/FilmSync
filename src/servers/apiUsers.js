@@ -22,3 +22,18 @@ export default async function CreateUser(newusers) {
 
   return data;
 }
+
+export async function getdata(username) {
+  console.log(username);
+  if (!username) return;
+  const { data, error } = await supabase
+    .from("users")
+    .select("*")
+    .eq("name", username)
+    .single();
+
+  if (error) throw new Error(error.message);
+  console.log(data);
+
+  return data;
+}
