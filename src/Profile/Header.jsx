@@ -1,6 +1,6 @@
 import Fav from "./Fav";
 
-function Header() {
+function Header({ user }) {
   return (
     <>
       <div className=" pt-16 flex mb-9      ">
@@ -13,7 +13,7 @@ function Header() {
         <div className=" pl-6">
           <div className=" flex gap-3 mb-2">
             <p className=" text-lg font-semibold text-gray-950  ">
-              Ahmed moahmmed
+              {user.name}
             </p>
             <div className=" flex gap-2">
               <p className=" text-sm   w-20 text-center   p-1 font-medium text-white    border  bg-teal-950   rounded-full  ">
@@ -29,10 +29,12 @@ function Header() {
           </p>
           <div className=" flex gap-3">
             <p className=" uppercase      font-semibold  text-black  text-base        ">
-              2000 <span className=" text-gray-700  text-sm ">followers</span>
+              {user.following.length}{" "}
+              <span className=" text-gray-700  text-sm ">followers</span>
             </p>
             <p className=" uppercase      font-semibold  text-black  text-base   ">
-              10 <span className=" text-gray-700  text-sm ">following</span>
+              {user.follower.length}
+              <span className=" text-gray-700  text-sm ">following</span>
             </p>
           </div>
         </div>
@@ -41,9 +43,11 @@ function Header() {
       <div className=" mb-5 ml-5">
         <div className=" flex gap-6 ">
           <h2 className=" border-teal-950 border-b-[2px] font-semibold  ">
-            FAVORITE FILMS
+            {user.fav.length} FAVORITE FILMS
           </h2>
-          <h2 className=" border-teal-950  font-semibold  ">WHATCH LIST</h2>
+          <h2 className=" border-teal-950  font-semibold  ">
+            {user.watchlist.length} WHATCH LIST
+          </h2>
         </div>
       </div>
       <Fav />

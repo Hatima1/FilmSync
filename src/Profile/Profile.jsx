@@ -1,4 +1,4 @@
-import MainProfile from "../features/login/MainProfile";
+import MainProfile from "./MainProfile";
 
 function Profile() {
   return (

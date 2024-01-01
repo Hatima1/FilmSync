@@ -4,8 +4,8 @@ import { getdata } from "../servers/apiUsers";
 import { useParams } from "react-router-dom";
 
 function useProfile() {
-  const { name } = useParams();
-  console.log(name);
+  const { myname } = useParams();
+  console.log(myname);
 
   const {
     isLoading,
@@ -13,7 +13,7 @@ function useProfile() {
     data: user,
   } = useQuery({
     queryKey: ["users"],
-    queryFn: (name) => getdata(name),
+    queryFn: () => getdata(myname),
   });
   return { isLoading, user, error };
 }

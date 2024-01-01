@@ -10,6 +10,7 @@ export async function users() {
 }
 
 export default async function CreateUser(newusers) {
+  console.log(newusers);
   const { data, error } = await supabase
     .from("users")
     .insert([newusers])
@@ -29,7 +30,7 @@ export async function getdata(username) {
   const { data, error } = await supabase
     .from("users")
     .select("*")
-    .eq("name", username)
+    .eq("id", username)
     .single();
 
   if (error) throw new Error(error.message);

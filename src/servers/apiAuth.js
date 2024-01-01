@@ -38,7 +38,17 @@ export async function signup({ email, password, name }) {
   });
 
   if (data) {
-    await CreateUser({ id: data.user.id, name, email });
+    await CreateUser({
+      id: data.user.id,
+      name,
+      email,
+      following: [],
+      follower: [],
+      watchlist: [],
+      fav: [],
+
+      posts: [],
+    });
   }
 
   if (error) throw new Error(error.message);
@@ -70,4 +80,3 @@ export async function userdata() {
 
   return data;
 }
-

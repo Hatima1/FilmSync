@@ -40,7 +40,7 @@ function App() {
             <Route path="*" element={<PageNotFound />} />
           </Route>
           <Route path="home" element={<Home />} />
-          <Route path="Profile/:name" element={<Profile />} />
+          <Route path="Profile/:myname" element={<Profile />} />
           <Route path="Test" element={<Test />} />
           <Route path="timeline" element={<Timeline />} />
 
