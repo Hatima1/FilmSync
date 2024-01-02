@@ -80,3 +80,32 @@ export async function userdata() {
 
   return data;
 }
+
+export async function edit({ user, update }) {
+  let { data, error } = await supabase
+    .from("users")
+    .update({
+      ...user,
+      following: update,
+    })
+    .eq("id", user.id)
+    .select();
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+export async function edittt({ profileUser, updatefo }) {
+  let { data, error } = await supabase
+    .from("users")
+    .update({
+      ...profileUser,
+      follower: updatefo,
+    })
+    .eq("id", profileUser.id)
+    .select();
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}

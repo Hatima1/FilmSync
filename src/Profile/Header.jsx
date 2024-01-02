@@ -1,4 +1,5 @@
 import Fav from "./Fav";
+import FollowBotton from "./FollowBotton";
 
 function Header({ user }) {
   return (
@@ -16,9 +17,7 @@ function Header({ user }) {
               {user.name}
             </p>
             <div className=" flex gap-2">
-              <p className=" text-sm   w-20 text-center   p-1 font-medium text-white    border  bg-teal-950   rounded-full  ">
-                follow
-              </p>
+              <FollowBotton profileUser={user} />
             </div>
           </div>
 
@@ -30,11 +29,11 @@ function Header({ user }) {
           <div className=" flex gap-3">
             <p className=" uppercase      font-semibold  text-black  text-base        ">
               {user.following.length}{" "}
-              <span className=" text-gray-700  text-sm ">followers</span>
+              <span className=" text-gray-700  text-sm "> following</span>
             </p>
             <p className=" uppercase      font-semibold  text-black  text-base   ">
               {user.follower.length}
-              <span className=" text-gray-700  text-sm ">following</span>
+              <span className=" text-gray-700  text-sm ">followers</span>
             </p>
           </div>
         </div>

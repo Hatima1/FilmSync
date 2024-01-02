@@ -3,7 +3,7 @@ import { userdata } from "../../servers/apiAuth";
 
 export function UseUserInfo() {
   const { isLoading, data: user } = useQuery({
-    queryKey: ["userrr"],
+    queryKey: ["loginuser"],
     queryFn: userdata,
   });
 
