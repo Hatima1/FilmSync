@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import toast from "react-hot-toast";
-import { edit } from "../servers/apiAuth";
+import { edit } from "../../servers/apiAuth";
 
 export default function useEditUser() {
   const queryClientt = useQueryClient();

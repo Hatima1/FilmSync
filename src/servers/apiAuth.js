@@ -8,7 +8,7 @@ export async function login({ email, password }) {
   });
 
   if (error) throw new Error(error.message);
-  console.log(data);
+  // console.log(data);
   return data;
 }
 
@@ -19,7 +19,7 @@ export async function getCurentUser() {
   console.log("lol");
 
   let { data, error } = await supabase.auth.getUser();
-  console.log(data);
+  // console.log(data);
 
   if (error) throw new Error(error.message);
 
@@ -60,7 +60,7 @@ export async function userdata() {
   const { data: session } = await supabase.auth.getSession();
 
   if (!session.session) return null;
-  console.log(session.session.user.id);
+  // console.log(session.session.user.id);
 
   const { data, error } = await supabase
     .from("users")

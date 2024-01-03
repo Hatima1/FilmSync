@@ -1,3 +1,7 @@
+import { CiHeart } from "react-icons/ci";
+import { FaComment, FaRegComment } from "react-icons/fa";
+import { IoIosCopy } from "react-icons/io";
+
 function MyComments() {
   return (
     <>
@@ -44,7 +48,16 @@ function MyComments() {
               customize, adapts to any design, and
             </p>
           </blockquote>
-          <figcaption className="font-medium"></figcaption>
+          <div className=" flex justify-between">
+            <div className=" flex items-center ">
+              <FaRegComment style={{ fontSize: "18px" }} />{" "}
+              <span className=" text-xs   text-gray-400">100</span>
+            </div>
+            <div className=" flex items-center ">
+              <CiHeart style={{ fontSize: "25px" }} />{" "}
+              <span className=" text-xs   text-gray-400">100</span>
+            </div>
+          </div>
         </div>
       </div>
     </>

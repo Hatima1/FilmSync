@@ -1,7 +1,8 @@
 import Header from "./Header";
 import MyComments from "./MyComments";
 import useProfile from "./useProfile";
-import Sidebar from "../Profile/sidebar";
+import Sidebar from "./sidebar";
+import PublicComment from "./PublicComment";
 
 function MainProfile() {
   const { user, isLoading } = useProfile();
@@ -11,10 +12,11 @@ function MainProfile() {
 
   return (
     <div className="  ">
-      <div className=" grid  grid-cols-[2fr_auto] bg-gray-50 p-1">
+      <div className=" overscroll-none grid-cols-1    grid  sm:grid-cols-[2fr_auto] bg-gray-50 p-1">
         <div className="  ">
           <Header user={user} />
           <MyComments />
+          <PublicComment />
         </div>
         <div className="  border-l    pt-28 ">
           <p className=" text-gray-950 font-bold text-lg ml-2 "> suggestion </p>

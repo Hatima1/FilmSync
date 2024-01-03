@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Singup from "./pages/Singup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import Profile from "./Profile/Profile";
+import Profile from "./features/Profile/Profile";
 import PageNotFound from "./pages/PageNotFound";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

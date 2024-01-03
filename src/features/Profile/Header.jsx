@@ -1,10 +1,12 @@
+import Component from "../../ui/editPtofile";
 import Fav from "./Fav";
 import FollowBotton from "./FollowBotton";
 
 function Header({ user }) {
   return (
     <>
-      <div className=" pt-16 flex mb-9      ">
+      <Component user={user} />
+      <div className=" pt-16 flex mb-9       ">
         <div>
           <img
             className=" w-24 h-24     rounded-full "
@@ -12,8 +14,8 @@ function Header({ user }) {
           />
         </div>
         <div className=" pl-6">
-          <div className=" flex gap-3 mb-2">
-            <p className=" text-lg font-semibold text-gray-950  ">
+          <div className=" flex gap-3 mb-2 items-center">
+            <p className=" text-2xl font-semibold text-gray-950  ">
               {user.name}
             </p>
             <div className=" flex gap-2">
