@@ -5,8 +5,8 @@ import FollowBotton from "./FollowBotton";
 function Header({ user }) {
   return (
     <>
-      <Component user={user} />
-      <div className=" pt-16 flex mb-9       ">
+      {/* <Component user={user} /> */}
+      <div className="  pt-5 flex mb-9       ">
         <div>
           <img
             className=" w-24 h-24     rounded-full "

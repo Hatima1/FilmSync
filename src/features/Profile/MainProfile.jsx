@@ -1,22 +1,31 @@
 import Header from "./Header";
-import MyComments from "./MyComments";
+import MyPost from "./MyPosts";
 import useProfile from "./useProfile";
 import Sidebar from "./sidebar";
-import PublicComment from "./PublicComment";
+import Navbar from "../../ui/navbar";
+
+import usePosts from "../Timeline/usePosts";
 
 function MainProfile() {
   const { user, isLoading } = useProfile();
-  if (isLoading) return <p>loding</p>;
+  const { Posts, isLoading: lodingpost } = usePosts();
+  if (isLoading || lodingpost) return <p>loding</p>;
 
   console.log(user.posts.length);
+  console.log(Posts);
 
   return (
     <div className="  ">
-      <div className=" overscroll-none grid-cols-1    grid  sm:grid-cols-[2fr_auto] bg-gray-50 p-1">
+      <Navbar />
+      <div className="  grid-cols-1    grid  sm:grid-cols-[2fr_auto] bg-gray-50 p-2">
         <div className="  ">
           <Header user={user} />
-          <MyComments />
-          <PublicComment />
+          <div>
+            <h2 className=" text-center text-lg font-semibold  border-t  ">
+              RECENT REVIEW
+            </h2>
+          </div>
+          <MyPost />
         </div>
         <div className="  border-l    pt-28 ">
           <p className=" text-gray-950 font-bold text-lg ml-2 "> suggestion </p>

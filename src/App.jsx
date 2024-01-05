@@ -12,6 +12,7 @@ import ProtectedRoute from "./ui/ProtectedRoute";
 import AppLayout from "./ui/AppLayout";
 import Test from "./pages/Test";
 import Timeline from "./pages/Timeline";
+import Comment from "./pages/Comment";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,6 +42,7 @@ function App() {
           </Route>
           <Route path="home" element={<Home />} />
           <Route path="Profile/:myname" element={<Profile />} />
+          <Route path="comment/:id" element={<Comment />} />
           <Route path="Test" element={<Test />} />
           <Route path="timeline" element={<Timeline />} />
 

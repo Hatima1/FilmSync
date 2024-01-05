@@ -1,20 +1,16 @@
 import { CiHeart } from "react-icons/ci";
 import { FaComment, FaRegComment } from "react-icons/fa";
+import PublicComment from "./PostComments";
 import { IoIosCopy } from "react-icons/io";
 
-function MyComments() {
+function MyPost() {
   return (
     <>
-      <div>
-        <h2 className=" text-center text-lg font-semibold  border-t  ">
-          RECENT REVIEW
-        </h2>
-      </div>
       <div className="  rounded-md    p-2   border-b  border-r       ">
         <div className=" justify-between flex">
           <div className=" flex">
             <img
-              className="   w-[70px]  "
+              className="   w-[60px]  "
               src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg"
             />
             <div className="  ml-4 ">
@@ -30,29 +26,28 @@ function MyComments() {
               className="  w-8   h-8     rounded-full "
               src="../../public/Gravity-023.jpg  "
             />
-            <div className=" text-gray-900 text-base font-semibold inline-block ml-2 pt-1   ">
-              Sarah Dayan .
+            <div className=" flex">
+              <div className=" text-gray-900 text-base font-semibold inline-block ml-2 pt-1   ">
+                Sarah Dayan
+              </div>
             </div>
-            <div className=" text-gray-400 text-sm pt-2   ">2m </div>
           </div>
         </div>
 
-        <div className=" text-gray-800 p-2 text-left space-y-4">
+        <div className=" text-gray-800  py-2 text-left space-y-4">
           <blockquote>
-            <p className="text-base font-medium text-gray-700">
-              Tailwind CSS is the only framework that I've seen scale on Lorem
-              ipsum dolor, sit amet consectetur adipisicing elit. Dolore,
-              blanditiis recusandae. Vero odit molestiae provident est veniam
-              earum laborum distinctio laudantium quis odio officiis corporis
-              autem, dignissimos enim unde dicta? large teams. It’s easy to
-              customize, adapts to any design, and
-            </p>
+            <p className="  text-xl font-medium text-gray-700"> lol man</p>
           </blockquote>
-          <div className=" flex justify-between">
-            <div className=" flex items-center ">
-              <FaRegComment style={{ fontSize: "18px" }} />{" "}
-              <span className=" text-xs   text-gray-400">100</span>
+          <div className=" flex justify-between ">
+            <div className=" flex items-center gap-1    ">
+              <div>
+                <FaRegComment style={{ fontSize: "20px" }} />
+              </div>
+              <div>
+                <span className=" h-4 text-xs   text-gray-400">12</span>{" "}
+              </div>
             </div>
+
             <div className=" flex items-center ">
               <CiHeart style={{ fontSize: "25px" }} />{" "}
               <span className=" text-xs   text-gray-400">100</span>
@@ -60,8 +55,9 @@ function MyComments() {
           </div>
         </div>
       </div>
+      <PublicComment />
     </>
   );
 }
 
-export default MyComments;
+export default MyPost;
