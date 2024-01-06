@@ -4,17 +4,22 @@ import usePosts from "../features/Timeline/usePosts";
 import Sidebar from "../features/Profile/sidebar";
 import Navbar from "../ui/navbar";
 import SelectTimline from "../features/Timeline/SelectTimline";
+// import { UseMove } from "../features/movie/useMovie";
+import MovieSearch from "../features/movie/movieSearch";
 function Timeline() {
   const { Posts, isLoading } = usePosts();
+  // const { movie, isLoading: s } = UseMove();
   if (isLoading) return <p>loding</p>;
+  // console.log(movie);
   console.log(Posts);
+
   return (
     <div className="max-w-7xl mx-auto  px-3 ">
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="  grid-cols-1 border-l    grid  sm:grid-cols-[2fr_auto] bg-gray-50   ">
         <div>
-          <SelectTimline />
+          <MovieSearch />
           <Share />
 
           {Posts.map((posts) => (
