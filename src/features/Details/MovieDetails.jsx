@@ -4,22 +4,38 @@ import { FaStar } from "react-icons/fa";
 import DataPicker from "./DataPicker";
 import TecketSelect from "./TecketSelect";
 import TecketForm from "./TecketForm";
+import useMovieDetails from "./useMovieDetails";
 
 function MovieDetails() {
+  const { movie, isLoading } = useMovieDetails();
+  // const {
+  //   Title: title,
+  //   Year: year,
+  //   Poster: poster,
+  //   Runtime: runtime,
+  //   imdbRating,
+  //   Plot: plot,
+  //   Released: released,
+  //   Actors: actors,
+  //   Director: director,
+  //   Genre: genre,
+  // } = movie;
+
+  if (isLoading) return <p>looding</p>;
   return (
     <section className=" mt-10 mb-28  bg-gray-50      rounded-lg shadow-xl   ">
       <div className="  grid px-2 xl:px-0     xl:grid-cols-[auto_minmax(550px,_1fr)_minmax(0,_1fr)]         rounded-lg  grid-cols-1   ">
         <div className=" mb-10   xl:mb-0  text-center     ">
           <img
             className="  rounded-xl    inline-block  w-2/3  xl:w-full      "
-            src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg"
+            src={movie.Poster}
           />
         </div>
         <div className=" xl:px-8 mb-16 xl:mb-0 pt-2    px-2 ">
           <div className=" ">
             {/* <p className=" text-green-400 font-semibold ">2010</p> */}
             <h2 className=" text-6xl font-semibold inline-block  text-gray-800    ">
-              RED
+              {movie.Title}
             </h2>{" "}
             <span>1900</span>
             <p className=" text-gray-500 text-sm mb-3   ">
@@ -34,7 +50,7 @@ function MovieDetails() {
                     <CiClock2 color=" #14213d " size={20} />
                   </div>
                   <p className=" text-gray-600 text-sm  inline-block       ">
-                    2h 2min{" "}
+                    {movie.Runtime}
                   </p>
                 </div>
                 <div className=" flex items-center">
@@ -50,7 +66,7 @@ function MovieDetails() {
                     <FaStar color=" #14213d " size={20} />
                   </div>
                   <p className=" text-gray-600 text-sm  inline-block      ">
-                    8.1/10
+                    {movie.imdbRating}
                   </p>
                 </div>
               </div>
@@ -62,22 +78,20 @@ function MovieDetails() {
               <span className=" font-semibold text-base  text-gray-800">
                 About:
               </span>
-              When his peaceful life is threatened by a high-tech assassin,
-              former black-ops agent Frank Moses reassembles his old team in a
-              last-ditch effort to survive and uncover his assailants.
+              {movie.Plot}
             </p>
             {/* Director */}
-            <p className="text-gray-600 mb-5 ">
+            <p className="text-gray-600 mb-3 ">
               <span className=" font-bold  text-base  text-gray-800">
                 Director:
               </span>
-              Robert Schwentke
+              {movie.Director}
             </p>
             <p className="text-gray-600 ">
               <span className=" font-bold  text-base  text-gray-800">
                 Actors:
               </span>
-              Bruce Willis, Helen Mirren, Morgan Freeman
+              {movie.Actors}
             </p>
             {/* rate */}
           </div>

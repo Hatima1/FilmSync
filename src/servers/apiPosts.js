@@ -26,18 +26,20 @@ export async function GetPost() {
 
   return data;
 }
-// export async function getmovie({ mov }) {
-//   console.log(mov);
-//   if (mov.length < 3) return null;
+export async function getmovie(MovieId) {
+  const res = await fetch(
+    `http://www.omdbapi.com/?apikey=${apiKey}&i=${MovieId} `
+  );
 
-//   const res = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${mov} `);
+  if (!res.ok) throw new Error("Something went wrong with fetching movies");
 
-//   const data = await res.json();
-//   console.log(data);
-//   // if (error) {
-//   //   console.error(error);
-//   //   throw new Error("users could not be add");
-//   // }
+  const data = await res.json();
+  if (data.Response === "False") throw new Error("Movie not found");
+  console.log(data);
+  // if (error) {
+  //   console.error(error);
+  //   throw new Error("users could not be add");
+  // }
 
-//   return data;
-// }
+  return data;
+}

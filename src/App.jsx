@@ -43,7 +43,7 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="Profile/:myname" element={<Profile />} />
           <Route path="comment/:id" element={<Comment />} />
-          <Route path="Test" element={<Test />} />
+          <Route path="Test/:MovieId" element={<Test />} />
           <Route path="timeline" element={<Timeline />} />
 
           <Route path="Singup" element={<Singup />} />
