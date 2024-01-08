@@ -1,22 +1,23 @@
 import { CiHeart } from "react-icons/ci";
-import { FaRegComment } from "react-icons/fa";
+import { FaCopy, FaRegComment, FaRegCopy } from "react-icons/fa";
 
 function Main({ posts }) {
   return (
     <>
-      <div className="  rounded-md    p-2   border-b  border-r       ">
+      <div className="     p-2   border-b  border-r       ">
         <div className=" justify-between flex">
-          <div className=" flex">
+          <div className=" flex gap-x-2">
             <img
-              className="   w-[60px]  "
+              className="   w-[70px] rounded-lg  "
               src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg"
               alt="image"
             />
-            <div className="  ml-4 ">
-              <h2 className="  font-semibold sm:text-2xl text-sm   pl-1">
+            <div className="  ">
+              <h2 className="  font-semibold text-xl  text-gray-950  ">
                 RED MAN{" "}
               </h2>{" "}
-              <p className=" inline-block text-gray-500 text-sm  pl-2">2001</p>
+              <p className=" text-gray-700 text-sm font-semibold">Movie</p>
+              <p className="  text-gray-700 text-xs font-semibold">2001</p>
             </div>
           </div>
 
@@ -36,11 +37,17 @@ function Main({ posts }) {
 
         <div className=" text-gray-800  py-2 text-left space-y-4">
           <blockquote>
-            <p className="  text-xl font-medium text-gray-700"> lol man</p>
+            <p className=" text-base font-medium text-gray-700">
+              {" "}
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga
+              inventore odio aspernatur. Aliquam doloremque, optio ea vel hic
+              asperiores tempora fuga consequuntur aspernatur vero facilis
+              accusantium, fugit nobis quae ducimus!{" "}
+            </p>
           </blockquote>
-          <div className=" flex justify-between ">
-            <div className=" flex items-center gap-1    ">
-              <div>
+          <div className=" flex justify-between   ">
+            <div className=" flex items-center gap-1   pl-7    ">
+              <div className=" ">
                 <FaRegComment style={{ fontSize: "20px" }} />
               </div>
               <div>
@@ -48,7 +55,7 @@ function Main({ posts }) {
               </div>
             </div>
 
-            <div className=" flex items-center ">
+            <div className=" flex items-center pr-7 ">
               <CiHeart style={{ fontSize: "25px" }} />{" "}
               <span className=" text-xs   text-gray-400">100</span>
             </div>

@@ -6,18 +6,19 @@ import { IoIosCopy } from "react-icons/io";
 function MyPost() {
   return (
     <>
-      <div className="  rounded-md    p-2   border-b  border-r       ">
+      <div className="      p-2   border-b  border-r       ">
         <div className=" justify-between flex">
           <div className=" flex">
             <img
-              className="   w-[60px]  "
+              className="  rounded-lg  w-[70px]  "
               src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg"
             />
             <div className="  ml-4 ">
-              <h2 className="  font-semibold sm:text-2xl text-sm   pl-1">
+              <h2 className="  font-semibold text-xl  text-gray-950   ">
                 RED MAN{" "}
               </h2>{" "}
-              <p className=" inline-block text-gray-500 text-sm  pl-2">2001</p>
+              <p className=" text-gray-800 text-sm font-semibold">Movie</p>
+              <p className="  text-gray-800 text-xs font-semibold">2001</p>
             </div>
           </div>
 

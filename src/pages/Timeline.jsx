@@ -14,12 +14,13 @@ function Timeline() {
   console.log(Posts);
 
   return (
-    <div className="max-w-7xl mx-auto  px-3 ">
+    <div className="max-w-7xl mx-auto   bg-gray-50  ">
       {/* <Navbar /> */}
 
-      <div className="  grid-cols-1 border-l    grid  sm:grid-cols-[2fr_auto] bg-gray-50   ">
+      <div className="  grid-cols-1 border-l    grid  sm:grid-cols-[2fr_auto]  px-1   ">
         <div>
           <MovieSearch />
+          <SelectTimline />
           <Share />
 
           {Posts.map((posts) => (

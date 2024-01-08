@@ -1,9 +1,9 @@
-import { useState } from "react";
-import DatePicker from "tailwind-datepicker-react";
+"use client";
+
+import { Datepicker } from "flowbite-react";
 
 function DataPicker() {
-  const [selectDate, setSelectDate] = useState(null);
-  return <DatePicker label="Basic date picker" />;
+  return <Datepicker />;
 }
 
 export default DataPicker;
