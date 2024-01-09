@@ -20,6 +20,7 @@ function Component({ user }) {
   const [name, setname] = useState("");
   const [bio, setbio] = useState("");
   const [avatar, setAvatar] = useState(null);
+  if (isUpdating) return <p>isLoding</p>;
 
   function onCloseModal() {
     setOpenModal(false);

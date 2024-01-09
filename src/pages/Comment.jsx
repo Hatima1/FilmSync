@@ -3,7 +3,7 @@
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 import Sidebar from "../features/Profile/sidebar";
-import MyPost from "../features/Profile/MyPosts";
+import MyPost from "../features/Comment/MyPosts";
 
 function Comment() {
   return (

@@ -63,13 +63,13 @@ export async function updateCurrentUser({ user, bio, name, avatar }) {
   return data;
 }
 
-export async function getdata(username) {
+export async function getdata(myname) {
   // console.log(username);
-  if (!username) return;
+  if (!myname) return;
   const { data, error } = await supabase
     .from("users")
     .select("*")
-    .eq("id", username)
+    .eq("id", myname)
     .single();
 
   if (error) throw new Error(error.message);

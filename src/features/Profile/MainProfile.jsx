@@ -1,18 +1,17 @@
 import Header from "./Header";
-import MyPost from "./MyPosts";
+
 import useProfile from "./useProfile";
 import Sidebar from "./sidebar";
 import Navbar from "../../ui/navbar";
 
 import usePosts from "../Timeline/usePosts";
+import Main from "../Timeline/Main";
 
 function MainProfile() {
   const { user, isLoading } = useProfile();
   const { Posts, isLoading: lodingpost } = usePosts();
   if (isLoading || lodingpost) return <p>loding</p>;
-
-  console.log(user.posts.length);
-  console.log(Posts);
+  // const ProfilePosts = Posts.filter((post) => post.createById === user.id);
 
   return (
     <div className="  ">
@@ -25,7 +24,9 @@ function MainProfile() {
               RECENT REVIEW
             </h2>
           </div>
-          <MyPost />
+          {Posts.map((posts) => (
+            <Main user={user} posts={posts} key={posts.id} />
+          ))}
         </div>
         <div className="  border-l    pt-28 ">
           <p className=" text-gray-950 font-bold text-lg ml-2 "> suggestion </p>

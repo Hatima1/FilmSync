@@ -10,7 +10,7 @@ function MovieSearch() {
   const { movies, isLoading } = useMovies(mov);
 
   //   const test = movie({ namee });
-  console.log(movies);
+ 
 
   return (
     <>

@@ -3,11 +3,13 @@ import { useState } from "react";
 import { UseUserInfo } from "../login/useUserInfo";
 import { useCreatPost } from "../Timeline/useNewPosts";
 import { UseUser } from "../Auth/useUser";
+import SelectMovie from "./SelectMovie";
 
-function Share() {
+function Share({ user }) {
   const [text, settext] = useState();
-  const { user: us } = UseUser();
-  const { user } = UseUserInfo();
+  const [movie, setmovie] = useState();
+  console.log(movie);
+  // const { user: us } = UseUser();
 
   const { CreatePost } = useCreatPost();
 
@@ -15,6 +17,8 @@ function Share() {
     const newPost = {
       createBy: user.name,
       caption: text,
+      movie: movie,
+      likes: [],
     };
     console.log(newPost);
     CreatePost(newPost);
@@ -28,13 +32,20 @@ function Share() {
       />
       <div className="  sm:flex  hidden  ">
         <textarea
+          onChange={(e) => settext(e.target.value)}
           rows={3}
           className="  w-[25rem]  focus:border-white focus:outline-none border  border-gray-300 rounded-xl bg-gray-50"
         />
-        <div className=" self-end">
-          <button className="text-sm     w-24 text-center   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full ">
+        <div className=" self-end flex items-center ml-1">
+          <button
+            onClick={handlerText}
+            className="text-sm     w-24 text-center   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full "
+          >
             post
           </button>
+          <div>
+            <SelectMovie SelectMovie={movie} setmovie={setmovie} />
+          </div>
         </div>
       </div>
     </div>

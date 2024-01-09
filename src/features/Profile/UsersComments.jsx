@@ -1,4 +1,4 @@
-function UsersComments() {
+function UsersComments({ comment }) {
   return (
     <div className=" flex gap-x-3 border-b py-4 ">
       <img
@@ -9,15 +9,7 @@ function UsersComments() {
         <div className=" text-gray-900 text-base font-semibold inline-block     ">
           Sarah Dayan
         </div>
-        <p className="text-sm font-medium text-gray-800">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-          perspiciatis, voluptate sed facere voluptatum magnam recusandae
-          nostrum commodi minima quos pariatur ad? Earum, dolore labore incidunt
-          amet accusantium unde sint! Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Dolores dolor alias ullam iure? Officiis aliquid
-          vitae eveniet neque numquam maxime aut tenetur, eaque minima? Quam
-          suscipit asperiores nesciunt assumenda ducimus.
-        </p>
+        <p className="text-sm font-medium text-gray-800">{comment}</p>
       </div>
     </div>
   );

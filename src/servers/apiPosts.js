@@ -43,3 +43,30 @@ export async function getmovie(MovieId) {
 
   return data;
 }
+export async function updatePost({ posts, newLike, comment }) {
+  let query = supabase.from("Posts");
+  if (!comment)
+    query = query.update({ likes: newLike }).eq("id", posts.id).select();
+  if (comment)
+    query = query.update({ comments: comment }).eq("id", posts.id).select();
+
+  let { data, error } = await query.select();
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+export async function getCurPost(id) {
+  let { data, error } = await supabase
+    .from("Posts")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    console.error(error);
+    throw new Error("users could not be add");
+  }
+
+  return data;
+}

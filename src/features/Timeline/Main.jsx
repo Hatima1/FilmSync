@@ -1,50 +1,83 @@
 import { CiHeart } from "react-icons/ci";
-import { FaCopy, FaRegComment, FaRegCopy } from "react-icons/fa";
+import {
+  FaCopy,
+  FaHeart,
+  FaRegComment,
+  FaRegCopy,
+  FaRegHeart,
+} from "react-icons/fa";
+import { UseUpdatePosts } from "./useUpdatePost";
 
-function Main({ posts }) {
+function Main({ posts, user }) {
+  const { updatePost } = UseUpdatePosts();
+
+  const isLike = JSON.stringify(posts.likes).includes(`${user.id}`);
+
+  //   {
+  //     "id": "b8149ab4-8388-47e8-b885-e0ee4dd86705",
+  //     "created_at": "2024-01-08T16:05:59.361732+00:00",
+  //     "createBy": "eyad",
+  //     "likes": null,
+  //     "comments": null,
+  //     "caption": null,
+  //     "movie": {
+  //         "Type": "movie",
+  //         "Year": "2008",
+  //         "Title": "Iron Man",
+  //         "Poster": "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",
+  //         "imdbID": "tt0371746"
+  //     }
+  // }
+  function handlerEdit() {
+    const newLike = isLike
+      ? posts.likes.filter((a) => a.id !== user.id)
+      : [...posts.likes, { id: user.id }];
+    console.log(isLike, newLike);
+    updatePost({ posts, newLike });
+  }
   return (
     <>
       <div className="     p-2   border-b  border-r       ">
         <div className=" justify-between flex">
           <div className=" flex gap-x-2">
             <img
-              className="   w-[70px] rounded-lg  "
-              src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg"
+              className="   w-[80px] rounded-lg  "
+              src={posts.movie.Poster}
               alt="image"
             />
             <div className="  ">
-              <h2 className="  font-semibold text-xl  text-gray-950  ">
-                RED MAN{" "}
+              <h2 className="  w-40  font-semibold text-xl  text-gray-950  ">
+                {posts.movie.Title}
               </h2>{" "}
-              <p className=" text-gray-700 text-sm font-semibold">Movie</p>
-              <p className="  text-gray-700 text-xs font-semibold">2001</p>
+              <p className=" text-gray-700 text-sm font-semibold">
+                {posts.movie.Type}
+              </p>
+              <p className="  text-gray-700 text-xs font-semibold">
+                {posts.movie.Year}
+              </p>
             </div>
           </div>
 
           <div className=" flex    gap-1 mb-2  ">
             <img
               className="  w-8   h-8     rounded-full "
-              src="../../public/Gravity-023.jpg  "
+              src={posts.movie.Poster}
               alt=" public/Gravity-023.jpg "
             />
             <div className=" flex">
               <div className=" text-gray-900 text-base font-semibold inline-block ml-2 pt-1   ">
-                Sarah Dayan
+                {posts.createBy}
               </div>
             </div>
           </div>
         </div>
 
         <div className=" text-gray-800  py-2 text-left space-y-4">
-          <blockquote>
-            <p className=" text-base font-medium text-gray-700">
-              {" "}
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga
-              inventore odio aspernatur. Aliquam doloremque, optio ea vel hic
-              asperiores tempora fuga consequuntur aspernatur vero facilis
-              accusantium, fugit nobis quae ducimus!{" "}
-            </p>
-          </blockquote>
+          <p className="  text-lg font-medium text-gray-900">
+            {" "}
+            {posts.caption}{" "}
+          </p>
+
           <div className=" flex justify-between   ">
             <div className=" flex items-center gap-1   pl-7    ">
               <div className=" ">
@@ -55,10 +88,16 @@ function Main({ posts }) {
               </div>
             </div>
 
-            <div className=" flex items-center pr-7 ">
-              <CiHeart style={{ fontSize: "25px" }} />{" "}
-              <span className=" text-xs   text-gray-400">100</span>
-            </div>
+            <button onClick={handlerEdit} className=" flex items-center pr-7 ">
+              {isLike ? (
+                <FaHeart style={{ fontSize: "20px", color: "black" }} />
+              ) : (
+                <FaRegHeart style={{ fontSize: "20px" }} />
+              )}{" "}
+              <span className=" text-xs   text-gray-400">
+                {posts.likes?.length}
+              </span>
+            </button>
           </div>
         </div>
       </div>
