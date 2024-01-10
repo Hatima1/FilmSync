@@ -19,8 +19,9 @@ function Share({ user }) {
       caption: text,
       movie: movie,
       likes: [],
+      createById: user.id,
     };
-    console.log(newPost);
+
     CreatePost(newPost);
   }
   return (

@@ -11,7 +11,7 @@ function MainProfile() {
   const { user, isLoading } = useProfile();
   const { Posts, isLoading: lodingpost } = usePosts();
   if (isLoading || lodingpost) return <p>loding</p>;
-  // const ProfilePosts = Posts.filter((post) => post.createById === user.id);
+  const ProfilePosts = Posts.filter((post) => post.createById === user.id);
 
   return (
     <div className="  ">
@@ -24,7 +24,7 @@ function MainProfile() {
               RECENT REVIEW
             </h2>
           </div>
-          {Posts.map((posts) => (
+          {ProfilePosts.map((posts) => (
             <Main user={user} posts={posts} key={posts.id} />
           ))}
         </div>

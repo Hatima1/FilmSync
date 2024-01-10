@@ -7,9 +7,12 @@ import {
   FaRegHeart,
 } from "react-icons/fa";
 import { UseUpdatePosts } from "./useUpdatePost";
+import { useNavigate } from "react-router-dom";
 
 function Main({ posts, user }) {
-  const { updatePost } = UseUpdatePosts();
+  const { updatePost, isUpdating } = UseUpdatePosts();
+  const navigate = useNavigate();
+  if (isUpdating) <p>loding</p>;
 
   const isLike = JSON.stringify(posts.likes).includes(`${user.id}`);
 
@@ -35,18 +38,22 @@ function Main({ posts, user }) {
     console.log(isLike, newLike);
     updatePost({ posts, newLike });
   }
+  console.log(posts);
   return (
     <>
-      <div className="     p-2   border-b  border-r       ">
-        <div className=" justify-between flex">
+      <div className="      p-2   border-b  border-r       ">
+        <div className=" justify-between flex ">
           <div className=" flex gap-x-2">
             <img
               className="   w-[80px] rounded-lg  "
               src={posts.movie.Poster}
-              alt="image"
+              alt={posts.movie.Poster}
             />
             <div className="  ">
-              <h2 className="  w-40  font-semibold text-xl  text-gray-950  ">
+              <h2
+                onClick={() => navigate(`/Test/${posts.movie.imdbID}`)}
+                className=" cursor-pointer hover:underline    w-40  font-semibold text-xl  text-gray-950  "
+              >
                 {posts.movie.Title}
               </h2>{" "}
               <p className=" text-gray-700 text-sm font-semibold">
@@ -80,11 +87,17 @@ function Main({ posts, user }) {
 
           <div className=" flex justify-between   ">
             <div className=" flex items-center gap-1   pl-7    ">
-              <div className=" ">
+              <div
+                onClick={() => navigate(`/comment/${posts.id}`)}
+                className="cursor-pointer hover:bg-slate-100 "
+              >
                 <FaRegComment style={{ fontSize: "20px" }} />
               </div>
               <div>
-                <span className=" h-4 text-xs   text-gray-400">12</span>{" "}
+                <span className=" h-4 text-xs   text-gray-400">
+                  {" "}
+                  {posts.comments?.length}
+                </span>{" "}
               </div>
             </div>
 

@@ -7,7 +7,7 @@ export default function useEditUser() {
   const queryClientt = useQueryClient();
 
   const { isLoading: isEditing, mutate: edituser } = useMutation({
-    mutationFn: edit(),
+    mutationFn: () => edit(),
     onSuccess: () => {
       queryClientt.invalidateQueries({ queryKey: ["loginuser"] });
       toast.success("edite successfuly add");

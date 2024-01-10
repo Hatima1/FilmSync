@@ -7,7 +7,7 @@ function PublicComment({ posts, user }) {
   const [commentt, setComment] = useState();
 
   console.log(posts);
-  const sortedItemsDesc = posts.comments.sort(
+  const sortedItemsDesc = posts?.comments?.sort(
     (a, b) => new Date(b.createAt) - new Date(a.createAt)
   );
 

@@ -14,6 +14,7 @@ import { useUpdateUser } from "../features/Profile/useUpdateUser";
 import useProfile from "../features/Profile/useProfile";
 
 function Component({ user }) {
+  console.log(user);
   const { updateUser, isUpdating } = useUpdateUser();
 
   const [openModal, setOpenModal] = useState(false);
@@ -27,8 +28,13 @@ function Component({ user }) {
     setname("");
   }
   function confim() {
-    console.log(avatar);
-    updateUser({ avatar, user, name, bio });
+    const UpdateDetails = {
+      avatar,
+      name,
+      bio,
+    };
+    console.log(UpdateDetails);
+    updateUser({ user, UpdateDetails });
   }
 
   return (

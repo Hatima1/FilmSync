@@ -4,13 +4,18 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 
 import Sidebar from "../features/Profile/sidebar";
 import MyPost from "../features/Comment/MyPosts";
+import { useMoveBack } from "../hooks/useMoveBack";
 
 function Comment() {
   return (
     <div className=" grid-cols-1    grid  sm:grid-cols-[2fr_auto] bg-gray-50 px-2 py-2 ">
       <div className="  ">
-        <div className=" items-center flex pl-2 gap-x-5 pb-5 ">
-          <IoMdArrowRoundBack style={{ fontSize: "20px" }} />
+        <div className="  items-center flex pl-1 gap-x-1 pb-5 ">
+          <IoMdArrowRoundBack
+            onClick={useMoveBack()}
+            className="cursor-pointer hover:bg-gray-200 p-1 rounded-full "
+            style={{ fontSize: "25px" }}
+          />
 
           <div>
             <p className=" text-xl font-semibold"> post </p>

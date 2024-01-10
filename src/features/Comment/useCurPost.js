@@ -6,7 +6,6 @@ import { getCurPost } from "../../servers/apiPosts";
 
 function useCurPost() {
   const { id } = useParams();
-  // console.log(myname);
 
   const {
     isLoading,

@@ -1,27 +1,57 @@
 import { CiClock2 } from "react-icons/ci";
-import { IoIosAdd, IoIosText } from "react-icons/io";
-import { FaRegHeart, FaStar, FaTicketAlt } from "react-icons/fa";
+import { IoIosAdd, IoIosText, IoMdRemove } from "react-icons/io";
+import {
+  FaBookmark,
+  FaHeart,
+  FaRegBookmark,
+  FaRegHeart,
+  FaStar,
+  FaTicketAlt,
+} from "react-icons/fa";
 
 import TecketSelect from "./TecketSelect";
 import TecketForm from "./TecketForm";
 import useMovieDetails from "./useMovieDetails";
+import { UseUserInfo } from "../login/useUserInfo";
+import { useUpdateUser } from "../Profile/useUpdateUser";
+// const {
+//   Title: title,
+//   Year: year,
+//   Poster: poster,
+//   Runtime: runtime,
+//   imdbRating,
+//   Plot: plot,
+//   Released: released,
+//   Actors: actors,
+//   Director: director,
+//   Genre: genre,
+// } = movie;
 
 function MovieDetails() {
+  const { updateUser } = useUpdateUser();
   const { movie, isLoading } = useMovieDetails();
-  // const {
-  //   Title: title,
-  //   Year: year,
-  //   Poster: poster,
-  //   Runtime: runtime,
-  //   imdbRating,
-  //   Plot: plot,
-  //   Released: released,
-  //   Actors: actors,
-  //   Director: director,
-  //   Genre: genre,
-  // } = movie;
+  const { user, isLoading: lo } = UseUserInfo();
+  if (isLoading || lo) return <p>looding</p>;
 
-  if (isLoading) return <p>looding</p>;
+  const iswhachlist = JSON.stringify(user.watchlist).includes(
+    `${movie.imdbID}`
+  );
+  const isFav = JSON.stringify(user.fav).includes(`${movie.imdbID}`);
+
+  function handlerWatchlist() {
+    const newWhatch = iswhachlist
+      ? user.watchlist.filter((a) => a.id !== movie.imdbID)
+      : [...user.watchlist, { id: movie.imdbID, post: movie.Poster }];
+    console.log(newWhatch);
+
+    updateUser({ user, newWhatch });
+  }
+  function handerFav() {
+    const newFav = isFav
+      ? user.fav.filter((a) => a.id !== movie.imdbID)
+      : [...user.fav, { id: movie.imdbID, post: movie.Poster }];
+    updateUser({ user, newFav });
+  }
   return (
     <section className=" mt-10 mb-28  bg-gray-50      rounded-lg shadow-xl   ">
       <div className="  grid px-2 xl:px-0     xl:grid-cols-[auto_minmax(540px,_1fr)_minmax(0,_1fr)]         rounded-lg  grid-cols-1   ">
@@ -90,15 +120,33 @@ function MovieDetails() {
             {movie.Actors}
           </p>
           <div className=" flex gap-x-2">
-            <button className="  flex items-center text-sm  w-28   text-center   p-2 font-medium text-white    border  bg-teal-950  ">
+            <button
+              onClick={handlerWatchlist}
+              className="  flex items-center text-sm  gap-x-1  w-auto     text-center   p-2 font-medium text-white    border  bg-teal-950  "
+            >
               {" "}
-              <IoIosAdd style={{ fontSize: "25px", color: "white" }} />
-              <p className=" font-semibold ">Watchlist</p>
+              {iswhachlist ? (
+                <FaBookmark style={{ fontSize: "15px", color: "white" }} />
+              ) : (
+                <FaRegBookmark style={{ fontSize: "15px", color: "white" }} />
+              )}
+              <p className=" font-semibold ">
+                {iswhachlist ? " Remove" : "Ad To Watchlist"}
+              </p>
             </button>
-            <button className="  flex items-center gap-x-1  text-sm  w-28   text-center   p-2 font-medium text-white    border  bg-teal-950  ">
+            <button
+              onClick={handerFav}
+              className="  flex items-center gap-x-1  text-sm   w-auto  text-center   p-2 font-medium text-white    border  bg-teal-950  "
+            >
               {" "}
-              <FaRegHeart style={{ fontSize: "15px", color: "white" }} />
-              <p className=" font-semibold ">Favourite </p>
+              {isFav ? (
+                <FaHeart style={{ fontSize: "15px", color: "white" }} />
+              ) : (
+                <FaRegHeart style={{ fontSize: "15px", color: "white" }} />
+              )}
+              <p className=" font-semibold ">
+                {isFav ? "Remove" : "Favourite"}{" "}
+              </p>
             </button>
           </div>
         </div>

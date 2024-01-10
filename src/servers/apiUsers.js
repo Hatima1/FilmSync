@@ -26,25 +26,43 @@ export default async function CreateUser(newusers) {
 }
 //yhdlzkcezobnzcfvziho.supabase.co/storage/v1/object/public/profilePic/logo-dark.png
 
-export async function updateCurrentUser({ user, bio, name, avatar }) {
+export async function updateCurrentUser({
+  user,
+  UpdateDetails,
+  newWhatch,
+  newFav,
+}) {
   // 1. Update password OR fullName
   // let updateData;
   // if (password) updateData = { password };
   // if (fullName) updateData = { data: { fullName } };
 
-  const { data, error } = await supabase
-    .from("users")
-    .update({ ...user, name: name, bio: bio })
-    .eq("id", user.id)
-    .select();
+  let query = supabase.from("users");
+  if (newFav)
+    query = query
+      .update({ ...user, fav: newFav })
+      .eq("id", user.id)
+      .select();
+  if (newWhatch)
+    query = query
+      .update({ ...user, watchlist: newWhatch })
+      .eq("id", user.id)
+      .select();
+  if (UpdateDetails)
+    query = query
+      .update({ name: UpdateDetails.name, bio: UpdateDetails.bio })
+      .eq("id", user.id)
+      .select();
+
+  const { data, error } = await query.select();
 
   if (error) throw new Error(error.message);
-  if (!avatar) return data;
+  if (!UpdateDetails?.avatar) return data;
 
   // 2. Upload the avatar image
-  console.log(avatar);
-  const fileName = `${Math.random()}${avatar.name}`;
-  const imgePath = `${supabaseUrl}/storage/v1/object/public/profile/${avatar.name}`;
+  console.log(UpdateDetails.avatar);
+  const fileName = `${Math.random()}${UpdateDetails.avatar.name}`;
+  const imgePath = `${supabaseUrl}/storage/v1/object/public/profile/${UpdateDetails.avatar.name}`;
 
   const { error: storageError } = await supabase.storage
     .from("profile")
