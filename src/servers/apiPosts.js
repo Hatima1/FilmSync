@@ -2,7 +2,6 @@ import supabase from "./supabase";
 const apiKey = "7a77ec3a";
 
 export async function CreatePost(newpost) {
-  console.log(newpost);
   const { data, error } = await supabase
     .from("Posts")
     .insert([newpost])
@@ -16,8 +15,12 @@ export async function CreatePost(newpost) {
   return data;
 }
 
-export async function GetPost() {
-  let { data, error } = await supabase.from("Posts").select("*");
+export async function GetPost(x) {
+  let query = supabase.from("Posts");
+  if (x) query = query.select("*").eq("createBy", "man");
+  if (!x) query = query.select("*");
+
+  let { data, error } = await query.select("*");
 
   if (error) {
     console.error(error);

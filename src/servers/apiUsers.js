@@ -25,6 +25,23 @@ export default async function CreateUser(newusers) {
   return data;
 }
 //yhdlzkcezobnzcfvziho.supabase.co/storage/v1/object/public/profilePic/logo-dark.png
+// const fileName = `avatar-${data.user.id}-${Math.random()}`;
+
+// const { error: storageError } = await supabase.storage
+//   .from("avatars")
+//   .upload(fileName, avatar);
+
+// if (storageError) throw new Error(storageError.message);
+
+// // 3. Update avatar in the user
+// const { data: updatedUser, error: error2 } = await supabase.auth.updateUser({
+//   data: {
+//     avatar: `${supabaseUrl}/storage/v1/object/public/avatars/${fileName}`,
+//   },
+// });
+
+// if (error2) throw new Error(error2.message);
+// return updatedUser;
 
 export async function updateCurrentUser({
   user,
@@ -51,22 +68,23 @@ export async function updateCurrentUser({
   if (UpdateDetails)
     query = query
       .update({ name: UpdateDetails.name, bio: UpdateDetails.bio })
-      .eq("id", user.id)
-      .select();
+      .eq("id", user.id);
 
   const { data, error } = await query.select();
+  console.log(data[0]);
 
   if (error) throw new Error(error.message);
   if (!UpdateDetails?.avatar) return data;
 
   // 2. Upload the avatar image
   console.log(UpdateDetails.avatar);
-  const fileName = `${Math.random()}${UpdateDetails.avatar.name}`;
-  const imgePath = `${supabaseUrl}/storage/v1/object/public/profile/${UpdateDetails.avatar.name}`;
+  // const fileName = `${Math.random()}${UpdateDetails.avatar.name}`;
+  // const imgePath = `${supabaseUrl}/storage/v1/object/public/profile/${UpdateDetails.avatar.name}`;
+  const fileName = `avatar-${data[0].id}-${Math.random()}`;
 
   const { error: storageError } = await supabase.storage
     .from("profile")
-    .upload(fileName, imgePath);
+    .upload(fileName, UpdateDetails.avatar);
 
   if (storageError) throw new Error(storageError.message);
 
@@ -76,9 +94,20 @@ export async function updateCurrentUser({
   //     avatar: `${supabaseUrl}/storage/v1/object/public/avatars/${fileName}`,
   //   },
   // });
+  // https://yhdlzkcezobnzcfvziho.supabase.co/storage/v1/object/public/profile/avatar-bce51056-8e4d-482a-b052-82f0674883a8-0.4148580992855928
+  // https://yhdlzkcezobnzcfvziho.supabase.co/storage/v1/object/public/profile/avatar/avatar-bce51056-8e4d-482a-b052-82f0674883a8-0.7498631624435721
+  // console.log(`${supabaseUrl}/storage/v1/object/public/profile/${fileName}`);
+  const { data: updateImg, error: erroe2 } = await supabase
+    .from("users")
+    .update({
+      ...user,
+      avatar: `${supabaseUrl}/storage/v1/object/public/profile/${fileName}`,
+    })
+    .eq("id", user.id)
+    .select();
 
-  // if (error2) throw new Error(error2.message);
-  return data;
+  if (erroe2) throw new Error(erroe2.message);
+  return updateImg;
 }
 
 export async function getdata(myname) {

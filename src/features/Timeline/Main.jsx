@@ -38,14 +38,14 @@ function Main({ posts, user }) {
     console.log(isLike, newLike);
     updatePost({ posts, newLike });
   }
-  console.log(posts);
+
   return (
     <>
       <div className="      p-2   border-b  border-r       ">
         <div className=" justify-between flex ">
           <div className=" flex gap-x-2">
             <img
-              className="   w-[80px] rounded-lg  "
+              className="   w-[90px] rounded-lg  "
               src={posts.movie.Poster}
               alt={posts.movie.Poster}
             />

@@ -22,7 +22,7 @@ function PublicComment({ posts, user }) {
     <div className="   ">
       <div className=" flex  py-4  border-b     gap-1 mb-2  ">
         <img
-          className="  w-8   h-8     rounded-full "
+          className="  w-9   h-9     rounded-full "
           src="../../public/Gravity-023.jpg  "
         />
         <div className="  flex  ">

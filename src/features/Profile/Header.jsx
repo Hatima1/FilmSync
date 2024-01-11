@@ -7,10 +7,10 @@ function Header({ user }) {
     <>
       <Component user={user} />
       <div className="  pt-5 flex mb-9       ">
-        <div>
+        <div className="   ">
           <img
-            className=" w-24 h-24     rounded-full "
-            src="../../public/Gravity-023.jpg  "
+            className=" rounded-full  w-24 h-24    "
+            src={`${user.avatar}`}
           />
         </div>
         <div className=" pl-6">

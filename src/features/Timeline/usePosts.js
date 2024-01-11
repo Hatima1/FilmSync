@@ -2,14 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 
 import { GetPost } from "../../servers/apiPosts";
 
-function usePosts() {
+function usePosts(x) {
   const {
     isLoading,
     error,
     data: Posts,
   } = useQuery({
     queryKey: ["Posts"],
-    queryFn: GetPost,
+    queryFn: () => GetPost(x),
   });
   return { isLoading, Posts, error };
 }
