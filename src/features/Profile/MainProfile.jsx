@@ -15,7 +15,7 @@ function MainProfile() {
 
   return (
     <div className="  ">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="  grid-cols-1    grid  sm:grid-cols-[2fr_auto] bg-gray-50 p-2">
         <div className="  ">
           <Header user={user} />
