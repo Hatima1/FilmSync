@@ -14,13 +14,13 @@ function MainProfile() {
   const ProfilePosts = Posts.filter((post) => post.createById === user.id);
 
   return (
-    <div className="  ">
+    <div className=" 0  ">
       {/* <Navbar /> */}
-      <div className="  grid-cols-1    grid  sm:grid-cols-[2fr_auto] bg-gray-50 p-2">
+      <div className="  grid-cols-1    grid  sm:grid-cols-[2fr_auto]   p-2">
         <div className="  ">
           <Header user={user} />
-          <div>
-            <h2 className=" text-center text-lg font-semibold  border-t  ">
+          <div className="  border-t mb-8  ">
+            <h2 className=" text-center text-lg font-semibold  mt-2      ">
               RECENT REVIEW
             </h2>
           </div>
@@ -28,8 +28,11 @@ function MainProfile() {
             <Main user={user} posts={posts} key={posts.id} />
           ))}
         </div>
-        <div className="  border-l    pt-28 ">
-          <p className=" text-gray-950 font-bold text-lg ml-2 "> suggestion </p>
+        <div className="  border-l    pt-10 ">
+          <p className=" text-gray-950 font-bold text-lg ml-2  pt-3 ">
+            {" "}
+            suggestion{" "}
+          </p>
           <div className="flex border-t  flex-col gap-3  bg-gray-100  p-2  rounded-tr-xl rounded-br-xl ">
             <Sidebar />
             <Sidebar />

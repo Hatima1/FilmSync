@@ -15,12 +15,13 @@ function Header({ user }) {
   }
   return (
     <>
-      <Component user={user} />
+      {/* <Component user={user} /> */}
       <div className="  pt-5 flex mb-9       ">
         <div className="  shrink-0      ">
           <img
             className=" rounded-full    h-16 w-16  sm:w-24     sm:h-24     "
             src={`${user.avatar}`}
+            alt="  profile pic "
           />
         </div>
         <div className=" pl-5">
@@ -49,8 +50,8 @@ function Header({ user }) {
         </div>
       </div>
 
-      <div className=" mb-5 ml-5 ">
-        <div className=" flex gap-6  ">
+      <div className=" mb-5 ml-5 border-t ">
+        <div className=" flex gap-6 mt-5  ">
           <button
             onClick={() => {
               setactive("fav");
@@ -77,7 +78,7 @@ function Header({ user }) {
       </div>
 
       {/* favmovie */}
-      <div className="mb-14 ">
+      <div className="mb-9 ">
         <div className="sm:grid-cols-5 grid grid-cols-4     auto-cols-auto  gap-x-4  gap-y-9 px-3  ">
           {active === "fav" &&
             FavMovie.map((postar) => (

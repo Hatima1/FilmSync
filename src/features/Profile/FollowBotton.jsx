@@ -34,7 +34,7 @@ function FollowBotton({ profileUser }) {
   return (
     <div>
       {myPtofile ? (
-        <button className="  text-sm   w-24 text-center   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full  ">
+        <button className=" text-xs  sm:text-sm    text-center   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full  ">
           edit profile
         </button>
       ) : isFollowing ? (

@@ -53,12 +53,13 @@ function MovieDetails() {
     updateUser({ user, newFav });
   }
   return (
-    <section className=" mt-10 mb-28  bg-gray-50      rounded-lg shadow-xl   ">
-      <div className="  grid px-2 xl:px-0     xl:grid-cols-[auto_minmax(540px,_1fr)_minmax(0,_1fr)]         rounded-lg  grid-cols-1   ">
+    <section className=" mt-10  mb-16  bg-gray-50      rounded-lg shadow-xl   ">
+      <div className="  grid  xl:px-0     xl:grid-cols-[auto_minmax(540px,_1fr)_minmax(0,_1fr)]         rounded-lg  grid-cols-1   ">
         <div className=" mb-10   xl:mb-0  text-center     ">
           <img
             className="  rounded-xl     inline-block  w-2/3  xl:w-full      "
             src={movie.Poster}
+            alt=" post  photo"
           />
         </div>
 
@@ -67,9 +68,12 @@ function MovieDetails() {
             <h2 className=" text-4xl font-semibold  mb-1  text-gray-900    ">
               {movie.Title}
             </h2>{" "}
-            <span className=" font-semibold text-gray-700">{movie.Year} </span>
+            {/* <span className=" font-semibold text-gray-700">{movie.Year} </span> */}
           </div>
-          <p className=" text-gray-500 text-sm mb-3   ">Action.Comedy.Crime</p>
+          <p className=" text-gray-500 text-sm mb-3   ">
+            <span className=" font-semibold text-gray-700">{movie.Year}</span> /
+            Action.Comedy.Crime
+          </p>
           {/* icons */}
           <div className=" flex items-center gap-x-10 mb-5  ">
             <div className=" flex items-center ">
@@ -99,15 +103,15 @@ function MovieDetails() {
           </div>
           {/* icons */}
           {/* about */}
-          <p className=" text-gray-600 mb-5  xl:mb-0  ">
+          <p className=" text-gray-600  mb-3  ">
             {" "}
-            <span className=" font-semibold text-base  text-gray-800">
+            <span className=" font-semibold text-base   text-gray-800">
               About:
             </span>
             {movie.Plot}
           </p>
           {/* Director */}
-          <p className="text-gray-600 mb-3 ">
+          <p className="text-gray-600 mb-2 ">
             <span className=" font-bold  text-base  text-gray-800">
               Director:
             </span>

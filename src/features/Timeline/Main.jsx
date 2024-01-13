@@ -8,9 +8,11 @@ import {
 } from "react-icons/fa";
 import { UseUpdatePosts } from "./useUpdatePost";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Main({ posts, user }) {
   const { updatePost, isUpdating } = UseUpdatePosts();
+
   const navigate = useNavigate();
   if (isUpdating) <p>loding</p>;
 
@@ -41,26 +43,26 @@ function Main({ posts, user }) {
 
   return (
     <>
-      <div className="      p-2   border-b  border-r       ">
+      <div className="      p-2   border-b        ">
         <div className=" justify-between flex ">
           <div className=" flex gap-x-2">
             <img
               className="   w-[90px] rounded-lg  "
-              src={posts.movie.Poster}
-              alt={posts.movie.Poster}
+              src={posts.movie?.Poster}
+              alt="Poster photo"
             />
             <div className="  ">
               <h2
                 onClick={() => navigate(`/Test/${posts.movie.imdbID}`)}
-                className=" cursor-pointer hover:underline    w-40  font-semibold text-xl  text-gray-950  "
+                className=" cursor-pointer hover:underline  sm:w-auto    w-36    font-semibold sm:text-lg text-base   text-gray-950  "
               >
-                {posts.movie.Title}
+                {posts.movie?.Title}
               </h2>{" "}
               <p className=" text-gray-700 text-sm font-semibold">
-                {posts.movie.Type}
+                {posts.movie?.Type}
               </p>
               <p className="  text-gray-700 text-xs font-semibold">
-                {posts.movie.Year}
+                {posts.movie?.Year}
               </p>
             </div>
           </div>
@@ -68,7 +70,7 @@ function Main({ posts, user }) {
           <div className=" flex    gap-1 mb-2  ">
             <img
               className="  w-8   h-8     rounded-full "
-              src={posts.movie.Poster}
+              src={posts.movie?.Poster}
               alt=" public/Gravity-023.jpg "
             />
             <div className=" flex">
@@ -80,7 +82,7 @@ function Main({ posts, user }) {
         </div>
 
         <div className=" text-gray-800  py-2 text-left space-y-4">
-          <p className="  text-lg font-medium text-gray-900">
+          <p className="   text-base  font-medium text-gray-900">
             {" "}
             {posts.caption}{" "}
           </p>

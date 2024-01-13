@@ -13,7 +13,7 @@ function Result({ movie, setmovie, setOpenModal }) {
             <img
               className=" rounded-lg    w-[5rem]   "
               src={movie.Poster}
-              alt={movie.Poster}
+              alt=" post  photo"
             />
           </div>
           <div>

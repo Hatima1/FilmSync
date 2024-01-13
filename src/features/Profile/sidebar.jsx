@@ -5,7 +5,7 @@ function sidebar() {
         <img
           className="  w-12 h-12     rounded-full "
           src="../../public/Gravity-023.jpg  "
-          alt=" public/Gravity-023.jpg "
+          alt="profile photo"
         />
         <div>
           <p className="   text-base  font-semibold  text-gray-900 ">

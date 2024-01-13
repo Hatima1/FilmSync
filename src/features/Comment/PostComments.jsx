@@ -24,12 +24,13 @@ function PublicComment({ posts, user }) {
         <img
           className="  w-9   h-9     rounded-full "
           src="../../public/Gravity-023.jpg  "
+          alt=" post  photo"
         />
         <div className="  flex  ">
           <textarea
             onChange={(e) => setComment(e.target.value)}
             rows={3}
-            className="  w-[25rem]  focus:border-white focus:outline-none border  border-gray-300 rounded-xl bg-gray-50"
+            className="  sm:w-[25rem]  focus:border-white focus:outline-none border  border-gray-300 rounded-xl bg-gray-50"
           />
           <div className=" self-end">
             <button

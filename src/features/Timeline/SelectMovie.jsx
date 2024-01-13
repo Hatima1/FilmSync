@@ -15,10 +15,10 @@ function MovieSearch({ setmovie, SelectMovie }) {
   return (
     <>
       <button
-        className=" text-sm bg-slate-400 rounded-md p-1  "
+        className=" text-xs text-black font-semibold bg-gray-200 rounded-lg p-1  "
         onClick={() => setOpenModal(true)}
       >
-        {SelectMovie ? SelectMovie.Title : "Select Movie"}{" "}
+        {SelectMovie ? SelectMovie.Title : "Select Movie First"}{" "}
       </button>
       <Modal show={openModal} onClose={() => setOpenModal(false)}>
         <Modal.Header>Terms of Service</Modal.Header>

@@ -2,29 +2,42 @@ import Main from "../features/Timeline/Main";
 import Share from "../features/Timeline/Share";
 import usePosts from "../features/Timeline/usePosts";
 import Sidebar from "../features/Profile/sidebar";
-import Navbar from "../ui/navbar";
+
 import SelectTimline from "../features/Timeline/SelectTimline";
 // import { UseMove } from "../features/movie/useMovie";
 import MovieSearch from "../features/movie/movieSearch";
 import { UseUserInfo } from "../features/login/useUserInfo";
+import { useState } from "react";
+import Navbar from "../ui/navbar";
+import PhoneNav from "../ui/PhoneNav";
 function Timeline() {
   const { user, isLoading: islo } = UseUserInfo();
   const { Posts, isLoading } = usePosts();
+  const [timeline, settimeline] = useState("all");
   // const { movie, isLoading: s } = UseMove();
+
+  // const f = Posts.map((a) => );
+
   if (isLoading || islo) return <p>loding</p>;
+  const Myfrind = JSON.stringify([{ id: "123" }]);
+  const x = [{ name: "hatim", id: "1232" }];
+
+  const f = x.filter((a) => Myfrind.includes(a.id));
+  console.log(f);
+
   const sortedItemsDesc = Posts.sort(
     (a, b) => new Date(b.created_at) - new Date(a.created_at)
   );
-  console.log(sortedItemsDesc);
 
   return (
     <div className="max-w-7xl mx-auto   bg-gray-50  ">
+      <div className="  fixed w-full    ">{/* <PhoneNav />{" "} */}</div>
       {/* <Navbar /> */}
 
-      <div className="  grid-cols-1 border-l    grid  sm:grid-cols-[2fr_auto]  px-1   ">
+      <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]  px-1   ">
         <div>
-          <MovieSearch />
-          <SelectTimline />
+          {/* <MovieSearch /> */}
+          <SelectTimline timeline={timeline} settimeline={settimeline} />
           <Share user={user} />
 
           {Posts.map((posts) => (

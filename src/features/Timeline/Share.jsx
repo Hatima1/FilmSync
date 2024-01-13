@@ -31,22 +31,24 @@ function Share({ user }) {
         src="../../public/Gravity-023.jpg  "
         alt="public/Gravity-023.jpg  "
       />
-      <div className="  sm:flex  hidden  ">
-        <textarea
-          onChange={(e) => settext(e.target.value)}
-          rows={3}
-          className="  w-[25rem]  focus:border-white focus:outline-none border  border-gray-300 rounded-xl bg-gray-50"
-        />
-        <div className=" self-end flex items-center ml-1">
-          <button
-            onClick={handlerText}
-            className="text-sm     w-24 text-center   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full "
-          >
-            post
-          </button>
+      <div className="  flex   ">
+        <div className="  w-auto">
+          <textarea
+            onChange={(e) => settext(e.target.value)}
+            rows={3}
+            className=" mr-1  sm:w-[20rem] w-auto   focus:border-white focus:outline-none border  border-gray-300 rounded-xl bg-gray-50"
+          />
+        </div>
+        <div className=" self-end  items-center ml-1 ">
           <div>
             <SelectMovie SelectMovie={movie} setmovie={setmovie} />
           </div>
+          <button
+            onClick={handlerText}
+            className="text-sm     w-24 text-center  mt-2   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full "
+          >
+            post
+          </button>
         </div>
       </div>
     </div>

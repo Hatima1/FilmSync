@@ -1,7 +1,7 @@
 function UsersComments({ comment }) {
   return (
     <>
-      <div className=" flex gap-x-3 border-b py-4 ">
+      <div className=" flex gap-x-3 border-b py-4  ">
         <img
           className="   w-11   h-11     rounded-full "
           src="../../public/Gravity-023.jpg  "
