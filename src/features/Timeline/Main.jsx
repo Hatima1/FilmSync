@@ -69,47 +69,59 @@ function Main({ posts, user }) {
 
           <div className=" flex    gap-1 mb-2  ">
             <img
-              className="  w-8   h-8     rounded-full "
-              src={posts.movie?.Poster}
-              alt=" public/Gravity-023.jpg "
+              onClick={() => navigate(`/profile/${user.id}`)}
+              className="  w-9   h-9     rounded-full "
+              src={user.avatar ? user.avatar : "public/download.jpeg"}
+              alt=" profile img "
             />
             <div className=" flex">
-              <div className=" text-gray-900 text-base font-semibold inline-block ml-2 pt-1   ">
-                {posts.createBy}
+              <div className="  text-gray-900 text-sm sm:text-base font-semibold inline-block ml-2 pt-1   ">
+                <span
+                  onClick={() => navigate(`/profile/${user.id}`)}
+                  className="cursor-pointer hover:underline"
+                >
+                  {posts.createBy}
+                </span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className=" text-gray-800  py-2 text-left space-y-4">
-          <p className="   text-base  font-medium text-gray-900">
+        <div className="   text-gray-800  py-2 text-left space-y-4">
+          <p
+            onClick={() => navigate(`/comment/${posts.id}`)}
+            className=" cursor-pointer   text-base  font-medium text-gray-900"
+          >
             {" "}
             {posts.caption}{" "}
           </p>
 
           <div className=" flex justify-between   ">
-            <div className=" flex items-center gap-1   pl-7    ">
-              <div
-                onClick={() => navigate(`/comment/${posts.id}`)}
-                className="cursor-pointer hover:bg-slate-100 "
-              >
+            <div
+              onClick={() => navigate(`/comment/${posts.id}`)}
+              className="  cursor-pointer flex items-center gap-1   pl-7    "
+            >
+              <div className="  hover:bg-slate-100 ">
                 <FaRegComment style={{ fontSize: "20px" }} />
               </div>
               <div>
-                <span className=" h-4 text-xs   text-gray-400">
+                <span className=" h-4 text-xs   text-gray-700">
                   {" "}
                   {posts.comments?.length}
                 </span>{" "}
               </div>
             </div>
 
-            <button onClick={handlerEdit} className=" flex items-center pr-7 ">
+            <button
+              onClick={handlerEdit}
+              className=" hover:font-black gap-1   flex items-center pr-7 "
+            >
               {isLike ? (
                 <FaHeart style={{ fontSize: "20px", color: "black" }} />
               ) : (
                 <FaRegHeart style={{ fontSize: "20px" }} />
               )}{" "}
-              <span className=" text-xs   text-gray-400">
+              <span className=" text-xs    text-gray-700">
                 {posts.likes?.length}
               </span>
             </button>

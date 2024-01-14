@@ -13,6 +13,7 @@ function Header({ user }) {
   function handlershow() {
     setshowMore((a) => !a);
   }
+  console.log(FavMovie);
   return (
     <>
       {/* <Component user={user} /> */}
@@ -57,9 +58,10 @@ function Header({ user }) {
               setactive("fav");
               setshowMore(false);
             }}
-            className={`    hover:text-black text-gray-900 ${
-              active === "fav" && " border-b-[2px] border-teal-950  "
-            } font-semibold  `}
+            className={`  text-sm  sm:text-base  hover:text-black text-gray-900 ${
+              active === "fav" &&
+              " border-b-[2px] border-teal-950 font-semibold  "
+            }  `}
           >
             {user.fav.length} FAVORITE FILMS
           </button>
@@ -68,9 +70,10 @@ function Header({ user }) {
               setactive("whatch");
               setshowMore(false);
             }}
-            className={`     hover:text-black text-gray-900  ${
-              active === "whatch" && " border-b-[2px] border-teal-950 "
-            } font-semibold  `}
+            className={`  text-sm sm:text-base    hover:text-black text-gray-900  ${
+              active === "whatch" &&
+              " border-b-[2px] border-teal-950 font-semibold  "
+            }  `}
           >
             {user.watchlist.length} WHATCH LIST
           </button>
@@ -81,13 +84,9 @@ function Header({ user }) {
       <div className="mb-9 ">
         <div className="sm:grid-cols-5 grid grid-cols-4     auto-cols-auto  gap-x-4  gap-y-9 px-3  ">
           {active === "fav" &&
-            FavMovie.map((postar) => (
-              <Fav post={postar.post} key={postar.id} />
-            ))}
+            FavMovie.map((postar) => <Fav post={postar} key={postar.id} />)}
           {active === "whatch" &&
-            WhatchList.map((postar) => (
-              <Fav post={postar.post} key={postar.id} />
-            ))}
+            WhatchList.map((postar) => <Fav post={postar} key={postar.id} />)}
         </div>
         <div className=" text-end  font-bold   text-black  text-sm mr-2 mt-4 ">
           <button
@@ -95,7 +94,7 @@ function Header({ user }) {
             onClick={handlershow}
           >
             {" "}
-            {showMore ? "SHOW LESS" : "SHOW MORE"}{" "}
+            {showMore ? "SHOW LESS" : "SHOW MORE"}
           </button>
         </div>
       </div>

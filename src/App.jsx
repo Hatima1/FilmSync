@@ -37,16 +37,16 @@ function App() {
             }
           >
             <Route index element={<Navigate replace to="home" />} />
-            <Route path="Login" element={<Login />} />
-            <Route path="*" element={<PageNotFound />} />
+            <Route path="home" element={<Home />} />
+            <Route path="timeline" element={<Timeline />} />
+            <Route path="Profile/:myname" element={<Profile />} />
+            <Route path="comment/:id" element={<Comment />} />
+            <Route path="Test/:MovieId" element={<Test />} />
           </Route>
-          <Route path="home" element={<Home />} />
-          <Route path="Profile/:myname" element={<Profile />} />
-          <Route path="comment/:id" element={<Comment />} />
-          <Route path="Test/:MovieId" element={<Test />} />
-          <Route path="timeline" element={<Timeline />} />
+          <Route path="*" element={<PageNotFound />} />
+          <Route path="Login" element={<Login />} />
 
-          <Route path="Singup" element={<Singup />} />
+          {/* <Route path="Singup" element={<Singup />} /> */}
         </Routes>
       </BrowserRouter>
 

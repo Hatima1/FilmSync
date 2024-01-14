@@ -2,11 +2,16 @@ import MovieDetails from "../features/Details/MovieDetails";
 import Comment from "../features/Details/Comment";
 import usePosts from "../features/Timeline/usePosts";
 import UsersComments from "../features/Profile/UsersComments";
+import { useParams } from "react-router-dom";
 // import StarRating from "../ui/StarRating";
 function Test() {
-  const { Posts, isLoading } = usePosts("lol");
+  const { MovieId } = useParams();
+  const { Posts, isLoading } = usePosts();
   if (isLoading) return <p>lol</p>;
   // const CommentAboutMovie = Posts.map((a) =>);
+  console.log(Posts);
+  const usersPost = Posts.filter((a) => a.movie.imdbID === MovieId);
+  console.log(usersPost);
 
   return (
     <div className=" max-w-7xl mx-auto p-4   ">
@@ -17,7 +22,7 @@ function Test() {
           Popular Reviews{" "}
         </h2>
         {Posts.map((post) => (
-          <UsersComments comment={post.caption} key={post.id} />
+          <comment comment={post.caption} key={post.id} />
         ))}
       </div>
     </div>

@@ -2,6 +2,7 @@ import CreateUser from "./apiUsers";
 import supabase from "./supabase";
 
 export async function login({ email, password }) {
+  console.log(email, password);
   let { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -16,7 +17,6 @@ export async function getCurentUser() {
   const { data: session } = await supabase.auth.getSession();
   if (!session.session) return null;
   console.log(session.session.user.id);
-  console.log("lol");
 
   let { data, error } = await supabase.auth.getUser();
   // console.log(data);
@@ -46,7 +46,6 @@ export async function signup({ email, password, name }) {
       follower: [],
       watchlist: [],
       fav: [],
-
       posts: [],
     });
   }

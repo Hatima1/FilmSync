@@ -10,6 +10,7 @@ import { UseUserInfo } from "../features/login/useUserInfo";
 import { useState } from "react";
 import Navbar from "../ui/navbar";
 import PhoneNav from "../ui/PhoneNav";
+import Logout from "../ui/Logout";
 function Timeline() {
   const { user, isLoading: islo } = UseUserInfo();
   const { Posts, isLoading } = usePosts();
@@ -36,7 +37,7 @@ function Timeline() {
 
       <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]  px-1   ">
         <div>
-          {/* <MovieSearch /> */}
+          <MovieSearch />
           <SelectTimline timeline={timeline} settimeline={settimeline} />
           <Share user={user} />
 

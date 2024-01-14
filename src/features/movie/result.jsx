@@ -1,6 +1,8 @@
 import { FaCalendarDay } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Result({ movie }) {
+  const navigate = useNavigate();
   return (
     <>
       <div className="  rounded-lg  hover:bg-gray-50  mt-2 ">
@@ -13,7 +15,10 @@ function Result({ movie }) {
             />
           </div>
           <div>
-            <p className=" font-semibold text-base text-gray-900">
+            <p
+              onClick={() => navigate(`/Test/${movie.imdbID}`)}
+              className=" cursor-pointer hover:underline font-semibold text-base text-gray-900"
+            >
               {movie.Title}{" "}
             </p>
             <div className="flex items-center">

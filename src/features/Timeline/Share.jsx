@@ -20,9 +20,17 @@ function Share({ user }) {
       movie: movie,
       likes: [],
       createById: user.id,
+      movieid: movie.imdbID,
+      comments: [],
+      profilePic: user.avatar,
     };
 
-    CreatePost(newPost);
+    CreatePost(newPost, {
+      onSettled: () => {
+        setmovie("");
+        settext(" ");
+      },
+    });
   }
   return (
     <div className=" flex  py-4  border-b     gap-1 mb-2  ">
@@ -34,6 +42,7 @@ function Share({ user }) {
       <div className="  flex   ">
         <div className="  w-auto">
           <textarea
+            value={text}
             onChange={(e) => settext(e.target.value)}
             rows={3}
             className=" mr-1  sm:w-[20rem] w-auto   focus:border-white focus:outline-none border  border-gray-300 rounded-xl bg-gray-50"
@@ -44,8 +53,9 @@ function Share({ user }) {
             <SelectMovie SelectMovie={movie} setmovie={setmovie} />
           </div>
           <button
+            disabled={!movie && true}
             onClick={handlerText}
-            className="text-sm     w-24 text-center  mt-2   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full "
+            className={`text-sm  disabled:opacity-50     w-24 text-center  mt-2   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full `}
           >
             post
           </button>

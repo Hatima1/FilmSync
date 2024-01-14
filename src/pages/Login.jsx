@@ -5,22 +5,24 @@ import { useLogin } from "../features/Auth/useLogin";
 import { UseUser } from "../features/Auth/useUser";
 import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { useSignup } from "../features/Auth/UseSingup";
 
 function Login() {
   const [newAcount, setnewAcount] = useState(false);
+  const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpas] = useState("");
 
   const { login, isLoading } = useLogin();
+  const { isLoading: l, signup } = useSignup();
   const { user } = UseUser();
 
   if (isLoading) return <h1>is loding </h1>;
 
   function handlerclick(e) {
     e.preventDefault();
-    console.log("lol");
-
-    // login({ email, password });
+    if (newAcount === false) login({ email, password });
+    if (newAcount === true) signup({ email, password, name });
   }
   return (
     <div className="  bg-gray-50  ">
@@ -34,14 +36,26 @@ function Login() {
               <div className="mb-2 block">
                 <Label htmlFor="name" value="Your name" />
               </div>
-              <TextInput id="name" type="text" placeholder="name" required />
+              <TextInput
+                onChange={(e) => setname(e.target.value)}
+                id="name"
+                type="text"
+                placeholder="name"
+                required
+              />
             </div>
           )}
           <div>
             <div className="mb-2 block">
               <Label htmlFor="email1" value="Your email" />
             </div>
-            <TextInput id="email1" type="email" placeholder="email" required />
+            <TextInput
+              onChange={(e) => setemail(e.target.value)}
+              id="email1"
+              type="email"
+              placeholder="email"
+              required
+            />
           </div>
           <div>
             <div className="mb-2 block">
@@ -52,6 +66,7 @@ function Login() {
               type="password"
               required
               placeholder="password"
+              onChange={(e) => setpas(e.target.value)}
             />
           </div>
           <div className="flex  gap-2"></div>
@@ -61,22 +76,22 @@ function Login() {
           >
             {newAcount ? "Creat Acount" : "Login"}
           </button>
-          {newAcount && (
+          {newAcount === false && (
             <div className=" text-center  text-sm font-semibold text-gray-800">
-              dont have an acount?
+              Create new acount?
               <button
-                onClick={() => setnewAcount(false)}
+                onClick={() => setnewAcount(true)}
                 className=" text-gray-950 font-bold text-base "
               >
                 join
               </button>
             </div>
           )}
-          {!newAcount && (
+          {newAcount === true && (
             <div className=" text-center  text-sm font-semibold text-gray-800">
               Already have an acount?
               <button
-                onClick={() => setnewAcount(true)}
+                onClick={() => setnewAcount(false)}
                 className=" text-gray-950 font-bold text-base "
               >
                 click

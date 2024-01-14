@@ -3,6 +3,7 @@ import { UseUser } from "../features/Auth/useUser";
 import Spinner from "../ui/Spinner";
 import styled from "styled-components";
 import { useEffect } from "react";
+import { UseUserInfo } from "../features/login/useUserInfo";
 
 const Fullpage = styled.div`
   height: 100vh;
@@ -13,16 +14,18 @@ const Fullpage = styled.div`
 `;
 
 function ProtectedRoute({ children }) {
-  const { isLoading, isaAthenticated, user } = UseUser();
-  console.log(isLoading, isaAthenticated, user);
+  // const { isLoading, isaAthenticated, user } = UseUser();
   const navigate = useNavigate();
+  const { isLoading, user } = UseUserInfo();
+  console.log(user === null);
 
   useEffect(() => {
-    if (!isLoading && !isaAthenticated) navigate("/login");
-  }, [isaAthenticated, isLoading, navigate]);
+    if (user === null && !isLoading) navigate("/login");
+  }, [user, isLoading, navigate]);
   if (isLoading) return <h1>is loding</h1>;
+  // if (user !== null) navigate("/timeline");
 
-  return children;
+  if (user !== null) return children;
 }
 
 export default ProtectedRoute;
