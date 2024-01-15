@@ -10,22 +10,27 @@ function FollowBotton({ profileUser }) {
   if (isLoading || isEditing || lo) return <p>lol</p>;
   const myPtofile = user.id === profileUser.id;
 
-  const authUserFollowingData = user.following.map((cur) => JSON.parse(cur));
-  const otherUserFolloweD = profileUser.follower.map((cur) => JSON.parse(cur));
+  const authUserFollowingData = user.following;
+  const otherUserFolloweD = profileUser.follower;
 
   const isFollowing = JSON.stringify(authUserFollowingData).includes(
     `${profileUser.id}`
   );
+
   function handlerUnfollow() {
     const update = authUserFollowingData.filter((a) => a.id !== profileUser.id);
     const updatefo = otherUserFolloweD.filter((a) => a.id !== user.id);
+
     edituser({ user, update });
     editFollower({ profileUser, updatefo });
   }
   function handlerFollow() {
-    const update = [...authUserFollowingData, profileUser];
-    const updatefo = [...otherUserFolloweD, user];
-    console.log(authUserFollowingData, "lol");
+    const profileUserr = { id: profileUser.id, name: profileUser.name };
+    const myuser = { id: user.id, name: user.name };
+
+    const update = [...authUserFollowingData, profileUserr];
+    const updatefo = [...otherUserFolloweD, myuser];
+    console.log(myuser, "lol");
 
     edituser({ user, update });
     editFollower({ profileUser, updatefo });

@@ -8,13 +8,17 @@ import {
 } from "react-icons/fa";
 import { UseUpdatePosts } from "./useUpdatePost";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+
+import UseUserPr from "../Timeline/useUserProfilrPic";
+import { Spinner } from "flowbite-react";
 
 function Main({ posts, user }) {
   const { updatePost, isUpdating } = UseUpdatePosts();
 
+  const { isLoading, userProfile } = UseUserPr(posts.createById);
   const navigate = useNavigate();
-  if (isUpdating) <p>loding</p>;
+  if (isLoading) return <Spinner />;
+  const { avatar: profilePic } = userProfile;
 
   const isLike = JSON.stringify(posts.likes).includes(`${user.id}`);
 
@@ -69,15 +73,15 @@ function Main({ posts, user }) {
 
           <div className=" flex    gap-1 mb-2  ">
             <img
-              onClick={() => navigate(`/profile/${user.id}`)}
+              onClick={() => navigate(`/profile/${posts.createById}`)}
               className="  w-9   h-9     rounded-full "
-              src={user.avatar ? user.avatar : "public/download.jpeg"}
+              src={profilePic ? profilePic : "../../public/download.jpeg"}
               alt=" profile img "
             />
             <div className=" flex">
               <div className="  text-gray-900 text-sm sm:text-base font-semibold inline-block ml-2 pt-1   ">
                 <span
-                  onClick={() => navigate(`/profile/${user.id}`)}
+                  onClick={() => navigate(`/profile/${posts.createById}`)}
                   className="cursor-pointer hover:underline"
                 >
                   {posts.createBy}

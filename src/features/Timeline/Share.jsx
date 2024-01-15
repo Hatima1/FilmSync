@@ -14,6 +14,7 @@ function Share({ user }) {
   const { CreatePost } = useCreatPost();
 
   function handlerText() {
+    console.log(user);
     const newPost = {
       createBy: user.name,
       caption: text,

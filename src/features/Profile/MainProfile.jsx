@@ -12,6 +12,7 @@ function MainProfile() {
   const { Posts, isLoading: lodingpost } = usePosts();
   if (isLoading || lodingpost) return <p>loding</p>;
   const ProfilePosts = Posts.filter((post) => post.createById === user.id);
+  console.log(user);
 
   return (
     <div className=" 0  ">

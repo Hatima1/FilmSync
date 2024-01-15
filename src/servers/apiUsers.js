@@ -124,3 +124,34 @@ export async function getdata(myname) {
 
   return data;
 }
+export async function userId(id) {
+  console.log(id);
+  // console.log(username);
+
+  const { data, error } = await supabase
+    .from("users")
+    .select("avatar")
+    .eq("id", id)
+    .single();
+
+  if (error) throw new Error(error.message);
+  // console.log(data);
+
+  return data;
+}
+export async function username(name) {
+  // console.log(username);
+
+  if (!name || name.length < 4) return null;
+
+  const { data, error } = await supabase
+    .from("users")
+    .select("*")
+    .eq("name", name)
+    .single();
+
+  if (error) throw new Error(error.message);
+  console.log(data);
+
+  return data;
+}

@@ -2,6 +2,7 @@ import MovieDetails from "../features/Details/MovieDetails";
 import Comment from "../features/Details/Comment";
 import usePosts from "../features/Timeline/usePosts";
 import UsersComments from "../features/Profile/UsersComments";
+import CommentUserDetails from "../ui/CommentUserDetails";
 import { useParams } from "react-router-dom";
 // import StarRating from "../ui/StarRating";
 function Test() {
@@ -21,8 +22,8 @@ function Test() {
           {" "}
           Popular Reviews{" "}
         </h2>
-        {Posts.map((post) => (
-          <comment comment={post.caption} key={post.id} />
+        {usersPost.map((post) => (
+          <CommentUserDetails post={post} key={post.id} />
         ))}
       </div>
     </div>

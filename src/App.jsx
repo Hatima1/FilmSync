@@ -19,6 +19,7 @@ const queryClient = new QueryClient({
     queries: {
       // stalTime: 60 * 100,
       stalTime: 0,
+      retry: 1,
     },
   },
 });

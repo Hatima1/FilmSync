@@ -20,11 +20,12 @@ function Timeline() {
   // const f = Posts.map((a) => );
 
   if (isLoading || islo) return <p>loding</p>;
-  const Myfrind = JSON.stringify([{ id: "123" }]);
-  const x = [{ name: "hatim", id: "1232" }];
+  const Myfrind = JSON.stringify(user.following);
 
-  const f = x.filter((a) => Myfrind.includes(a.id));
-  console.log(f);
+  const followingTi = Posts.filter((a) => Myfrind.includes(a.createById));
+
+  const TimeLine = timeline === "all" ? Posts : followingTi;
+  console.log(TimeLine);
 
   const sortedItemsDesc = Posts.sort(
     (a, b) => new Date(b.created_at) - new Date(a.created_at)
@@ -41,8 +42,8 @@ function Timeline() {
           <SelectTimline timeline={timeline} settimeline={settimeline} />
           <Share user={user} />
 
-          {Posts.map((posts) => (
-            <Main user={user} posts={posts} key={posts.id} />
+          {TimeLine.map((postss) => (
+            <Main user={user} posts={postss} key={postss.id} />
           ))}
         </div>
 

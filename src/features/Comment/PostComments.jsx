@@ -43,13 +43,8 @@ function PublicComment({ posts, user }) {
         </div>
       </div>
       {posts.comments.map((a) => (
-        <UsersComments comment={a.comment} key={a.id} />
+        <UsersComments comment={a} key={a.id} />
       ))}
-      {/* <UsersComments  />
-      <UsersComments />
-      <UsersComments />
-      <UsersComments />
-      <UsersComments /> */}
     </div>
   );
 }
