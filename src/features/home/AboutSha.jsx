@@ -1,24 +1,23 @@
 function AboutSha() {
   return (
-    <div className="mb-40  ">
+    <div className="  mb-14 md:mb-28  ">
       <div className=" max-w-6xl mx-auto px-2 ">
-        <div className="   grid grid-cols-2       gap-14   ">
+        <div className="border-t-2 border w-10  border-yellow-500  mb-2  "></div>
+        <div className="   mb-7  md:mb-10  ">
+          <h2 className=" md:text-3xl text-lg font-semibold text-teal-900  md:w-3/5 ">
+            "Shawshank Redemption": Beyond Prison Walls The Triumph of Hope
+          </h2>
+        </div>
+        <div className="   md:grid-cols-2 grid grid-cols-1    gap-7    md:gap-14   ">
           <div className=" flex justify-center    ">
             <img
-              className=" self-center   w-[430px]    "
+              className=" self-center   w-2/3  md:w-2/3   "
               src="public/The Shawshank Redemption _ Die Verurteilten (1994).jpg"
             />
           </div>
           <div>
-            <div className="border-t-2 border w-10  border-yellow-500  mb-2  "></div>
-            <div className="   mb-3  ">
-              <h2 className=" text-3xl font-semibold text-teal-900 ">
-                "Shawshank Redemption": Beyond Prison Walls The Triumph of Hope
-              </h2>
-            </div>
-
             <div>
-              <article className="font-semibold text-gray-900 text-base ">
+              <article className="font-semibold text-gray-900 text-sm  md:text-base ">
                 <p className=" mb-3">
                   Within the bleak walls of Shawshank State Penitentiary resides
                   a tale that transcends incarceration, a story that unfurls the

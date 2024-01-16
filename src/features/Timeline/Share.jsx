@@ -23,7 +23,6 @@ function Share({ user }) {
       createById: user.id,
       movieid: movie.imdbID,
       comments: [],
-      profilePic: user.avatar,
     };
 
     CreatePost(newPost, {

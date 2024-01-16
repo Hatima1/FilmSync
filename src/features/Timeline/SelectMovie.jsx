@@ -1,4 +1,4 @@
-import { Button, Modal, TextInput } from "flowbite-react";
+import { Button, Modal, Spinner, TextInput } from "flowbite-react";
 import { useState } from "react";
 
 import { useMovies } from "../movie/useMovie";
@@ -7,7 +7,7 @@ import Result from "./ResultSelectMovie";
 function MovieSearch({ setmovie, SelectMovie }) {
   const [openModal, setOpenModal] = useState(false);
   const [mov, setmovieSerch] = useState("");
-  const { movies, isLoading } = useMovies(mov);
+  const { movies, isLoading, error } = useMovies(mov);
 
   //   const test = movie({ namee });
   console.log(movies);
@@ -21,15 +21,23 @@ function MovieSearch({ setmovie, SelectMovie }) {
         {SelectMovie ? SelectMovie.Title : "Select Movie First"}{" "}
       </button>
       <Modal show={openModal} onClose={() => setOpenModal(false)}>
-        <Modal.Header>Terms of Service</Modal.Header>
+        <Modal.Header> Select Movie</Modal.Header>
         <Modal.Body>
           <div className="">
             <TextInput
-              placeholder="srech"
+              placeholder="search movie"
               onChange={(e) => setmovieSerch(e.target.value)}
             />
-            {isLoading && <p>loding</p>}
+            {isLoading && (
+              <div className=" w-full text-center ">
+                {" "}
+                <Spinner />
+              </div>
+            )}
+            {error && <p className=" font-semibold text-center">{error}</p>}
+
             {!isLoading &&
+              !error &&
               movies.length !== 0 &&
               movies?.map((movie) => (
                 <Result

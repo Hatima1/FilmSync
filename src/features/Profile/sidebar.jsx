@@ -1,26 +1,21 @@
 function sidebar() {
   return (
-    <div className="  bg p-1 border-b border-gray-100     flex justify-between">
-      <div className=" flex gap-2 mr-12">
+    <div className="   p-1   border-b border-gray-200 w-80      flex justify-between">
+      <div className=" flex gap-2 ">
         <img
-          className="  w-12 h-12     rounded-full "
+          className="  w-10 h-10     rounded-full "
           src="../../public/Gravity-023.jpg  "
           alt="profile photo"
         />
-        <div>
+        <div className="">
           <p className="   text-base  font-semibold  text-gray-900 ">
             hatim ahmed{" "}
           </p>
-          <p className=" w-40  text-xs  font-semibold text-gray-600">
+          <p className="   text-xs  font-semibold text-gray-700">
             {" "}
-            Lorem ipsum dolor sita asd sdcsd sdcsdc sdc
+            Lorem ipsum Lorem
           </p>
         </div>
-      </div>
-      <div>
-        <p className=" text-sm w-[5.5rem]   text-center py-1   px-2     font-medium text-white    border border-teal-950  bg-teal-950   rounded-full  ">
-          follow
-        </p>
       </div>
     </div>
   );

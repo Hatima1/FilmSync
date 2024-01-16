@@ -7,11 +7,12 @@ function UseUsersName(name) {
   const {
     isLoading,
     error,
-    mutate: userNamea,
+    data: userNamea,
   } = useQuery({
     queryKey: ["userSearch", name],
     queryFn: () => username(name),
   });
+
   return { isLoading, userNamea, error };
 }
 

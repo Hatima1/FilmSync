@@ -1,18 +1,17 @@
 function AboutFI() {
   return (
-    <div className="  mb-40 ">
+    <div className=" mb-14 md:mb-28">
       <div className=" max-w-6xl mx-auto px-2 my-9  items-center   ">
-        <div className="   grid grid-cols-2       gap-14   ">
+        <div className="border-t-2 border w-10  border-red-800  mb-2  "></div>
+        <div className="   mb-7  ">
+          <h2 className=" md:text-3xl text-lg font-semibold text-teal-900 ">
+            "Fight Club": dentity in Chaos
+          </h2>
+        </div>
+        <div className="   grid  md:grid-cols-2  grid-cols-1     gap-7 md:gap-14   ">
           <div>
-            <div className="border-t-2 border w-10  border-red-800  mb-2  "></div>
-            <div className="   mb-3  ">
-              <h2 className=" text-3xl font-semibold text-teal-900 ">
-                "Fight Club": dentity in Chaos
-              </h2>
-            </div>
-
             <div>
-              <article className="font-semibold text-gray-900 text-base ">
+              <article className="font-semibold text-gray-900 md:text-base  text-sm ">
                 <p className=" mb-3">
                   In the dark recesses of contemporary society lies a film that
                   ignites an inferno within the human psyche—'Fight Club'.
@@ -66,9 +65,9 @@ function AboutFI() {
               </article>
             </div>
           </div>
-          <div className=" flex justify-center    ">
+          <div className=" flex justify-center row-start-1  md:row-auto      ">
             <img
-              className=" self-center    "
+              className=" self-center   md:w-full  w-3/4 "
               src="public/Fight Club (1999) [935 1350] by Saajan.jpg"
             />
           </div>

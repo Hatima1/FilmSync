@@ -19,7 +19,7 @@ function Home() {
   if (isLoading) return <p>loding</p>;
 
   return (
-    <div className="    ">
+    <div className=" px-3    ">
       <p> hi {user?.name} </p>
       <Header />
       <About />

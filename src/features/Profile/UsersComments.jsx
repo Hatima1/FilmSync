@@ -18,7 +18,7 @@ function UsersComments({ comment }) {
           alt="profilePic"
         />
         <div>
-          <div className="   font-semibold text-gray-950 text-base  inline-block   pb-1     ">
+          <div className="   font-semibold text-gray-950 text-base  inline-block        ">
             <span
               onClick={() => navigate(`/profile/${comment.id}`)}
               className="cursor-pointer hover:underline"

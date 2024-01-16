@@ -11,19 +11,19 @@ about it first.”
 function About() {
   return (
     <>
-      <div className="  mb-40 ">
-        <div className=" max-w-6xl mx-auto px-2 my-9 ">
-          <div className="   grid grid-cols-2       gap-14   ">
-            <div>
-              <div className="border-t-2 border w-10  border-yellow-500  mb-2  "></div>
-              <div className="   mb-3  ">
-                <h2 className=" text-3xl font-semibold text-teal-900 ">
-                  "12 Angry Men": Exploring Justice and Humanity
-                </h2>
-              </div>
+      <div className="  mb-14 md:mb-28">
+        <div className=" max-w-6xl mx-auto px-2  ">
+          <div className="border-t-2 border w-10  border-yellow-500  mb-2  "></div>
+          <div className="   mb-7  ">
+            <h2 className="  md:text-3xl text-lg font-semibold text-teal-900 ">
+              "12 Angry Men": Exploring Justice and Humanity
+            </h2>
+          </div>
 
+          <div className=" grid-cols-1    md:grid-cols-2    grid gap-9   md:gap-14   ">
+            <div>
               <div>
-                <article className="font-semibold text-gray-900 text-base ">
+                <article className="font-semibold text-gray-900  text-sm  md:text-base ">
                   <p className=" mb-3">
                     In a single sweltering room, the pulse of justice beats amid
                     heated deliberations. "12 Angry Men," a cinematic marvel,
@@ -64,9 +64,9 @@ function About() {
                 </article>
               </div>
             </div>
-            <div className=" flex justify-center    ">
+            <div className=" flex justify-center  row-start-1 md:row-auto    ">
               <img
-                className=" self-center   w-[450px] "
+                className=" self-center   w-3/4    md:w-3/4 "
                 src="public/12 angry men (1).jpg"
               />
             </div>

@@ -15,10 +15,10 @@ export async function CreatePost(newpost) {
   return data;
 }
 
-export async function GetPost() {
+export async function GetPost(x) {
   let query = supabase.from("Posts");
-  // if (x) query = query.select("*").eq("createBy", "man");
-  query = query.select("*");
+  if (x) query = query.select("*").eq("movieid", x);
+  if (!x) query = query.select("*");
 
   let { data, error } = await query.select("*");
 

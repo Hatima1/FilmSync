@@ -1,24 +1,23 @@
 function AboutSe() {
   return (
-    <div className="mb-40  ">
+    <div className="mb-14 md:mb-28">
       <div className=" max-w-6xl mx-auto px-2 my-9 ">
-        <div className="   grid grid-cols-2       gap-14   ">
+        <div className="border-t-2 border w-10   border-black  mb-2  "></div>
+        <div className="   mb-7  ">
+          <h2 className=" md:text-3xl text-lg font-semibold text-teal-900 ">
+            "Se7en": Diving into Darkness The Haunting World
+          </h2>
+        </div>
+        <div className="   grid md:grid-cols-2  grid-cols-1     gap-7  md:gap-14   ">
           <div className=" flex justify-center    ">
             <img
-              className=" self-center   w-[450px]    "
+              className=" self-center  w-2/3   md:w-[25rem]   "
               src="public/Se7en poster by drMIERZWIAK on deviantART.jpg"
             />
           </div>
           <div>
-            <div className="border-t-2 border w-10  border-yellow-500  mb-2  "></div>
-            <div className="   mb-3  ">
-              <h2 className=" text-3xl font-semibold text-teal-900 ">
-                "Se7en": Diving into Darkness The Haunting World
-              </h2>
-            </div>
-
             <div>
-              <article className="font-semibold text-gray-900 text-base ">
+              <article className="font-semibold text-gray-900 md:text-base text-sm  ">
                 <p className=" mb-3">
                   In the labyrinthine landscape of crime thrillers, 'Se7en'
                   stands as a towering monument, a chilling exploration of the

@@ -1,9 +1,10 @@
-import { Button, Modal, ModalHeader, TextInput } from "flowbite-react";
+import { Button, Modal, ModalHeader, Spinner, TextInput } from "flowbite-react";
 import { useState } from "react";
 
 import { useMovies } from "./useMovie";
 import Result from "./result";
 import UseUsersName from "./useUserByname";
+import UserResult from "./userResult";
 
 function MovieSearch() {
   const [openModal, setOpenModal] = useState(false);
@@ -12,10 +13,10 @@ function MovieSearch() {
   const [mov, setmove] = useState("");
   // const [usersREsult, setusersREsult] = useState("");
 
-  const { movies, isLoading: l, error } = useMovies(mov);
+  const { movies, isLoading: lodingmovie, error } = useMovies(mov);
   const [select, setselect] = useState("serchMovie");
   // if (isLoading) return <p>loding</p>;
-  console.log(userNamea);
+
   // const name = "eyad";
   // const what = userNamea(name);
   // console.log(what);
@@ -23,7 +24,8 @@ function MovieSearch() {
     // setuserSerch("");
     // setuserSerch("eyad");
   }
-  console.log(movies);
+  console.log(userNamea);
+  console.log(error);
   return (
     <>
       <Button onClick={() => setOpenModal(true)}>Toggle modal</Button>
@@ -60,11 +62,20 @@ function MovieSearch() {
                 placeholder="search  movie"
                 onChange={(e) => setmove(e.target.value)}
               />
-              {isLoading && <p>loding</p>}
-              {movies.length === 0 && <p>movie not found</p>}
-              {!isLoading &&
+              {lodingmovie && (
+                <div className=" w-full text-center ">
+                  {" "}
+                  <Spinner />
+                </div>
+              )}
+              {error && <p className=" font-semibold text-center">{error}</p>}
+              {/* {movies.length === 0 && <p>movie not found</p>} */}
+              {!lodingmovie &&
+                !error &&
                 movies.length !== 0 &&
-                movies?.map((movie) => <Result movie={movie} key={movie.id} />)}
+                movies?.map((movie) => (
+                  <Result movie={movie} key={movie.imdbID} />
+                ))}
             </div>
           )}
           {select === "serchUser" && (
@@ -81,13 +92,26 @@ function MovieSearch() {
                   {" "}
                   search{" "}
                 </button> */}
-                {!userNamea}
-                {isLoading && "Loding"}
+
+                {isLoading && (
+                  <div className=" w-full text-center ">
+                    {" "}
+                    <Spinner />
+                  </div>
+                )}
+                {!isLoading && userNamea !== null && userNamea.length === 0 && (
+                  <div className=" w-full text-center font-semibold ">
+                    {" "}
+                    no user found
+                  </div>
+                )}
               </div>
-              {/* {isLoading && <p>loding</p>}
+
               {!isLoading &&
-                movies.length !== 0 &&
-                movies?.map((movie) => <Result movie={movie} key={movie.id} />)} */}
+                userNamea?.map((user) => (
+                  <UserResult key={user.id} user={user} />
+                ))}
+              {/* <UserResult key={userNamea.id} user={userNamea} /> */}
             </div>
           )}
         </Modal.Body>

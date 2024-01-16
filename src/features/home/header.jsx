@@ -5,17 +5,11 @@ import styled from "styled-components";
 
 function header() {
   return (
-    <div className=' styl bg-[linear-gradient(to_right_bottom,rgba(108, 42, 117, 0.8),rgba(16,71,2,0.8)),url("../../../public/Gravity-023.jpg")] bg-cover h-[300px]    '>
-      <header className="max-w-6xl mx-auto     ">
-        <h1 className=" uppercase w-[700px] text-center    text-4xl    text-[#d9d9d9] font-semibold pt-[90px] pb-1   ">
-          {" "}
-          Discover Cinematic Wonders{" "}
-        </h1>
-        <p1 className="text-xl  font-semibold text-gray-200">
-          {" "}
-          Where Stories Come Alive
-        </p1>
-      </header>
+    <div className="   flex  items-center      mt-16     mb-24 border-b  ">
+      <p className=" mx-auto   md:text-xl text-center font-semibold text-base  mb-10  max-w-3xl  bg-teal-900 p-1  rounded-md  text-gray-50  flex-wrap ">
+        "In a world filled with exceptional stories, our site gives you the
+        opportunity to discover films that touch your heart"
+      </p>
     </div>
   );
 }

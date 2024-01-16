@@ -16,7 +16,7 @@ function Header({ user }) {
   console.log(FavMovie);
   return (
     <>
-      {/* <Component user={user} /> */}
+      <Component user={user} />
       <div className="  pt-5 flex mb-9       ">
         <div className="  shrink-0      ">
           <img
@@ -94,7 +94,11 @@ function Header({ user }) {
             onClick={handlershow}
           >
             {" "}
-            {showMore ? "SHOW LESS" : "SHOW MORE"}
+            {(showMore && FavMovie.length > 4) || WhatchList.length > 4
+              ? showMore
+                ? "SHOW LESS"
+                : "SHOW MORE"
+              : ""}
           </button>
         </div>
       </div>

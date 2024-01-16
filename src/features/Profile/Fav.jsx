@@ -13,9 +13,9 @@ function Fav({ post }) {
   return (
     <div
       onClick={() => navigate(`/Test/${post.id}`)}
-      className=" cursor-pointer   relative   hover:-translate-y-2 transition-all duration-300 shadow-xl   "
+      className=" cursor-pointer   relative    hover:-translate-y-2 transition-all duration-300 shadow-xl   "
     >
-      <img className="  rounded-md " src={post.post} />
+      <img className="  rounded-md h-full " src={post.post} />
       <div className="  top-0  absolute "></div>
     </div>
   );

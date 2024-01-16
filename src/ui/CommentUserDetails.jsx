@@ -1,11 +1,20 @@
+import { Spinner } from "flowbite-react";
+import UseUserPr from "../features/Timeline/useUserProfilrPic";
+
 function UsersComments({ post }) {
-  console.log(post);
+  const { isLoading, userProfile } = UseUserPr(post.createById);
+  if (isLoading) return <Spinner />;
+
+  const { avatar: profilePic } = userProfile;
+
   return (
     <>
       <div className=" flex gap-x-3 border-b py-4  ">
         <img
           className="   w-11   h-11     rounded-full "
-          src={post.profilePic}
+          src={
+            !isLoading && profilePic ? profilePic : "../../public/download.jpeg"
+          }
           alt="profil pic  "
         />
         <div>

@@ -32,29 +32,34 @@ function Timeline() {
   );
 
   return (
-    <div className="max-w-7xl mx-auto   bg-gray-50  ">
-      <div className="  fixed w-full    ">{/* <PhoneNav />{" "} */}</div>
-      {/* <Navbar /> */}
+    <div className="bg-gray-50 min-h-screen  ">
+      <div className="max-w-7xl mx-auto    ">
+        <div className="  fixed w-full    ">{/* <PhoneNav />{" "} */}</div>
+        {/* <Navbar /> */}
 
-      <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]  px-1   ">
-        <div>
-          <MovieSearch />
-          <SelectTimline timeline={timeline} settimeline={settimeline} />
-          <Share user={user} />
+        <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]  px-1   ">
+          <div>
+            <MovieSearch />
+            <SelectTimline timeline={timeline} settimeline={settimeline} />
+            <Share user={user} />
 
-          {TimeLine.map((postss) => (
-            <Main user={user} posts={postss} key={postss.id} />
-          ))}
-        </div>
+            {TimeLine.map((postss) => (
+              <Main user={user} posts={postss} key={postss.id} />
+            ))}
+          </div>
 
-        <div className="  border-l    pt-24 ">
-          <p className=" text-gray-950 font-bold text-lg ml-2 "> suggestion </p>
-          <div className="flex border-t  border-b flex-col gap-3  bg-gray-100  p-2  rounded-tr-xl rounded-br-xl ">
-            <Sidebar />
-            <Sidebar />
-            <Sidebar />
-            <Sidebar />
-            <Sidebar />
+          <div className="  border-l border-r min-h-screen     pt-24 ">
+            <p className=" text-gray-950 font-bold text-lg ml-2 ">
+              {" "}
+              suggestion{" "}
+            </p>
+            <div className="flex border-t  border-b flex-col gap-3  bg-gray-100  p-2  rounded-tr-xl rounded-br-xl ">
+              <Sidebar />
+              <Sidebar />
+              <Sidebar />
+              <Sidebar />
+              <Sidebar />
+            </div>
           </div>
         </div>
       </div>

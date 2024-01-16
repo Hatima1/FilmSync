@@ -14,6 +14,7 @@ import TecketForm from "./TecketForm";
 import useMovieDetails from "./useMovieDetails";
 import { UseUserInfo } from "../login/useUserInfo";
 import { useUpdateUser } from "../Profile/useUpdateUser";
+import { Spinner } from "flowbite-react";
 // const {
 //   Title: title,
 //   Year: year,
@@ -31,7 +32,14 @@ function MovieDetails() {
   const { updateUser } = useUpdateUser();
   const { movie, isLoading } = useMovieDetails();
   const { user, isLoading: lo } = UseUserInfo();
-  if (isLoading || lo) return <p>looding</p>;
+  if (isLoading || lo)
+    return (
+      <div className=" w-full text-center ">
+        {" "}
+        <Spinner />
+      </div>
+    );
+  console.log(movie);
 
   const iswhachlist = JSON.stringify(user.watchlist).includes(
     `${movie.imdbID}`
@@ -58,7 +66,7 @@ function MovieDetails() {
         <div className=" mb-10   xl:mb-0  text-center     ">
           <img
             className="  rounded-xl     inline-block  w-2/3  xl:w-full      "
-            src={movie.Poster}
+            src={movie?.Poster}
             alt=" post  photo"
           />
         </div>
