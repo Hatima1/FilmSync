@@ -16,7 +16,6 @@ function MainProfile() {
 
   return (
     <div className="   pl-3  ">
-      {/* <Navbar /> */}
       <div className="  grid-cols-1    grid  sm:grid-cols-[2fr_auto]   ">
         <div className="  ">
           <Header user={user} />

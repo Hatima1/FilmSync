@@ -5,7 +5,7 @@ function tecketForm() {
     <div className=" mb-5 pl-3">
       <form action="">
         <div className=" mb-3">
-          <label className="  text-lg font-semibold text-gray-900 block">
+          <label className=" text-base  xl:text-lg font-semibold text-gray-900 block">
             Name
           </label>
           <input
@@ -14,7 +14,7 @@ function tecketForm() {
           />
         </div>
         <div className=" mb-5">
-          <label className=" block text-lg font-semibold text-gray-900">
+          <label className=" text-base block xl:text-lg font-semibold text-gray-900">
             Phone Number
           </label>
           <input
@@ -26,10 +26,12 @@ function tecketForm() {
           <DataPicker />
         </div>
         <div className=" mb-3     ">
-          <label className=" text-lg font-semibold text-gray-900">Time: </label>
+          <label className=" text-base xl:text-lg font-semibold text-gray-900">
+            Time:{" "}
+          </label>
 
           <select className=" bg-gray-50 border-gray-300 active:border-gray-300 text-sm rounded-lg  ">
-            <option> 10:00pm</option>
+            <option>10:00pm</option>
             <option> 20:00pm</option>
             <option> 23:00pm</option>
           </select>

@@ -1,3 +1,4 @@
+import Component from "../../ui/editPtofile";
 import { UseUserInfo } from "../login/useUserInfo";
 import useEditfollower from "./usefollower";
 import useEditUser from "./usefollowing";
@@ -35,13 +36,12 @@ function FollowBotton({ profileUser }) {
     edituser({ user, update });
     editFollower({ profileUser, updatefo });
   }
+  // <Component user={user} />
 
   return (
     <div>
       {myPtofile ? (
-        <button className=" text-xs  sm:text-sm    text-center   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full  ">
-          edit profile
-        </button>
+        <Component user={user} />
       ) : isFollowing ? (
         <button
           onClick={handlerUnfollow}

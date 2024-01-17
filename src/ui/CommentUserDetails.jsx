@@ -12,6 +12,8 @@ function UsersComments({ post }) {
       <div className=" flex gap-x-3 border-b py-4  ">
         <img
           className="   w-11   h-11     rounded-full "
+          width="11"
+          height="11"
           src={
             !isLoading && profilePic ? profilePic : "../../public/download.jpeg"
           }

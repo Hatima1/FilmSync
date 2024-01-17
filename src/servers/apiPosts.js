@@ -51,7 +51,10 @@ export async function updatePost({ posts, newLike, comment }) {
   if (!comment)
     query = query.update({ likes: newLike }).eq("id", posts.id).select();
   if (comment)
-    query = query.update({ comments: comment }).eq("id", posts.id).select();
+    query = query
+      .update({ comments: [...posts.comments, comment] })
+      .eq("id", posts.id)
+      .select();
 
   let { data, error } = await query.select();
 

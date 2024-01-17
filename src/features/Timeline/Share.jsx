@@ -4,6 +4,7 @@ import { UseUserInfo } from "../login/useUserInfo";
 import { useCreatPost } from "../Timeline/useNewPosts";
 import { UseUser } from "../Auth/useUser";
 import SelectMovie from "./SelectMovie";
+import Spinner from "../../ui/Spinner";
 
 function Share({ user }) {
   const [text, settext] = useState();
@@ -11,7 +12,7 @@ function Share({ user }) {
   console.log(movie);
   // const { user: us } = UseUser();
 
-  const { CreatePost } = useCreatPost();
+  const { CreatePost, isUpdating } = useCreatPost();
 
   function handlerText() {
     console.log(user);

@@ -2,7 +2,6 @@
 
 import {
   Button,
-  Checkbox,
   FileInput,
   Label,
   Modal,
@@ -18,14 +17,13 @@ function Component({ user }) {
   const { updateUser, isUpdating } = useUpdateUser();
 
   const [openModal, setOpenModal] = useState(false);
-  const [name, setname] = useState("");
+  const [name, setname] = useState(user.name);
   const [bio, setbio] = useState("");
   const [avatar, setAvatar] = useState(null);
   if (isUpdating) return <p>isLoding</p>;
 
   function onCloseModal() {
     setOpenModal(false);
-    setname("");
   }
   function confim() {
     const UpdateDetails = {
@@ -39,13 +37,19 @@ function Component({ user }) {
 
   return (
     <>
-      <Button onClick={() => setOpenModal(true)}>Toggle modal</Button>
+      {/* <Button onClick={() => setOpenModal(true)}>Toggle modal</Button> */}
+      <button
+        onClick={() => setOpenModal(true)}
+        className=" text-xs  sm:text-sm    text-center   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full  "
+      >
+        edit profile
+      </button>
       <Modal show={openModal} size="md" onClose={onCloseModal} popup>
         <Modal.Header />
         <Modal.Body>
           <div className="space-y-3">
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-              Sign in to our platform
+              Edit your profile
             </h3>
             <div>
               <div>
@@ -81,7 +85,9 @@ function Component({ user }) {
             </div>
 
             <div className="w-full">
-              <Button onClick={confim}>Update profile</Button>
+              <Button className="   bg-teal-950 " onClick={confim}>
+                Update profile
+              </Button>
             </div>
           </div>
         </Modal.Body>

@@ -6,13 +6,14 @@ import { UseUserInfo } from "../login/useUserInfo";
 import Main from "../Timeline/Main";
 import usePosts from "../Timeline/usePosts";
 import useCurPost from "./useCurPost";
+import Spinner from "../../ui/Spinner";
 
 function MyPost() {
   const { user, isLoading } = UseUserInfo();
 
   const { CurPost, isLoading: lo } = useCurPost();
-  if (isLoading || lo) return <p>isloding</p>;
-  console.log(CurPost);
+  if (isLoading || lo) return <Spinner />;
+
   const posts = CurPost;
   // const sortedItemsDesc = Posts.sort(
   //   (a, b) => new Date(b.created_at) - new Date(a.created_at)

@@ -13,6 +13,8 @@ function AboutSe() {
             <img
               className=" self-center  w-2/3   md:w-[25rem]   "
               src="public/Se7en poster by drMIERZWIAK on deviantART.jpg"
+              alt="Se7en "
+              loading="lazy"
             />
           </div>
           <div>

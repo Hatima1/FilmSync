@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Fav from "../Profile/Fav";
+import Fav from "../../ui/Fav";
 
 function Main() {
   const [showMore, setshowMore] = useState(false);

@@ -24,10 +24,10 @@ function Test() {
   // console.log(usersPost);
 
   return (
-    <div className=" max-w-7xl mx-auto p-4   ">
+    <div className=" max-w-7xl mx-auto  px-4 pt-1   ">
       <MovieDetails />
       <div className=" border-t  ">
-        <h2 className=" text-2xl font-semibold  mb-5 mt-3 underline  underline-offset-8    text-gray-950 ">
+        <h2 className=" text-base xl:text-2xl font-semibold mb-5 mt-3 underline  underline-offset-8    text-gray-950 ">
           {" "}
           Popular Reviews{" "}
         </h2>

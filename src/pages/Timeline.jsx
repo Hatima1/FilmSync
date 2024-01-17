@@ -11,6 +11,7 @@ import { useState } from "react";
 import Navbar from "../ui/navbar";
 import PhoneNav from "../ui/PhoneNav";
 import Logout from "../ui/Logout";
+import Spinner from "../ui/Spinner";
 function Timeline() {
   const { user, isLoading: islo } = UseUserInfo();
   const { Posts, isLoading } = usePosts();
@@ -19,13 +20,12 @@ function Timeline() {
 
   // const f = Posts.map((a) => );
 
-  if (isLoading || islo) return <p>loding</p>;
+  if (isLoading || islo) return <Spinner />;
   const Myfrind = JSON.stringify(user.following);
 
   const followingTi = Posts.filter((a) => Myfrind.includes(a.createById));
 
   const TimeLine = timeline === "all" ? Posts : followingTi;
-  console.log(TimeLine);
 
   const sortedItemsDesc = Posts.sort(
     (a, b) => new Date(b.created_at) - new Date(a.created_at)
@@ -39,7 +39,7 @@ function Timeline() {
 
         <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]  px-1   ">
           <div>
-            <MovieSearch />
+            {/* <MovieSearch /> */}
             <SelectTimline timeline={timeline} settimeline={settimeline} />
             <Share user={user} />
 
@@ -48,16 +48,12 @@ function Timeline() {
             ))}
           </div>
 
-          <div className="  border-l border-r min-h-screen     pt-24 ">
-            <p className=" text-gray-950 font-bold text-lg ml-2 ">
+          <div className="  border-l border-r  min-h-screen sm:block   hidden   ">
+            <h1 className=" text-gray-950  font-semibold  text-lg ml-2 ">
               {" "}
               suggestion{" "}
-            </p>
+            </h1>
             <div className="flex border-t  border-b flex-col gap-3  bg-gray-100  p-2  rounded-tr-xl rounded-br-xl ">
-              <Sidebar />
-              <Sidebar />
-              <Sidebar />
-              <Sidebar />
               <Sidebar />
             </div>
           </div>

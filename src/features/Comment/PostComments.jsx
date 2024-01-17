@@ -10,12 +10,19 @@ function PublicComment({ posts, user }) {
   const sortedItemsDesc = posts?.comments?.sort(
     (a, b) => new Date(b.createAt) - new Date(a.createAt)
   );
+  console.log(posts.comments);
 
   function handlerAddcomment() {
-    const comment = [
-      ...posts.comments,
-      { id: user.id, comment: commentt, name: user.name, createAt: new Date() },
-    ];
+    const comment = {
+      id: user.id,
+      comment: commentt,
+      name: user.name,
+      createAt: new Date(),
+    };
+    // const comment = [
+    //   ...posts.comments,
+    //   { id: user.id, comment: commentt, name: user.name, createAt: new Date() },
+    // ];
     updatePost({ posts, comment });
   }
   return (
@@ -23,7 +30,7 @@ function PublicComment({ posts, user }) {
       <div className=" flex  py-4  border-b     gap-1 mb-2  ">
         <img
           className="  w-9   h-9     rounded-full "
-          src="../../public/Gravity-023.jpg  "
+          src={user.avatar ? user.avatar : "../../public/download.jpeg"}
           alt=" post  photo"
         />
         <div className="  flex  ">
@@ -43,8 +50,14 @@ function PublicComment({ posts, user }) {
         </div>
       </div>
       {posts.comments.map((a) => (
-        <UsersComments comment={a} key={a.id} />
+        <UsersComments comment={a} key={a.createAt} />
       ))}
+      {posts.comments.length === 0 && (
+        <p className=" font-semibold text-base text-center  my-5 ">
+          {" "}
+          no comment yet be the firist one ._.{" "}
+        </p>
+      )}
     </div>
   );
 }

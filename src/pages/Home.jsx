@@ -1,10 +1,10 @@
-import Hedeing from "../ui/Hedeing";
 import Header from "../features/home/header";
 import Logout from "../ui/Logout";
 import Main from "../features/home/Main";
 import About from "../features/home/About";
-import Share from "../features/Timeline/Share";
+
 import { UseUserInfo } from "../features/login/useUserInfo";
+import Navbar from "../ui/navbar";
 // import { getdata } from "../servers/apiAuth";
 
 // import { UseUser } from "../features/Auth/useUser";
@@ -21,13 +21,14 @@ function Home() {
   return (
     <div className=" px-3    ">
       <p> hi {user?.name} </p>
+      {/* <Navbar /> */}
       <Header />
       <About />
 
       <Main />
 
       {/* <Hedeing> hi </Hedeing> */}
-      <Logout />
+      {/* <Logout /> */}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Component from "../../ui/editPtofile";
-import Fav from "./Fav";
+import Fav from "../../ui/Fav";
 import FollowBotton from "./FollowBotton";
 
 function Header({ user }) {
@@ -16,13 +16,14 @@ function Header({ user }) {
   console.log(FavMovie);
   return (
     <>
-      <Component user={user} />
       <div className="  pt-5 flex mb-9       ">
         <div className="  shrink-0      ">
           <img
             className=" rounded-full    h-16 w-16  sm:w-24     sm:h-24     "
             src={`${user.avatar}`}
             alt="  profile pic "
+            width="16"
+            height="16"
           />
         </div>
         <div className=" pl-5">
@@ -35,8 +36,8 @@ function Header({ user }) {
             </div>
           </div>
 
-          <p className=" text-sm font-semibold text-gray-900  mb-3 ">
-            Lorem ipsum dolor sit am lor
+          <p className=" text-basr font-semibold text-gray-900  mb-3 ">
+            Lorem ipsum dolor sit amet
           </p>
           <div className=" flex gap-3">
             <p className=" uppercase      font-semibold  text-black  text-base        ">

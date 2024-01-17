@@ -1,9 +1,14 @@
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import Navbar from "./navbar";
 
 function AppLayout() {
   return (
     <div className="">
-      <Outlet />
+      <Suspense fallback={<p>loding dsdcsdcsd</p>}>
+        <Navbar />
+        <Outlet />
+      </Suspense>
     </div>
   );
 }

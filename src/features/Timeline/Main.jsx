@@ -1,23 +1,17 @@
-import { CiHeart } from "react-icons/ci";
-import {
-  FaCopy,
-  FaHeart,
-  FaRegComment,
-  FaRegCopy,
-  FaRegHeart,
-} from "react-icons/fa";
+import { FaHeart, FaRegComment, FaRegHeart } from "react-icons/fa";
 import { UseUpdatePosts } from "./useUpdatePost";
 import { useNavigate } from "react-router-dom";
 
 import UseUserPr from "../Timeline/useUserProfilrPic";
 import { Spinner } from "flowbite-react";
 
+
 function Main({ posts, user }) {
   const { updatePost, isUpdating } = UseUpdatePosts();
 
   const { isLoading, userProfile } = UseUserPr(posts.createById);
   const navigate = useNavigate();
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <></>;
   const { avatar: profilePic } = userProfile;
 
   const isLike = JSON.stringify(posts.likes).includes(`${user.id}`);
@@ -48,21 +42,25 @@ function Main({ posts, user }) {
   return (
     <>
       <div className="      p-2   border-b        ">
+        
         <div className=" justify-between flex ">
           <div className=" flex gap-x-2">
             <img
-              className="   w-[90px] rounded-lg  "
+              className="   w-1/5  md:w-[100px] rounded-lg  "
               src={posts.movie?.Poster}
               alt="Poster photo"
+              width="90"
+              height="auto"
+              loading="lazy"
             />
-            <div className="  ">
-              <h2
+            <div className="   ">
+              <div
                 onClick={() => navigate(`/Test/${posts.movie.imdbID}`)}
-                className=" cursor-pointer hover:underline  sm:w-auto    w-36    font-semibold sm:text-lg text-base   text-gray-950  "
+                className="  hover:underline cursor-pointer  md:w-auto  w-40      font-semibold md:text-lg text-base   text-gray-950  "
               >
                 {posts.movie?.Title}
-              </h2>{" "}
-              <p className=" text-gray-700 text-sm font-semibold">
+              </div>{" "}
+              <p className=" text-gray-700 text-md font-semibold">
                 {posts.movie?.Type}
               </p>
               <p className="  text-gray-700 text-xs font-semibold">
@@ -71,21 +69,23 @@ function Main({ posts, user }) {
             </div>
           </div>
 
-          <div className=" flex    gap-1 mb-2  ">
+          <div className=" flex  md:w-auto   w-28 gap-1  mb-2  ">
             <img
               onClick={() => navigate(`/profile/${posts.createById}`)}
               className="  w-9   h-9     rounded-full "
               src={profilePic ? profilePic : "../../public/download.jpeg"}
               alt=" profile img "
+              height="9"
+              width="9"
             />
-            <div className=" flex">
-              <div className="  text-gray-900 text-sm sm:text-base font-semibold inline-block ml-2 pt-1   ">
-                <span
+            <div className=" ">
+              <div className="  text-gray-900 text-sm md:text-base font-semibold inline-block  pt-1   ">
+                <button
                   onClick={() => navigate(`/profile/${posts.createById}`)}
                   className="cursor-pointer hover:underline"
                 >
                   {posts.createBy}
-                </span>
+                </button>
               </div>
             </div>
           </div>

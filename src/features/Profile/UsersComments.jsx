@@ -6,7 +6,7 @@ function UsersComments({ comment }) {
   console.log(comment);
   const { isLoading, userProfile } = UseUserPr(comment.id);
   const navigate = useNavigate();
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <></>;
 
   const { avatar: profilePic } = userProfile;
   return (

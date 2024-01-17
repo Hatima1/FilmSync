@@ -1,18 +1,25 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import Singup from "./pages/Singup";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Profile from "./features/Profile/Profile";
+
 import PageNotFound from "./pages/PageNotFound";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AppLayout from "./ui/AppLayout";
-import Test from "./pages/Test";
-import Timeline from "./pages/Timeline";
-import Comment from "./pages/Comment";
+// import Home from "./pages/Home";
+// import Profile from "./features/Profile/Profile";
+// import Test from "./pages/Test";
+// import Timeline from "./pages/Timeline";
+// import Comment from "./pages/Comment";
+import { Suspense, lazy } from "react";
+const Home = lazy(() => import("./pages/Home"));
+const Timeline = lazy(() => import("./pages/Timeline"));
+const Test = lazy(() => import("./pages/Test"));
+const Comment = lazy(() => import("./pages/Comment"));
+const Profile = lazy(() => import("./features/Profile/Profile"));
+const Login = lazy(() => import("./pages/Login"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,7 +52,14 @@ function App() {
             <Route path="Test/:MovieId" element={<Test />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
-          <Route path="Login" element={<Login />} />
+          <Route
+            path="Login"
+            element={
+              <Suspense fallback={<p>loooasdas</p>}>
+                <Login />
+              </Suspense>
+            }
+          />
 
           {/* <Route path="Singup" element={<Singup />} /> */}
         </Routes>

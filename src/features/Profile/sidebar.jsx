@@ -4,17 +4,16 @@ function sidebar() {
       <div className=" flex gap-2 ">
         <img
           className="  w-10 h-10     rounded-full "
-          src="../../public/Gravity-023.jpg  "
+          src="/download.jpeg "
+          width={10}
+          height={10}
           alt="profile photo"
         />
         <div className="">
           <p className="   text-base  font-semibold  text-gray-900 ">
             hatim ahmed{" "}
           </p>
-          <p className="   text-xs  font-semibold text-gray-700">
-            {" "}
-            Lorem ipsum Lorem
-          </p>
+          <p className="   text-xs  font-semibold text-gray-700"> asd</p>
         </div>
       </div>
     </div>

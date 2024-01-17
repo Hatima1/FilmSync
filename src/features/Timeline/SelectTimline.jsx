@@ -3,7 +3,8 @@ function SelectTimline({ timeline, settimeline }) {
     <div className=" place-items-center grid grid-cols-2 border-b pt-4">
       <div
         className={
-          timeline === "all" && " text-lg font-semibold text-gray-950   "
+          timeline === "all" &&
+          " text-base  md:text-lg font-semibold text-gray-950   "
         }
       >
         <button onClick={() => settimeline("all")}>Timline</button>
@@ -13,7 +14,8 @@ function SelectTimline({ timeline, settimeline }) {
       </div>
       <div
         className={
-          timeline === "following" && " text-lg font-semibold text-gray-950   "
+          timeline === "following" &&
+          "text-base  md:text-lg font-semibold text-gray-950   "
         }
       >
         <button onClick={() => settimeline("following")}>Following</button>

@@ -9,7 +9,7 @@ import { useMoveBack } from "../hooks/useMoveBack";
 function Comment() {
   return (
     <div className="bg-gray-50 min-h-screen  ">
-      <div className=" grid-cols-1  max-w-7xl mx-auto    grid  sm:grid-cols-[2fr_auto] px-2 py-2 ">
+      <div className=" grid-cols-1  max-w-7xl mx-auto    grid  md:grid-cols-[2fr_auto] px-2 py-2 ">
         <div className="  border-l min-h-screen  ">
           <div className="  items-center flex pl-1 gap-x-1 pb-5 ">
             <IoMdArrowRoundBack
@@ -25,7 +25,7 @@ function Comment() {
           <MyPost />
         </div>
 
-        <div className="  border-l border-r    pt-28 ">
+        <div className="  border-l border-r  hidden md:block   pt-28 ">
           <p className=" text-gray-950 font-bold text-lg ml-2 "> suggestion </p>
           <div className="flex border-t  flex-col gap-3  bg-gray-100  p-2  rounded-tr-xl rounded-br-xl ">
             <Sidebar />

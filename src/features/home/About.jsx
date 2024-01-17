@@ -68,6 +68,8 @@ function About() {
               <img
                 className=" self-center   w-3/4    md:w-3/4 "
                 src="public/12 angry men (1).jpg"
+                alt="angry men imge"
+                loading="lazy"
               />
             </div>
           </div>
