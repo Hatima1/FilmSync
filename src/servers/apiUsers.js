@@ -130,12 +130,12 @@ export async function userId(id) {
 
   const { data, error } = await supabase
     .from("users")
-    .select("avatar")
+    .select("avatar,name")
     .eq("id", id)
     .single();
 
   if (error) throw new Error(error.message);
-  // console.log(data);
+  console.log(data);
 
   return data;
 }

@@ -3,8 +3,6 @@ import { UseUpdatePosts } from "./useUpdatePost";
 import { useNavigate } from "react-router-dom";
 
 import UseUserPr from "../Timeline/useUserProfilrPic";
-import { Spinner } from "flowbite-react";
-
 
 function Main({ posts, user }) {
   const { updatePost, isUpdating } = UseUpdatePosts();
@@ -12,25 +10,12 @@ function Main({ posts, user }) {
   const { isLoading, userProfile } = UseUserPr(posts.createById);
   const navigate = useNavigate();
   if (isLoading) return <></>;
-  const { avatar: profilePic } = userProfile;
+  console.log(userProfile);
+  const { avatar: profilePic, name } = userProfile;
 
   const isLike = JSON.stringify(posts.likes).includes(`${user.id}`);
+  const userFirstName = name.split(" ").slice(0, 1).join("");
 
-  //   {
-  //     "id": "b8149ab4-8388-47e8-b885-e0ee4dd86705",
-  //     "created_at": "2024-01-08T16:05:59.361732+00:00",
-  //     "createBy": "eyad",
-  //     "likes": null,
-  //     "comments": null,
-  //     "caption": null,
-  //     "movie": {
-  //         "Type": "movie",
-  //         "Year": "2008",
-  //         "Title": "Iron Man",
-  //         "Poster": "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",
-  //         "imdbID": "tt0371746"
-  //     }
-  // }
   function handlerEdit() {
     const newLike = isLike
       ? posts.likes.filter((a) => a.id !== user.id)
@@ -42,20 +27,19 @@ function Main({ posts, user }) {
   return (
     <>
       <div className="      p-2   border-b        ">
-        
-        <div className=" justify-between flex ">
+        <div className=" justify-between  flex ">
           <div className=" flex gap-x-2">
             <img
-              className="   w-1/5  md:w-[100px] rounded-lg  "
+              className="    w-24  md:w-[100px] rounded-lg  "
               src={posts.movie?.Poster}
-              alt="Poster photo"
+              alt="movie img"
               width="90"
               height="auto"
               loading="lazy"
             />
             <div className="   ">
               <div
-                onClick={() => navigate(`/Test/${posts.movie.imdbID}`)}
+                onClick={() => navigate(`/details/${posts.movie.imdbID}`)}
                 className="  hover:underline cursor-pointer  md:w-auto  w-40      font-semibold md:text-lg text-base   text-gray-950  "
               >
                 {posts.movie?.Title}
@@ -69,23 +53,24 @@ function Main({ posts, user }) {
             </div>
           </div>
 
-          <div className=" flex  md:w-auto   w-28 gap-1  mb-2  ">
-            <img
-              onClick={() => navigate(`/profile/${posts.createById}`)}
-              className="  w-9   h-9     rounded-full "
-              src={profilePic ? profilePic : "../../public/download.jpeg"}
-              alt=" profile img "
-              height="9"
-              width="9"
-            />
-            <div className=" ">
-              <div className="  text-gray-900 text-sm md:text-base font-semibold inline-block  pt-1   ">
-                <button
-                  onClick={() => navigate(`/profile/${posts.createById}`)}
-                  className="cursor-pointer hover:underline"
-                >
-                  {posts.createBy}
-                </button>
+          <div className=" flex  md:w-auto      gap-1  mb-2  ">
+            <div className=" w-8 md:w-auto   ">
+              <img
+                onClick={() => navigate(`/profile/${posts.createById}`)}
+                className=" md:h-10 md:w-10    w-[33px] h-[33px]     rounded-full "
+                src={profilePic ? profilePic : "../../public/download.jpeg"}
+                alt=" profile img "
+                height="36"
+                width="36"
+              />
+            </div>
+
+            <div className="     text-gray-900 text-sm md:text-base font-semibold     ">
+              <div
+                onClick={() => navigate(`/profile/${posts.createById}`)}
+                className=" cursor-pointer  hover:underline "
+              >
+                {userFirstName}
               </div>
             </div>
           </div>

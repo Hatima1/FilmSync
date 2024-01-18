@@ -12,7 +12,7 @@ function Fav({ post }) {
 
   return (
     <div
-      onClick={() => navigate(`/Test/${post.id}`)}
+      onClick={() => navigate(`/Details/${post.id}`)}
       className=" cursor-pointer   relative    hover:-translate-y-2 transition-all duration-300 shadow-xl   "
     >
       <img

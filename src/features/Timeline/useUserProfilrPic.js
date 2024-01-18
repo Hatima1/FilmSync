@@ -8,7 +8,7 @@ function UseUserPr(id) {
     error,
     data: userProfile,
   } = useQuery({
-    queryKey: ["posts", id],
+    queryKey: ["users", id],
     queryFn: () => userId(id),
   });
   return { isLoading, userProfile, error };

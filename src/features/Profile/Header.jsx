@@ -6,8 +6,8 @@ import FollowBotton from "./FollowBotton";
 function Header({ user }) {
   const [showMore, setshowMore] = useState(false);
   const [active, setactive] = useState("fav");
-  const FavMovie = showMore ? user.fav : user.fav.slice(0, 5);
-  const WhatchList = showMore ? user.watchlist : user.watchlist.slice(0, 5);
+  const FavMovie = showMore ? user.fav : user.fav.slice(0, 4);
+  const WhatchList = showMore ? user.watchlist : user.watchlist.slice(0, 4);
   console.log(WhatchList);
 
   function handlershow() {
@@ -26,9 +26,9 @@ function Header({ user }) {
             height="16"
           />
         </div>
-        <div className=" pl-5">
+        <div className="sm:pl-5 pl-3">
           <div className=" flex gap-3 mb-2 items-center">
-            <p className=" text-2xl font-semibold text-gray-950  ">
+            <p className=" text-lg sm:text-2xl font-semibold text-gray-950  ">
               {user.name}
             </p>
             <div className=" flex gap-2">
@@ -83,7 +83,7 @@ function Header({ user }) {
 
       {/* favmovie */}
       <div className="mb-9 ">
-        <div className="sm:grid-cols-5 grid grid-cols-4     auto-cols-auto  gap-x-4  gap-y-9 px-3  ">
+        <div className="sm:grid-cols-6 grid grid-cols-4     auto-cols-auto  gap-x-4  gap-y-9 px-3  ">
           {active === "fav" &&
             FavMovie.map((postar) => <Fav post={postar} key={postar.id} />)}
           {active === "whatch" &&
@@ -95,11 +95,7 @@ function Header({ user }) {
             onClick={handlershow}
           >
             {" "}
-            {(showMore && FavMovie.length > 4) || WhatchList.length > 4
-              ? showMore
-                ? "SHOW LESS"
-                : "SHOW MORE"
-              : ""}
+            {showMore ? "SHOW LESS" : "SHOW MORE"}
           </button>
         </div>
       </div>

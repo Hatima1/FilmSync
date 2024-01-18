@@ -1,8 +1,6 @@
-import useMovieDetails from "./useMovieDetails";
-import { UseUserInfo } from "../login/useUserInfo";
 import DetilsImg from "../Details/DetilsImg";
 import { useUpdateUser } from "../Profile/useUpdateUser";
-import { Spinner } from "flowbite-react";
+
 import { CiClock2 } from "react-icons/ci";
 import { IoIosText } from "react-icons/io";
 import {
@@ -13,18 +11,8 @@ import {
   FaStar,
 } from "react-icons/fa";
 
-function MovieDet() {
+function MovieDet({ user, movie }) {
   const { updateUser, isUpdating } = useUpdateUser();
-  const { movie, isLoading } = useMovieDetails();
-  const { user, isLoading: lo } = UseUserInfo();
-  if (isLoading)
-    return (
-      <div className=" w-full text-center ">
-        {" "}
-        <Spinner />
-      </div>
-    );
-  console.log(movie);
 
   const iswhachlist = JSON.stringify(user.watchlist).includes(
     `${movie.imdbID}`
@@ -50,9 +38,9 @@ function MovieDet() {
       <DetilsImg movie={movie} />
       <div className=" xl:px-8 xl:mb-16 mb-6 pt-2 border-r    px-2 ">
         <div className=" flex items-center gap-x-1 ">
-          <h2 className=" xl:text-2xl text-lg  font-bold  mb-1  text-gray-950    ">
+          <div className=" xl:text-2xl text-2xl  font-bold  mb-1  text-gray-950    ">
             {movie.Title}
-          </h2>{" "}
+          </div>{" "}
           {/* <span className=" font-semibold text-gray-700">{movie.Year} </span> */}
         </div>
         <p className=" text-gray-500 text-sm mb-3   ">
@@ -111,6 +99,7 @@ function MovieDet() {
         </p>
         <div className=" flex gap-x-2">
           <button
+            disabled={isUpdating}
             onClick={handlerWatchlist}
             className="  flex items-center text-sm  gap-x-1  w-auto     text-center   p-2 font-medium text-white    border  bg-teal-950  "
           >

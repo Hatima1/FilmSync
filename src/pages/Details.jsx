@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { Spinner } from "flowbite-react";
 
 // import StarRating from "../ui/StarRating";
-function Test() {
+function Details() {
   const { MovieId } = useParams();
   const { Posts, isLoading } = usePosts(MovieId);
 
@@ -24,19 +24,23 @@ function Test() {
   // console.log(usersPost);
 
   return (
-    <div className=" max-w-7xl mx-auto  px-4 pt-1   ">
-      <MovieDetails />
-      <div className=" border-t  ">
-        <h2 className=" text-base xl:text-2xl font-semibold mb-5 mt-3 underline  underline-offset-8    text-gray-950 ">
-          {" "}
-          Popular Reviews{" "}
-        </h2>
-        {Posts.map((post) => (
-          <CommentUserDetails post={post} key={post.id} />
-        ))}
+    <div className="bg-gray-50 ">
+      <div className=" max-w-7xl mx-auto  px-4  pt-14  ">
+        <MovieDetails />
+        <div className=" border-t  ">
+          <h2 className="  text-base xl:text-2xl font-semibold  mt-3     inline-block  text-gray-950 ">
+            {" "}
+            Popular Reviews{" "}
+          </h2>
+          <div className="  w-24  xl:w-36   border-b-2 border-teal-900   "></div>
+
+          {Posts.map((post) => (
+            <CommentUserDetails post={post} key={post.id} />
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-export default Test;
+export default Details;

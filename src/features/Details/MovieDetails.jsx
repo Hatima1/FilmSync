@@ -1,15 +1,13 @@
-import {
-  FaBookmark,
-  FaHeart,
-  FaRegBookmark,
-  FaRegHeart,
-  FaStar,
-  FaTicketAlt,
-} from "react-icons/fa";
+import { FaTicketAlt } from "react-icons/fa";
 
 import TecketSelect from "./TecketSelect";
 import TecketForm from "./TecketForm";
 import MovieDet from "./MovieDet";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { useMoveBack } from "../../hooks/useMoveBack";
+import useMovieDetails from "./useMovieDetails";
+import { UseUserInfo } from "../login/useUserInfo";
+import Spinner from "../../ui/Spinner";
 
 // const {
 //   Title: title,
@@ -25,11 +23,34 @@ import MovieDet from "./MovieDet";
 // } = movie;
 
 function MovieDetails() {
+  const { movie, isLoading } = useMovieDetails();
+  const x = useMoveBack();
+
+  const { user } = UseUserInfo();
+
+  if (isLoading)
+    return (
+      <div className=" w-full text-center ">
+        {" "}
+        <Spinner />
+      </div>
+    );
+
   return (
     <>
-      <div className=" xl:mt-10  mb-16  bg-gray-50      rounded-lg shadow-xl   ">
+      <button
+        onClick={x}
+        className=" hover:underline font-semibold text-lg  items-center flex pl-1 gap-x-1  mb-3  "
+      >
+        <IoMdArrowRoundBack
+          className="cursor-pointer hover:bg-gray-200  rounded-full "
+          style={{ fontSize: "20px" }}
+        />
+        back
+      </button>
+      <div className="      border-t mb-16  bg-gray-50      rounded-lg shadow-xl   ">
         <div className="  grid  xl:px-0     xl:grid-cols-[auto_minmax(540px,_1fr)_minmax(0,_1fr)]         rounded-lg  grid-cols-1   ">
-          <MovieDet />
+          <MovieDet movie={movie} user={user} />
 
           {/*            Ticket         */}
 

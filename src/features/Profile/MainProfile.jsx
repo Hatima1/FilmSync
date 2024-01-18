@@ -6,17 +6,22 @@ import Navbar from "../../ui/navbar";
 
 import usePosts from "../Timeline/usePosts";
 import Main from "../Timeline/Main";
+import { useEffect } from "react";
 
 function MainProfile() {
   const { user, isLoading } = useProfile();
   const { Posts, isLoading: lodingpost } = usePosts();
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
   if (isLoading || lodingpost) return <p>loding</p>;
   const ProfilePosts = Posts.filter((post) => post.createById === user.id);
   console.log(user);
 
   return (
-    <div className="   pl-3  ">
-      <div className="  grid-cols-1    grid  sm:grid-cols-[2fr_auto]   ">
+    <div className="   pl-3 mt-12 sm:mt-14 ">
+      <div className="  grid-cols-1    grid  md:grid-cols-[2fr_auto]   ">
         <div className="  ">
           <Header user={user} />
           <div className="  border-t mb-8  ">
@@ -40,11 +45,11 @@ function MainProfile() {
           ))}
         </div>
         <div className="  border-l     pt-10 ">
-          <p className=" text-gray-950 font-bold text-lg ml-2  pt-3 ">
+          <p className=" text-gray-950  font-semibold  text-lg ml-2  pt-3 ">
             {" "}
             suggestion{" "}
           </p>
-          <div className="flex border-t   flex-col gap-2  bg-gray-100  p-2  rounded-tr-lg rounded-br-lg ">
+          <div className="flex border-t   flex-col gap-2  bg-gray-100  p-2  ">
             <Sidebar />
             <Sidebar />
             <Sidebar />

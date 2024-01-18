@@ -1,13 +1,14 @@
-import { Button, Modal, ModalHeader, Spinner, TextInput } from "flowbite-react";
+import { Modal, ModalHeader, Spinner, TextInput } from "flowbite-react";
 import { useState } from "react";
 
 import { useMovies } from "./useMovie";
 import Result from "./result";
 import UseUsersName from "./useUserByname";
 import UserResult from "./userResult";
+import { FaSearch } from "react-icons/fa";
 
 function MovieSearch() {
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState();
   const [userSerch, setuserSerch] = useState();
   const { isLoading, userNamea } = UseUsersName(userSerch);
   const [mov, setmove] = useState("");
@@ -20,17 +21,23 @@ function MovieSearch() {
   // const name = "eyad";
   // const what = userNamea(name);
   // console.log(what);
-  function handlerSerch() {
-    // setuserSerch("");
-    // setuserSerch("eyad");
-  }
+
   console.log(userNamea);
   console.log(error);
   return (
     <>
-      <Button onClick={() => setOpenModal(true)}>Toggle modal</Button>
+      <button
+        className=" hover:text-gray-950  flex items-center  text-sm  sm:text-lg"
+        onClick={() => setOpenModal(true)}
+      >
+        <FaSearch /> search
+      </button>
       <Modal show={openModal} onClose={() => setOpenModal(false)}>
-        <ModalHeader>a</ModalHeader>{" "}
+        <ModalHeader>
+          <p className="  mt-1 text-base font-semibold   self-center  ">
+            search for movie or user
+          </p>
+        </ModalHeader>{" "}
         <div className=" place-items-center grid grid-cols-2 border-b pt-4">
           <div
             className={
@@ -85,14 +92,6 @@ function MovieSearch() {
                 onChange={(e) => setuserSerch(e.target.value)}
               />
               <div className=" flex justify-end  mt-1">
-                {/* <button
-                  onClick={handlerSerch}
-                  className=" bg-teal-900  rounded  w-20 p-1 text-white text-base    "
-                >
-                  {" "}
-                  search{" "}
-                </button> */}
-
                 {isLoading && (
                   <div className=" w-full text-center ">
                     {" "}
@@ -109,7 +108,11 @@ function MovieSearch() {
 
               {!isLoading &&
                 userNamea?.map((user) => (
-                  <UserResult key={user.id} user={user} />
+                  <UserResult
+                    setOpenModal={setOpenModal}
+                    key={user.id}
+                    user={user}
+                  />
                 ))}
               {/* <UserResult key={userNamea.id} user={userNamea} /> */}
             </div>

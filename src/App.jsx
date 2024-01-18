@@ -8,15 +8,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AppLayout from "./ui/AppLayout";
-// import Home from "./pages/Home";
-// import Profile from "./features/Profile/Profile";
-// import Test from "./pages/Test";
-// import Timeline from "./pages/Timeline";
-// import Comment from "./pages/Comment";
 import { Suspense, lazy } from "react";
 const Home = lazy(() => import("./pages/Home"));
 const Timeline = lazy(() => import("./pages/Timeline"));
-const Test = lazy(() => import("./pages/Test"));
+const Details = lazy(() => import("./pages/Details"));
 const Comment = lazy(() => import("./pages/Comment"));
 const Profile = lazy(() => import("./features/Profile/Profile"));
 const Login = lazy(() => import("./pages/Login"));
@@ -49,7 +44,7 @@ function App() {
             <Route path="timeline" element={<Timeline />} />
             <Route path="Profile/:myname" element={<Profile />} />
             <Route path="comment/:id" element={<Comment />} />
-            <Route path="Test/:MovieId" element={<Test />} />
+            <Route path="details/:MovieId" element={<Details />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
           <Route
@@ -71,17 +66,19 @@ function App() {
         containerStyle={{ margin: "8px" }}
         toastOptions={{
           success: {
-            duration: 3000,
+            duration: 2000,
           },
           error: {
-            duration: 5000,
+            duration: 3000,
           },
+
           style: {
             fontSize: "16px",
             maxWidth: "500px",
             padding: "16px 24px",
-            backgroundColor: "var(--color-grey-0)",
-            color: "var(--color-grey-700)",
+            backgroundColor: "teal",
+            color: "white",
+            zIndex: 10,
           },
         }}
       />

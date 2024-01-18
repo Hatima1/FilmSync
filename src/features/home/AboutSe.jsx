@@ -1,6 +1,6 @@
 function AboutSe() {
   return (
-    <div className="mb-14 md:mb-28">
+    <div className="mb-14 md:mb-16">
       <div className=" max-w-6xl mx-auto px-2 my-9 ">
         <div className="border-t-2 border w-10   border-black  mb-2  "></div>
         <div className="   mb-7  ">

@@ -4,21 +4,20 @@ import usePosts from "../features/Timeline/usePosts";
 import Sidebar from "../features/Profile/sidebar";
 
 import SelectTimline from "../features/Timeline/SelectTimline";
-// import { UseMove } from "../features/movie/useMovie";
-import MovieSearch from "../features/movie/movieSearch";
+
 import { UseUserInfo } from "../features/login/useUserInfo";
-import { useState } from "react";
-import Navbar from "../ui/navbar";
-import PhoneNav from "../ui/PhoneNav";
-import Logout from "../ui/Logout";
+import { useEffect, useState } from "react";
+
 import Spinner from "../ui/Spinner";
 function Timeline() {
   const { user, isLoading: islo } = UseUserInfo();
   const { Posts, isLoading } = usePosts();
   const [timeline, settimeline] = useState("all");
-  // const { movie, isLoading: s } = UseMove();
 
-  // const f = Posts.map((a) => );
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   if (isLoading || islo) return <Spinner />;
   const Myfrind = JSON.stringify(user.following);
@@ -27,19 +26,14 @@ function Timeline() {
 
   const TimeLine = timeline === "all" ? Posts : followingTi;
 
-  const sortedItemsDesc = Posts.sort(
-    (a, b) => new Date(b.created_at) - new Date(a.created_at)
-  );
-
   return (
     <div className="bg-gray-50 min-h-screen  ">
-      <div className="max-w-7xl mx-auto    ">
+      <div className="max-w-7xl mx-auto  pt-14    ">
         <div className="  fixed w-full    ">{/* <PhoneNav />{" "} */}</div>
         {/* <Navbar /> */}
 
         <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]  px-1   ">
           <div>
-            {/* <MovieSearch /> */}
             <SelectTimline timeline={timeline} settimeline={settimeline} />
             <Share user={user} />
 
@@ -48,12 +42,16 @@ function Timeline() {
             ))}
           </div>
 
-          <div className="  border-l border-r  min-h-screen sm:block   hidden   ">
-            <h1 className=" text-gray-950  font-semibold  text-lg ml-2 ">
+          <div className="  border-l border-r  min-h-screen sm:block    hidden   ">
+            <h1 className=" mt-24  text-gray-950  font-semibold  text-lg ml-2 ">
               {" "}
               suggestion{" "}
             </h1>
-            <div className="flex border-t  border-b flex-col gap-3  bg-gray-100  p-2  rounded-tr-xl rounded-br-xl ">
+            <div className="flex border-t  border-b flex-col gap-3  bg-gray-100  p-2   ">
+              <Sidebar />
+              <Sidebar />
+              <Sidebar />
+              <Sidebar />
               <Sidebar />
             </div>
           </div>

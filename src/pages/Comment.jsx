@@ -8,18 +8,24 @@ import { useMoveBack } from "../hooks/useMoveBack";
 
 function Comment() {
   return (
-    <div className="bg-gray-50 min-h-screen  ">
+    <div className="bg-gray-50 min-h-screen   pt-14 ">
       <div className=" grid-cols-1  max-w-7xl mx-auto    grid  md:grid-cols-[2fr_auto] px-2 py-2 ">
         <div className="  border-l min-h-screen  ">
-          <div className="  items-center flex pl-1 gap-x-1 pb-5 ">
+          <div className="   items-center flex pl-1 gap-x-1 pb-5 ">
             <IoMdArrowRoundBack
               onClick={useMoveBack()}
-              className="cursor-pointer hover:bg-gray-200 p-1 rounded-full "
+              className=" hover:bg-gray-200 p-1 rounded-full "
               style={{ fontSize: "25px" }}
             />
 
             <div>
-              <p className=" text-xl font-semibold"> post </p>
+              <p
+                onClick={useMoveBack()}
+                className=" cursor-pointer  inline-block hover:underline  text-base sm:text-xl font-semibold"
+              >
+                {" "}
+                back{" "}
+              </p>
             </div>
           </div>
           <MyPost />

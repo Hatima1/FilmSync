@@ -6,20 +6,23 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { UseUserInfo } from "../features/login/useUserInfo";
+import MovieSearch from "../features/movie/movieSearch";
 
 // import { HiArrowLeftOnRectangle } from "react-icons/hi2";
 
 function Navbar() {
   const { user } = UseUserInfo();
-  const navigate = useNavigate();
+  const location = useLocation();
+  const userFirstName = user.name.split(" ").slice(0, 1).join("");
+
   return (
-    <div className=" rounded-md    ">
-      <div className=" text-sm  font-medium text-gray-800  bg-slate-50 flex justify-between items-center p-2">
+    <div className=" rounded-md  z-50 bg-slate-50  absolute   md:fixed w-full shadow-lg  ">
+      <div className=" text-sm max-w-7xl mx-auto   font-medium text-gray-700  flex justify-between items-center p-2">
         <div>dont konw </div>
 
-        <div className=" flex   ">
+        <div className="  hidden  md:flex  ">
           <div className=" gap-1    hover:text-gray-950  mr-20 text-lg flex items-center ">
             <div
               className={`   ${
@@ -58,7 +61,7 @@ function Navbar() {
           </div>
 
           <div className="  text-lg flex items-center">
-            <FaSearch /> srech
+            <MovieSearch />
           </div>
         </div>
         <div>
@@ -68,14 +71,14 @@ function Navbar() {
               <IoMdNotifications />
               notification
             </div> */}
-            <div className=" ">
+            <div className=" font-semibold text-gray-950 md:block hidden ">
               <Link
                 className="items-center text-lg flex"
                 to={`/profile/${user.id}`}
               >
                 <img
                   className="  w-8   h-8 mr-1     rounded-full "
-                  src="../../public/Gravity-023.jpg  "
+                  src={user.avatar ? user.avatar : "../../public/download.jpeg"}
                   alt="profile"
                 />
                 <FaRegUser />
@@ -87,12 +90,14 @@ function Navbar() {
                       : ""
                   }  `}
                 >
-                  {user.name}
+                  {userFirstName}
                 </p>
               </Link>
             </div>
-            <div className=" text-xl text-black ">
-              <FaSignOutAlt />
+            <div className=" flex gap-1  items-center text-xl text-black ">
+              <span className=" text-base font-semibold ">Logout </span>
+              {"  "}
+              <FaSignOutAlt /> {"  "}
             </div>
           </div>
         </div>

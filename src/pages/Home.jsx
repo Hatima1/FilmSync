@@ -4,18 +4,16 @@ import Main from "../features/home/Main";
 import About from "../features/home/About";
 
 import { UseUserInfo } from "../features/login/useUserInfo";
-import Navbar from "../ui/navbar";
-// import { getdata } from "../servers/apiAuth";
 
-// import { UseUser } from "../features/Auth/useUser";
-// import { useState } from "react";
+import { useEffect } from "react";
+//
 
 function Home() {
-  // const [name, setname] = useState();
-  // const { user } = UseUser();
-  // console.log(user);
-  // const data = getdata({ id: user.id }).then((data) => setname(data.name));
   const { isLoading, user } = UseUserInfo();
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
   if (isLoading) return <p>loding</p>;
 
   return (

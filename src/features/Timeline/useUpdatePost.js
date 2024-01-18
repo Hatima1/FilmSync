@@ -8,7 +8,6 @@ export function UseUpdatePosts() {
   const { mutate: updatePost, isLoading: isUpdating } = useMutation({
     mutationFn: updatePostAPi,
     onSuccess: () => {
-      toast.success("Post  successfully updated");
       queryClient.invalidateQueries(["Posts"]);
     },
     onError: (err) => toast.error(err.message),
