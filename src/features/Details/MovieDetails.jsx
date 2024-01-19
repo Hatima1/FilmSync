@@ -8,6 +8,7 @@ import { useMoveBack } from "../../hooks/useMoveBack";
 import useMovieDetails from "./useMovieDetails";
 import { UseUserInfo } from "../login/useUserInfo";
 import Spinner from "../../ui/Spinner";
+import { useEffect } from "react";
 
 // const {
 //   Title: title,
@@ -24,6 +25,10 @@ import Spinner from "../../ui/Spinner";
 
 function MovieDetails() {
   const { movie, isLoading } = useMovieDetails();
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
   const x = useMoveBack();
 
   const { user } = UseUserInfo();

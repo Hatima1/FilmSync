@@ -2,7 +2,7 @@ function AboutFI() {
   return (
     <div className=" mb-14 md:mb-28">
       <div className=" max-w-6xl mx-auto px-2 my-9  items-center   ">
-        <div className="border-t-2 border w-10  border-red-800  mb-2  "></div>
+        <div className="border-t-2 border w-10  border-red-700  mb-2  "></div>
         <div className="   mb-7  ">
           <h2 className=" md:text-3xl text-lg font-semibold text-teal-900 ">
             "Fight Club": dentity in Chaos

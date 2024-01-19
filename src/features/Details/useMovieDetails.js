@@ -12,7 +12,7 @@ function useMovieDetails() {
     error,
     data: movie,
   } = useQuery({
-    queryKey: ["movieDetails"],
+    queryKey: ["s", MovieId],
     queryFn: () => getmovie(MovieId),
   });
   return { isLoading, movie, error };

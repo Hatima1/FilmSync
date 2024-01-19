@@ -8,7 +8,7 @@ function AppLayout() {
     <div className="">
       <Suspense fallback={<p>loding dsdcsdcsd</p>}>
         <Navbar />
-        {/* <PhoneNav /> */}
+        <PhoneNav />
         <Outlet />
       </Suspense>
     </div>

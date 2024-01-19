@@ -1,24 +1,19 @@
-import {
-  FaCompass,
-  FaHome,
-  FaRegUser,
-  FaSearch,
-  FaSignOutAlt,
-} from "react-icons/fa";
-import { IoMdNotifications } from "react-icons/io";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { UseUserInfo } from "../features/login/useUserInfo";
-import MovieSearch from "../features/movie/movieSearch";
+import { FaCompass, FaHome, FaRegUser, FaSignOutAlt } from "react-icons/fa";
 
-// import { HiArrowLeftOnRectangle } from "react-icons/hi2";
+import { Link, useLocation } from "react-router-dom";
+import { UseUserInfo } from "../features/login/useUserInfo";
+import { Uselogout } from "../features/Auth/useLogout";
+import MovieSearch from "../features/movie/movieSearch";
 
 function Navbar() {
   const { user } = UseUserInfo();
+  const { isLoading, logout } = Uselogout();
   const location = useLocation();
-  const userFirstName = user.name.split(" ").slice(0, 1).join("");
+
+  const userFirstName = user.name.split(" ").slice(0, 1)?.join("");
 
   return (
-    <div className=" rounded-md  z-50 bg-slate-50  absolute   md:fixed w-full shadow-lg  ">
+    <div className=" md:rounded-md rounded  z-50 bg-slate-50  absolute md:p-0    md:fixed w-full shadow-lg  ">
       <div className=" text-sm max-w-7xl mx-auto   font-medium text-gray-700  flex justify-between items-center p-2">
         <div>dont konw </div>
 
@@ -56,7 +51,7 @@ function Navbar() {
                   : ""
               }`}
             >
-              <Link to="/timeline">expolor</Link>
+              <Link to="/timeline">Explore</Link>
             </div>
           </div>
 
@@ -94,11 +89,14 @@ function Navbar() {
                 </p>
               </Link>
             </div>
-            <div className=" flex gap-1  items-center text-xl text-black ">
+            <button
+              onClick={() => logout()}
+              className="  flex gap-1  items-center text-sm md:text-xl text-gray-600 hover:text-gray-950 "
+            >
               <span className=" text-base font-semibold ">Logout </span>
               {"  "}
               <FaSignOutAlt /> {"  "}
-            </div>
+            </button>
           </div>
         </div>
       </div>

@@ -13,13 +13,20 @@ function About() {
     <>
       <div className="  mb-14 md:mb-28">
         <div className=" max-w-6xl mx-auto px-2  ">
+          <div>
+            <h2 className="  inline-block   text-gray-800  font-semibold mb-5 md:mb-10 text-sm md:text-xl ">
+              {" "}
+              weekly movie recommendation{" "}
+              <div className=" border-gray-900 border-t-2"></div>
+            </h2>
+          </div>
+
           <div className="border-t-2 border w-10  border-yellow-500  mb-2  "></div>
           <div className="   mb-7  ">
             <h2 className="  md:text-3xl text-lg font-semibold text-teal-900 ">
               "12 Angry Men": Exploring Justice and Humanity
             </h2>
           </div>
-
           <div className=" grid-cols-1    md:grid-cols-2    grid gap-9   md:gap-14   ">
             <div>
               <div>

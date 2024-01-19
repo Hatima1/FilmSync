@@ -11,7 +11,6 @@ export default function useEditfollower() {
       edittt({ profileUser, updatefo }),
     onSuccess: () => {
       queryClientt.invalidateQueries({ queryKey: ["users"] });
-      toast.success("edite successfuly add");
     },
     onError: (er) => toast.error(er.message),
   });

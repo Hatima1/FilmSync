@@ -2,11 +2,11 @@ import Header from "./Header";
 
 import useProfile from "./useProfile";
 import Sidebar from "./sidebar";
-import Navbar from "../../ui/navbar";
 
 import usePosts from "../Timeline/usePosts";
 import Main from "../Timeline/Main";
 import { useEffect } from "react";
+import Spinner from "../../ui/Spinner";
 
 function MainProfile() {
   const { user, isLoading } = useProfile();
@@ -15,12 +15,11 @@ function MainProfile() {
     // Scroll to the top when the component mounts
     window.scrollTo(0, 0);
   }, []);
-  if (isLoading || lodingpost) return <p>loding</p>;
+  if (isLoading || lodingpost) return <Spinner />;
   const ProfilePosts = Posts.filter((post) => post.createById === user.id);
-  console.log(user);
 
   return (
-    <div className="   pl-3 mt-12 sm:mt-14 ">
+    <div className="   pl-3 mt-10 sm:mt-14 ">
       <div className="  grid-cols-1    grid  md:grid-cols-[2fr_auto]   ">
         <div className="  ">
           <Header user={user} />
@@ -44,12 +43,12 @@ function MainProfile() {
             <Main user={user} posts={posts} key={posts.id} />
           ))}
         </div>
-        <div className="  border-l     pt-10 ">
+        <div className="  border-l  hidden md:block     pt-10 ">
           <p className=" text-gray-950  font-semibold  text-lg ml-2  pt-3 ">
             {" "}
             suggestion{" "}
           </p>
-          <div className="flex border-t   flex-col gap-2  bg-gray-100  p-2  ">
+          <div className=" hidden border-t  md:flex   flex-col gap-2  bg-gray-100  p-2  ">
             <Sidebar />
             <Sidebar />
             <Sidebar />

@@ -16,6 +16,8 @@ function UsersComments({ comment }) {
           className="   w-11   h-11     rounded-full "
           src={profilePic ? profilePic : "../../public/download.jpeg"}
           alt="profilePic"
+          width="11"
+          height="11"
         />
         <div>
           <div className="   font-semibold text-gray-950 text-base  inline-block        ">

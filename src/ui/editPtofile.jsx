@@ -10,7 +10,6 @@ import {
 } from "flowbite-react";
 import { useState } from "react";
 import { useUpdateUser } from "../features/Profile/useUpdateUser";
-import useProfile from "../features/Profile/useProfile";
 
 function Component({ user }) {
   console.log(user);
@@ -18,7 +17,7 @@ function Component({ user }) {
 
   const [openModal, setOpenModal] = useState(false);
   const [name, setname] = useState(user.name);
-  const [bio, setbio] = useState("");
+  const [bio, setbio] = useState(user.bio);
   const [avatar, setAvatar] = useState(null);
   if (isUpdating) return <p>isLoding</p>;
 
@@ -33,6 +32,7 @@ function Component({ user }) {
     };
     console.log(UpdateDetails);
     updateUser({ user, UpdateDetails });
+    setOpenModal(false);
   }
 
   return (
@@ -40,7 +40,7 @@ function Component({ user }) {
       {/* <Button onClick={() => setOpenModal(true)}>Toggle modal</Button> */}
       <button
         onClick={() => setOpenModal(true)}
-        className=" text-xs  sm:text-sm    text-center   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full  "
+        className=" text-xs  sm:text-sm    text-center   p-1  font-semibold  text-white       bg-teal-950 rounded-md       "
       >
         edit profile
       </button>
@@ -77,6 +77,7 @@ function Component({ user }) {
                 <Label htmlFor="password" value="bio" />
               </div>
               <Textarea
+                value={bio}
                 onChange={(event) => setbio(event.target.value)}
                 id="bio"
                 type="bio"

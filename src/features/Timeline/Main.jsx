@@ -3,6 +3,7 @@ import { UseUpdatePosts } from "./useUpdatePost";
 import { useNavigate } from "react-router-dom";
 
 import UseUserPr from "../Timeline/useUserProfilrPic";
+import Spinner from "../../ui/Spinner";
 
 function Main({ posts, user }) {
   const { updatePost, isUpdating } = UseUpdatePosts();
@@ -14,7 +15,7 @@ function Main({ posts, user }) {
   const { avatar: profilePic, name } = userProfile;
 
   const isLike = JSON.stringify(posts.likes).includes(`${user.id}`);
-  const userFirstName = name.split(" ").slice(0, 1).join("");
+  const userFirstName = name.split(" ").slice(0, 1)?.join("");
 
   function handlerEdit() {
     const newLike = isLike
@@ -44,7 +45,7 @@ function Main({ posts, user }) {
               >
                 {posts.movie?.Title}
               </div>{" "}
-              <p className=" text-gray-700 text-md font-semibold">
+              <p className=" text-gray-700 text-sm font-semibold">
                 {posts.movie?.Type}
               </p>
               <p className="  text-gray-700 text-xs font-semibold">
@@ -79,7 +80,7 @@ function Main({ posts, user }) {
         <div className="   text-gray-800  py-2 text-left space-y-4">
           <p
             onClick={() => navigate(`/comment/${posts.id}`)}
-            className=" cursor-pointer   text-base  font-medium text-gray-900"
+            className=" cursor-pointer   text-base font-semibold  text-gray-800"
           >
             {" "}
             {posts.caption}{" "}

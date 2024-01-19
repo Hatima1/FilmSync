@@ -10,7 +10,6 @@ export default function useEditUser() {
     mutationFn: ({ user, update }) => edit({ user, update }),
     onSuccess: () => {
       queryClientt.invalidateQueries({ queryKey: ["loginuser"] });
-      toast.success("edite successfuly add");
     },
     onError: (er) => toast.error(er.message),
   });

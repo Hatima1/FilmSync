@@ -16,7 +16,7 @@ function Result({ movie }) {
           </div>
           <div>
             <p
-              onClick={() => navigate(`/Test/${movie.imdbID}`)}
+              onClick={() => navigate(`/timeline/${movie.imdbID}`)}
               className=" cursor-pointer hover:underline font-semibold text-base text-gray-900"
             >
               {movie.Title}{" "}

@@ -12,7 +12,7 @@ function useCurPost() {
     error,
     data: CurPost,
   } = useQuery({
-    queryKey: ["CurPosts"],
+    queryKey: ["CurPosts", id],
     queryFn: () => getCurPost(id),
   });
   return { isLoading, CurPost, error };

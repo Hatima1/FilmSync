@@ -1,3 +1,4 @@
+import { Spinner } from "flowbite-react";
 import Component from "../../ui/editPtofile";
 import { UseUserInfo } from "../login/useUserInfo";
 import useEditfollower from "./usefollower";
@@ -8,7 +9,8 @@ function FollowBotton({ profileUser }) {
   const { isEditing, edituser } = useEditUser();
   const { editFollower, isLoading: lo } = useEditfollower();
 
-  if (isLoading || isEditing || lo) return <p>lol</p>;
+  if (isLoading || isEditing || lo) return <Spinner />;
+
   const myPtofile = user.id === profileUser.id;
 
   const authUserFollowingData = user.following;
@@ -44,15 +46,17 @@ function FollowBotton({ profileUser }) {
         <Component user={user} />
       ) : isFollowing ? (
         <button
+          disabled={lo}
           onClick={handlerUnfollow}
-          className="text-sm   w-20 text-center   p-1 font-medium text-white    border  bg-teal-950   rounded-full "
+          className="text-sm   w-20 text-center   p-1 font-medium text-white hover:bg-teal-900     border  bg-teal-950   rounded-full "
         >
           unfollow
         </button>
       ) : (
         <button
+          disabled={lo}
           onClick={handlerFollow}
-          className="text-sm   w-20 text-center   p-1 font-medium text-white    border  bg-teal-950   rounded-full "
+          className="text-sm   w-20 text-center   p-1 font-medium text-white    border bg-teal-950  hover:bg-teal-900  rounded-full "
         >
           Follow
         </button>

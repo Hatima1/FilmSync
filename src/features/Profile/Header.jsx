@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Component from "../../ui/editPtofile";
+
 import Fav from "../../ui/Fav";
 import FollowBotton from "./FollowBotton";
 
 function Header({ user }) {
   const [showMore, setshowMore] = useState(false);
   const [active, setactive] = useState("fav");
-  const FavMovie = showMore ? user.fav : user.fav.slice(0, 4);
-  const WhatchList = showMore ? user.watchlist : user.watchlist.slice(0, 4);
+  const FavMovie = showMore ? user?.fav : user.fav;
+  const WhatchList = showMore ? user?.watchlist : user.watchlist;
   console.log(WhatchList);
 
   function handlershow() {
@@ -19,16 +19,16 @@ function Header({ user }) {
       <div className="  pt-5 flex mb-9       ">
         <div className="  shrink-0      ">
           <img
-            className=" rounded-full    h-16 w-16  sm:w-24     sm:h-24     "
-            src={`${user.avatar}`}
+            className=" rounded-full    h-16 w-16  md:w-24     md:h-24     "
+            src={user.avatar ? user.avatar : "../../public/download.jpeg"}
             alt="  profile pic "
             width="16"
             height="16"
           />
         </div>
-        <div className="sm:pl-5 pl-3">
-          <div className=" flex gap-3 mb-2 items-center">
-            <p className=" text-lg sm:text-2xl font-semibold text-gray-950  ">
+        <div className="md:pl-5 pl-3">
+          <div className=" flex gap-3 mb-1 items-center">
+            <p className=" text-lg md:text-2xl font-semibold text-gray-950  ">
               {user.name}
             </p>
             <div className=" flex gap-2">
@@ -36,17 +36,30 @@ function Header({ user }) {
             </div>
           </div>
 
-          <p className=" text-basr font-semibold text-gray-900  mb-3 ">
-            Lorem ipsum dolor sit amet
+          <p className="  text-xs  md:text-sm font-semibold text-gray-800  mb-3  pr-10  ">
+            {user.bio.length !== 0 ? (
+              user.bio
+            ) : (
+              <p className=" text-gray-800 ">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consequatur omnis
+              </p>
+            )}
           </p>
           <div className=" flex gap-3">
-            <p className=" uppercase      font-semibold  text-black  text-base        ">
-              {user.following.length}{" "}
-              <span className=" text-gray-700  text-sm "> following</span>
+            <p className=" uppercase      font-semibold  text-black  md:text-base   text-sm        ">
+              {user.following?.length}{" "}
+              <span className=" text-gray-700  md:text-base text-xs ">
+                {" "}
+                following
+              </span>
             </p>
-            <p className=" uppercase      font-semibold  text-black  text-base   ">
-              {user.follower.length}
-              <span className=" text-gray-700  text-sm ">followers</span>
+            <p className=" uppercase      font-semibold  text-black  md:text-base    text-sm   ">
+              {user.follower?.length}
+              <span className=" text-gray-700  text-xs md:text-base ">
+                {" "}
+                followers
+              </span>
             </p>
           </div>
         </div>
@@ -64,7 +77,7 @@ function Header({ user }) {
               " border-b-[2px] border-teal-950 font-semibold  "
             }  `}
           >
-            {user.fav.length} FAVORITE FILMS
+            {user.fav?.length} FAVORITE FILMS
           </button>
           <button
             onClick={() => {
@@ -76,7 +89,7 @@ function Header({ user }) {
               " border-b-[2px] border-teal-950 font-semibold  "
             }  `}
           >
-            {user.watchlist.length} WHATCH LIST
+            {user.watchlist?.length} WHATCH LIST
           </button>
         </div>
       </div>
@@ -85,13 +98,13 @@ function Header({ user }) {
       <div className="mb-9 ">
         <div className="sm:grid-cols-6 grid grid-cols-4     auto-cols-auto  gap-x-4  gap-y-9 px-3  ">
           {active === "fav" &&
-            FavMovie.map((postar) => <Fav post={postar} key={postar.id} />)}
+            FavMovie?.map((postar) => <Fav post={postar} key={postar.id} />)}
           {active === "whatch" &&
-            WhatchList.map((postar) => <Fav post={postar} key={postar.id} />)}
+            WhatchList?.map((postar) => <Fav post={postar} key={postar.id} />)}
         </div>
         <div className=" text-end  font-bold   text-black  text-sm mr-2 mt-4 ">
           <button
-            className="  hover:underline underline-offset-4 "
+            className=" text-xs  hover:underline underline-offset-4 "
             onClick={handlershow}
           >
             {" "}

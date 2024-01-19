@@ -30,22 +30,24 @@ function MovieSearch() {
         className=" hover:text-gray-950  flex items-center  text-sm  sm:text-lg"
         onClick={() => setOpenModal(true)}
       >
-        <FaSearch /> search
+        <FaSearch /> Search
       </button>
       <Modal show={openModal} onClose={() => setOpenModal(false)}>
         <ModalHeader>
-          <p className="  mt-1 text-base font-semibold   self-center  ">
-            search for movie or user
+          <p className="  mt-1 text-lg font-semibold   self-center  ">
+            Search For Movie or User
           </p>
         </ModalHeader>{" "}
-        <div className=" place-items-center grid grid-cols-2 border-b pt-4">
+        <div className="  text-sm sm:text-base place-items-center grid grid-cols-2 border-b pt-2">
           <div
             className={
               select === "serchMovie" &&
               " text-lg font-semibold text-gray-950   "
             }
           >
-            <button onClick={() => setselect("serchMovie")}>Movie</button>
+            <button className=" " onClick={() => setselect("serchMovie")}>
+              Movie
+            </button>
             {select === "serchMovie" && (
               <div className=" border-t-2 border-teal-950"></div>
             )}

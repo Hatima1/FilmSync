@@ -1,5 +1,5 @@
 import Header from "../features/home/header";
-import Logout from "../ui/Logout";
+
 import Main from "../features/home/Main";
 import About from "../features/home/About";
 

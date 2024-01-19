@@ -8,7 +8,7 @@ import { useMoveBack } from "../hooks/useMoveBack";
 
 function Comment() {
   return (
-    <div className="bg-gray-50 min-h-screen   pt-14 ">
+    <div className="bg-gray-50 min-h-screen  pt-10 md:pt-14 ">
       <div className=" grid-cols-1  max-w-7xl mx-auto    grid  md:grid-cols-[2fr_auto] px-2 py-2 ">
         <div className="  border-l min-h-screen  ">
           <div className="   items-center flex pl-1 gap-x-1 pb-5 ">
