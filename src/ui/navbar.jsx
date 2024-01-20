@@ -5,6 +5,8 @@ import { UseUserInfo } from "../features/login/useUserInfo";
 import { Uselogout } from "../features/Auth/useLogout";
 import MovieSearch from "../features/movie/movieSearch";
 
+import { MdMovie } from "react-icons/md";
+
 function Navbar() {
   const { user } = UseUserInfo();
   const { isLoading, logout } = Uselogout();
@@ -15,7 +17,10 @@ function Navbar() {
   return (
     <div className=" md:rounded-md rounded  z-50 bg-slate-50  absolute md:p-0    md:fixed w-full shadow-lg  ">
       <div className=" text-sm max-w-7xl mx-auto   font-medium text-gray-700  flex justify-between items-center p-2">
-        <div>dont konw </div>
+        <div className=" flex">
+          <img className="  h-10" src="icons8-comedy-100.png" alt="" />
+          <div>dont kon </div>
+        </div>
 
         <div className="  hidden  md:flex  ">
           <div className=" gap-1    hover:text-gray-950  mr-20 text-lg flex items-center ">

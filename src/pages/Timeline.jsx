@@ -29,7 +29,7 @@ function Timeline() {
   return (
     <div className="bg-gray-50 min-h-screen  ">
       <div className="max-w-7xl mx-auto pt-10  md:pt-14    ">
-        <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]  px-1   ">
+        <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]   ">
           <div>
             <SelectTimline timeline={timeline} settimeline={settimeline} />
             <Share user={user} />

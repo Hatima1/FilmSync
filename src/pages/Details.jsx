@@ -18,9 +18,10 @@ function Details() {
         <Spinner />
       </div>
     );
+  console.log(Posts);
 
   // const CommentAboutMovie = Posts.map((a) =>);
-  console.log(Posts);
+
   // console.log(usersPost);
 
   return (

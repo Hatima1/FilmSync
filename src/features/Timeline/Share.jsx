@@ -23,6 +23,7 @@ function Share({ user }) {
       createById: user.id,
       movieid: movie.imdbID,
       comments: [],
+      createat: Date.now(),
     };
     setmovie("");
 

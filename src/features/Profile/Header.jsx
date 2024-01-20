@@ -6,8 +6,9 @@ import FollowBotton from "./FollowBotton";
 function Header({ user }) {
   const [showMore, setshowMore] = useState(false);
   const [active, setactive] = useState("fav");
-  const FavMovie = showMore ? user?.fav : user.fav;
-  const WhatchList = showMore ? user?.watchlist : user.watchlist;
+  // const FavMovie = showMore ? movie : movie.slice(0, 7);
+  const FavMovie = showMore ? user?.fav : user.fav.slice(0, 4);
+  const WhatchList = showMore ? user?.watchlist : user.watchlist.slice(0, 4);
   console.log(WhatchList);
 
   function handlershow() {
@@ -37,14 +38,7 @@ function Header({ user }) {
           </div>
 
           <p className="  text-xs  md:text-sm font-semibold text-gray-800  mb-3  pr-10  ">
-            {user.bio.length !== 0 ? (
-              user.bio
-            ) : (
-              <p className=" text-gray-800 ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Consequatur omnis
-              </p>
-            )}
+            {user.bio ? user.bio : <p className=" text-gray-800 ">NO Bio </p>}
           </p>
           <div className=" flex gap-3">
             <p className=" uppercase      font-semibold  text-black  md:text-base   text-sm        ">
@@ -104,7 +98,11 @@ function Header({ user }) {
         </div>
         <div className=" text-end  font-bold   text-black  text-sm mr-2 mt-4 ">
           <button
-            className=" text-xs  hover:underline underline-offset-4 "
+            className={`  ${
+              user.fav.length > 4 || user.watchlist.length > 4
+                ? "  inline"
+                : "hidden"
+            }  text-xs  hover:underline underline-offset-4 `}
             onClick={handlershow}
           >
             {" "}

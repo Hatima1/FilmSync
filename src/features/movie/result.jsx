@@ -1,7 +1,7 @@
 import { FaCalendarDay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-function Result({ movie }) {
+function Result({ movie, setOpenModal }) {
   const navigate = useNavigate();
   return (
     <>
@@ -16,7 +16,10 @@ function Result({ movie }) {
           </div>
           <div>
             <p
-              onClick={() => navigate(`/timeline/${movie.imdbID}`)}
+              onClick={() => {
+                setOpenModal(false);
+                navigate(`/details/${movie.imdbID}`);
+              }}
               className=" cursor-pointer hover:underline font-semibold text-base text-gray-900"
             >
               {movie.Title}{" "}

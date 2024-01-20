@@ -3,7 +3,8 @@ import { UseUpdatePosts } from "./useUpdatePost";
 import { useNavigate } from "react-router-dom";
 
 import UseUserPr from "../Timeline/useUserProfilrPic";
-import Spinner from "../../ui/Spinner";
+
+import { timeAgo } from "../../ui/Timeago";
 
 function Main({ posts, user }) {
   const { updatePost, isUpdating } = UseUpdatePosts();
@@ -16,6 +17,7 @@ function Main({ posts, user }) {
 
   const isLike = JSON.stringify(posts.likes).includes(`${user.id}`);
   const userFirstName = name.split(" ").slice(0, 1)?.join("");
+  const time = timeAgo(posts.createat);
 
   function handlerEdit() {
     const newLike = isLike
@@ -41,7 +43,7 @@ function Main({ posts, user }) {
             <div className="   ">
               <div
                 onClick={() => navigate(`/details/${posts.movie.imdbID}`)}
-                className="  hover:underline cursor-pointer  md:w-auto  w-40      font-semibold md:text-lg text-base   text-gray-950  "
+                className="  hover:underline cursor-pointer  md:w-auto        font-semibold md:text-lg text-base   text-gray-950  "
               >
                 {posts.movie?.Title}
               </div>{" "}
@@ -72,6 +74,7 @@ function Main({ posts, user }) {
                 className=" cursor-pointer  hover:underline "
               >
                 {userFirstName}
+                <span className=" text-xs  text-gray-500  ">.{time} </span>
               </div>
             </div>
           </div>

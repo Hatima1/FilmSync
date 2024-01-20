@@ -83,7 +83,11 @@ function MovieSearch() {
                 !error &&
                 movies.length !== 0 &&
                 movies?.map((movie) => (
-                  <Result movie={movie} key={movie.imdbID} />
+                  <Result
+                    setOpenModal={setOpenModal}
+                    movie={movie}
+                    key={movie.imdbID}
+                  />
                 ))}
             </div>
           )}

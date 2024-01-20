@@ -17,7 +17,10 @@ export async function CreatePost(newpost) {
 
 export async function GetPost(x) {
   let query = supabase.from("Posts");
-  if (x) query = query.select("*").eq("movieid", x);
+  if (x)
+    query = query
+      .select("createById,createat,caption,createBy")
+      .eq("movieid", x);
   if (!x)
     query = query
       .select("*")
