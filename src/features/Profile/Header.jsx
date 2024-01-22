@@ -3,7 +3,7 @@ import { useState } from "react";
 import Fav from "../../ui/Fav";
 import FollowBotton from "./FollowBotton";
 
-function Header({ user }) {
+function Header({ user, setmovoe }) {
   const [showMore, setshowMore] = useState(false);
   const [active, setactive] = useState("fav");
   // const FavMovie = showMore ? movie : movie.slice(0, 7);
@@ -90,9 +90,11 @@ function Header({ user }) {
 
       {/* favmovie */}
       <div className="mb-9 ">
-        <div className="sm:grid-cols-6 grid grid-cols-4     auto-cols-auto  gap-x-4  gap-y-9 px-3  ">
+        <div className="sm:grid-cols-6 grid grid-cols-3      gap-x-4  gap-y-9 px-3  ">
           {active === "fav" &&
-            FavMovie?.map((postar) => <Fav post={postar} key={postar.id} />)}
+            FavMovie?.map((postar) => (
+              <Fav setmovoe={setmovoe} post={postar} key={postar.id} />
+            ))}
           {active === "whatch" &&
             WhatchList?.map((postar) => <Fav post={postar} key={postar.id} />)}
         </div>

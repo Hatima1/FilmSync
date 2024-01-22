@@ -1,5 +1,7 @@
 import Main from "../features/Timeline/Main";
-import Share from "../features/Timeline/Share";
+import MainV2 from "../features/Timeline/mainV2";
+// import Share from "../features/Timeline/Share";
+import ShareV2 from "../features/Timeline/ShareV2";
 import usePosts from "../features/Timeline/usePosts";
 import Sidebar from "../features/Profile/sidebar";
 
@@ -32,10 +34,15 @@ function Timeline() {
         <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]   ">
           <div>
             <SelectTimline timeline={timeline} settimeline={settimeline} />
-            <Share user={user} />
+            {/* <Share user={user} /> */}
+            <ShareV2 user={user} />
 
-            {TimeLine.map((postss) => (
+            {/* {TimeLine.map((postss) => (
               <Main user={user} posts={postss} key={postss.id} />
+            ))}
+          </div> */}
+            {TimeLine.map((postss) => (
+              <MainV2 user={user} posts={postss} key={postss.id} />
             ))}
           </div>
 

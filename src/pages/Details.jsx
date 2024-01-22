@@ -7,7 +7,8 @@ import { useParams } from "react-router-dom";
 import { Spinner } from "flowbite-react";
 
 // import StarRating from "../ui/StarRating";
-function Details() {
+function Details({ moviee }) {
+  console.log(moviee);
   const { MovieId } = useParams();
   const { Posts, isLoading } = usePosts(MovieId);
 
@@ -27,7 +28,7 @@ function Details() {
   return (
     <div className="bg-gray-50 ">
       <div className=" max-w-7xl mx-auto  px-4  pt-14  ">
-        <MovieDetails />
+        <MovieDetails moviee={moviee} />
         <div className=" border-t  ">
           <h2 className="  text-base xl:text-2xl font-semibold  mt-3     inline-block  text-gray-950 ">
             {" "}
@@ -35,9 +36,9 @@ function Details() {
           </h2>
           <div className="  w-24  xl:w-36   border-b-2 border-teal-900   "></div>
 
-          {Posts.map((post) => (
+          {/* {Posts.map((post) => (
             <CommentUserDetails post={post} key={post.id} />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

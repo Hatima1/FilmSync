@@ -8,18 +8,27 @@ import MovieSearch from "../features/movie/movieSearch";
 import { MdMovie } from "react-icons/md";
 
 function Navbar() {
-  const { user } = UseUserInfo();
-  const { isLoading, logout } = Uselogout();
+  const { user, isLoading } = UseUserInfo();
+  const { logout } = Uselogout();
   const location = useLocation();
+  if (isLoading || !user) return <p>lol</p>;
 
-  const userFirstName = user.name.split(" ").slice(0, 1)?.join("");
+  const userFirstName = user?.name.split(" ").slice(0, 1)?.join("");
 
   return (
     <div className=" md:rounded-md rounded  z-50 bg-slate-50  absolute md:p-0    md:fixed w-full shadow-lg  ">
       <div className=" text-sm max-w-7xl mx-auto   font-medium text-gray-700  flex justify-between items-center p-2">
-        <div className=" flex">
-          <img className="  h-10" src="icons8-comedy-100.png" alt="" />
-          <div>dont kon </div>
+        <div className=" flex  items-center ">
+          <img
+            className="  h-8 w-auto"
+            src="icons8-comedy-100.png"
+            alt=" logo"
+            height="8"
+            width="auto"
+          />
+          <div className=" font-semibold text-gray-900  text-sm   md:text-lg">
+            FilmSync{" "}
+          </div>
         </div>
 
         <div className="  hidden  md:flex  ">

@@ -1,10 +1,10 @@
 import MainProfile from "./MainProfile";
 
-function Profile() {
+function Profile({ setmovoe }) {
   return (
     <div className=" bg-gray-50   ">
       <div className=" min-h-screen border bg-gray-50 max-w-7xl mx-auto  ">
-        <MainProfile />
+        <MainProfile setmovoe={setmovoe} />
       </div>
     </div>
   );

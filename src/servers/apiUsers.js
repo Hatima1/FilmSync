@@ -80,7 +80,7 @@ export async function updateCurrentUser({
   console.log(UpdateDetails.avatar);
   // const fileName = `${Math.random()}${UpdateDetails.avatar.name}`;
   // const imgePath = `${supabaseUrl}/storage/v1/object/public/profile/${UpdateDetails.avatar.name}`;
-  const fileName = `avatar-${data[0].id}-${Math.random()}`;
+  const fileName = `post-${data[0].id}-${Math.random()}`;
 
   const { error: storageError } = await supabase.storage
     .from("profile")

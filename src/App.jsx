@@ -2,19 +2,20 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import Singup from "./pages/Singup";
 
-import PageNotFound from "./pages/PageNotFound";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AppLayout from "./ui/AppLayout";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useState } from "react";
+import { UseUserInfo } from "./features/login/useUserInfo";
 const Home = lazy(() => import("./pages/Home"));
 const Timeline = lazy(() => import("./pages/Timeline"));
 const Details = lazy(() => import("./pages/Details"));
 const Comment = lazy(() => import("./pages/Comment"));
 const Profile = lazy(() => import("./features/Profile/Profile"));
 const Login = lazy(() => import("./pages/Login"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,6 +28,8 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  const [movie, setmovoe] = useState();
+
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={true} />
@@ -40,13 +43,27 @@ function App() {
             }
           >
             <Route index element={<Navigate replace to="home" />} />
-            <Route path="home" element={<Home />} />
+
             <Route path="timeline" element={<Timeline />} />
-            <Route path="Profile/:myname" element={<Profile />} />
+            <Route
+              path="Profile/:myname"
+              element={<Profile setmovoe={setmovoe} />}
+            />
             <Route path="comment/:id" element={<Comment />} />
-            <Route path="details/:MovieId" element={<Details />} />
+            <Route
+              path="details/:MovieId"
+              element={<Details moviee={movie} />}
+            />
+            <Route path="home" element={<Home setmovoe={setmovoe} />} />
           </Route>
-          <Route path="*" element={<PageNotFound />} />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<p>loooasdas</p>}>
+                <PageNotFound />
+              </Suspense>
+            }
+          />
           <Route
             path="Login"
             element={

@@ -6,8 +6,10 @@ import { UseUser } from "../features/Auth/useUser";
 import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { useSignup } from "../features/Auth/UseSingup";
+import { UseUserInfo } from "../features/login/useUserInfo";
 
 function Login() {
+  const navgate = useNavigate();
   const [newAcount, setnewAcount] = useState(false);
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -15,9 +17,8 @@ function Login() {
 
   const { login, isLoading } = useLogin();
   const { isLoading: l, signup } = useSignup();
-  const { user } = UseUser();
-
-  if (isLoading) return <h1>is loding </h1>;
+  const { user, isLoading: lo } = UseUserInfo();
+  if (isLoading) return <p>man</p>;
 
   function handlerclick(e) {
     e.preventDefault();
@@ -31,6 +32,18 @@ function Login() {
           onSubmit={handlerclick}
           className="flex     flex-col p-4 bg-gray-100 rounded-md   shadow-md   gap-4"
         >
+          <div className=" justify-center flex  items-center ">
+            <img
+              className="  h-10 w-auto"
+              src="icons8-comedy-100.png"
+              alt=" logo"
+              height="8"
+              width="auto"
+            />
+            <div className=" font-semibold text-gray-900  text-sm   md:text-lg">
+              FilmSync{" "}
+            </div>
+          </div>
           {newAcount && (
             <div>
               <div className="mb-2 block">
@@ -74,7 +87,7 @@ function Login() {
             type="submit"
             className=" text-white p-2 rounded-md font-semibold bg-teal-900 hover:bg-teal-800"
           >
-            {newAcount ? "Creat Acount" : "Login"}
+            {newAcount ? "Create Acount" : "Login"}
           </button>
           {newAcount === false && (
             <div className=" text-center  text-sm font-semibold text-gray-800">
@@ -91,6 +104,7 @@ function Login() {
             <div className=" text-center  text-sm font-semibold text-gray-800">
               Already have an acount?
               <button
+                disabled={isLoading}
                 onClick={() => setnewAcount(false)}
                 className=" text-gray-950 font-bold text-base "
               >

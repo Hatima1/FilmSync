@@ -6,7 +6,7 @@ import UseUserPr from "../Timeline/useUserProfilrPic";
 
 import { timeAgo } from "../../ui/Timeago";
 
-function Main({ posts, user }) {
+function MainV2({ posts, user }) {
   const { updatePost, isUpdating } = UseUpdatePosts();
 
   const { isLoading, userProfile } = UseUserPr(posts.createById);
@@ -33,8 +33,8 @@ function Main({ posts, user }) {
         <div className=" justify-between  flex ">
           <div className=" flex gap-x-2">
             <img
-              className="    w-22  md:w-[100px] rounded-lg  "
-              src={posts.movie?.Poster}
+              className="     w-24  md:w-[100px] rounded-lg  "
+              src={posts.img ? posts.img : "@nullmedias.jpeg"}
               alt="movie img"
               width="90"
               height="auto"
@@ -42,16 +42,16 @@ function Main({ posts, user }) {
             />
             <div className="   ">
               <div
-                onClick={() => navigate(`/details/${posts.movie.imdbID}`)}
+                // onClick={() => navigate(`/details/${posts.movie.imdbID}`)}
                 className="  hover:underline cursor-pointer  md:w-auto        font-semibold md:text-lg text-base   text-gray-950  "
               >
-                {posts.movie?.Title}
+                {posts.moviename}
               </div>{" "}
               <p className=" text-gray-700 text-sm font-semibold">
-                {posts.movie?.Type}
+                {posts.movietype}
               </p>
               <p className="  text-gray-700 text-xs font-semibold">
-                {posts.movie?.Year}
+                {posts.movieyear}
               </p>
             </div>
           </div>
@@ -125,4 +125,4 @@ function Main({ posts, user }) {
   );
 }
 
-export default Main;
+export default MainV2;

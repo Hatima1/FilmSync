@@ -1,15 +1,48 @@
 import supabase from "./supabase";
+const supabaseUrl = "https://yhdlzkcezobnzcfvziho.supabase.co";
 const apiKey = "7a77ec3a";
 
 export async function CreatePost(newpost) {
-  const { data, error } = await supabase
-    .from("Posts")
-    .insert([newpost])
-    .select();
+  const { img, createat } = newpost;
+  let data, error;
 
-  if (error) {
-    console.error(error);
-    throw new Error("users could not be add");
+  if (img) {
+    const fileName = `avatar-${createat}-${Math.random()}`;
+
+    const { error: storageError } = await supabase.storage
+      .from("post")
+      .upload(fileName, img);
+
+    if (storageError) throw new Error(storageError.message);
+
+    {
+      data, error;
+    }
+    await supabase
+      .from("Posts")
+      .insert([
+        {
+          ...newpost,
+          img: `${supabaseUrl}/storage/v1/object/public/post/${fileName}`,
+        },
+      ])
+      .select();
+
+    if (error) {
+      console.error(error);
+      throw new Error("post could not be add");
+    }
+  }
+  if (!img) {
+    {
+      data, error;
+    }
+    await supabase.from("Posts").insert([newpost]).select();
+
+    if (error) {
+      console.error(error);
+      throw new Error("post could not be add");
+    }
   }
 
   return data;
@@ -17,10 +50,10 @@ export async function CreatePost(newpost) {
 
 export async function GetPost(x) {
   let query = supabase.from("Posts");
-  if (x)
-    query = query
-      .select("createById,createat,caption,createBy")
-      .eq("movieid", x);
+  // if (x)
+  //   query = query
+  //     .select("createById,createat,caption,createBy")
+  //     .eq("movieid", x);
   if (!x)
     query = query
       .select("*")

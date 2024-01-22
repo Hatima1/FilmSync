@@ -8,7 +8,7 @@ import Main from "../Timeline/Main";
 import { useEffect } from "react";
 import Spinner from "../../ui/Spinner";
 
-function MainProfile() {
+function MainProfile({ setmovoe }) {
   const { user, isLoading } = useProfile();
   const { Posts, isLoading: lodingpost } = usePosts();
   useEffect(() => {
@@ -22,10 +22,10 @@ function MainProfile() {
     <div className="   pl-3 mt-10 sm:mt-14 ">
       <div className="  grid-cols-1    grid  md:grid-cols-[2fr_auto]   ">
         <div className="  ">
-          <Header user={user} />
+          <Header setmovoe={setmovoe} user={user} />
           <div className="  border-t mb-8  ">
             <div className=" text-center">
-              <h2 className=" text-lg font-semibold  mt-2        ">
+              <h2 className=" md:text-lg text-base font-semibold  mt-2        ">
                 Recent Review
               </h2>
               <div className=" text-center  border-t-1 border   border-teal-900   mx-auto w-14 ">
@@ -34,7 +34,7 @@ function MainProfile() {
             </div>
           </div>
           {ProfilePosts.length === 0 && (
-            <p className="  font-semibold text-center">
+            <p className=" text-sm  font-semibold text-center">
               {" "}
               your post will show here{" :) "}
             </p>

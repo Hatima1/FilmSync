@@ -8,8 +8,9 @@ import { UseUserInfo } from "../features/login/useUserInfo";
 import { useEffect } from "react";
 //
 
-function Home() {
+function Home({ setmovoe }) {
   const { isLoading, user } = UseUserInfo();
+
   useEffect(() => {
     // Scroll to the top when the component mounts
     window.scrollTo(0, 0);
@@ -23,7 +24,7 @@ function Home() {
       <Header />
       <About />
 
-      <Main />
+      <Main setmovoe={setmovoe} />
 
       {/* <Hedeing> hi </Hedeing> */}
       {/* <Logout /> */}

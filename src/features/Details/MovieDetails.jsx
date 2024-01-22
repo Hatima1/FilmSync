@@ -23,7 +23,22 @@ import { useEffect } from "react";
 //   Genre: genre,
 // } = movie;
 
-function MovieDetails() {
+const movieee = {
+  id: "tt3262342",
+  Plot: "In a story depicted in oil painted animation, a young man comes to the last hometown of painter Vincent van Gogh to deliver the troubled artist's final letter and ends up investigating his final days there.",
+  Type: "movie",
+  Year: "2017",
+  post: "https://m.media-amazon.com/images/M/MV5BMTU3NjE2NjgwN15BMl5BanBnXkFtZTgwNDYzMzEwMzI@._V1_SX300.jpg",
+  Genre: "Animation, Drama, Mystery",
+  Title: "Loving Vincent",
+  Actors: "Douglas Booth, Jerome Flynn, Robert Gulaczyk",
+  Runtime: "94 min",
+  Director: "DK Welchman, Hugh Welchman",
+  imdbRating: "7.8",
+};
+
+function MovieDetails({ moviee }) {
+  console.log(moviee);
   const { movie, isLoading } = useMovieDetails();
   useEffect(() => {
     // Scroll to the top when the component mounts
@@ -33,7 +48,7 @@ function MovieDetails() {
 
   const { user } = UseUserInfo();
 
-  if (isLoading)
+  if (!moviee)
     return (
       <div className=" w-full text-center ">
         {" "}
@@ -55,7 +70,7 @@ function MovieDetails() {
       </button>
       <div className="      border-t mb-16  bg-gray-50      rounded-lg shadow-xl   ">
         <div className="  grid  xl:px-0     xl:grid-cols-[auto_minmax(540px,_1fr)_minmax(0,_1fr)]         rounded-lg  grid-cols-1   ">
-          <MovieDet movie={movie} user={user} />
+          <MovieDet movie={moviee} user={user} />
 
           {/*            Ticket         */}
 

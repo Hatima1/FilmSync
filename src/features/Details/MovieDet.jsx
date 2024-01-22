@@ -10,27 +10,54 @@ import {
   FaRegHeart,
   FaStar,
 } from "react-icons/fa";
+const movieee = {
+  id: "tt1670345",
+  Plot: "An F.B.I. Agent and an Interpol Detective track a team of illusionists who pull off bank heists during their performances, and reward their audiences with the money.",
+  Type: "movie",
+  Year: "2013",
+  post: "https://m.media-amazon.com/images/M/MV5BMTY0NDY3MDMxN15BMl5BanBnXkFtZTcwOTM5NzMzOQ@@._V1_SX300.jpg",
+  Title: "Now You See Me",
+  Actors: "Jesse Eisenberg, Common, Mark Ruffalo",
+  Runtime: "115 min",
+  Director: "Louis Leterrier",
+  imdbRating: "7.2",
+};
 
 function MovieDet({ user, movie }) {
   const { updateUser, isUpdating } = useUpdateUser();
+  if (isUpdating) return <p>xxx</p>;
 
-  const iswhachlist = JSON.stringify(user.watchlist).includes(
-    `${movie.imdbID}`
-  );
-  const isFav = JSON.stringify(user.fav).includes(`${movie.imdbID}`);
+  const iswhachlist = JSON.stringify(user.watchlist).includes(`${movie.id}`);
+  const isFav = JSON.stringify(user.fav).includes(`${movie.id}`);
 
   function handlerWatchlist() {
     const newWhatch = iswhachlist
-      ? user.watchlist.filter((a) => a.id !== movie.imdbID)
-      : [...user.watchlist, { id: movie.imdbID, post: movie.Poster }];
+      ? user.watchlist.filter((a) => a.id !== movie.id)
+      : [...user.watchlist, { id: movie.id, post: movie.Poster }];
     console.log(newWhatch);
 
     updateUser({ user, newWhatch });
   }
+
   function handerFav() {
     const newFav = isFav
-      ? user.fav.filter((a) => a.id !== movie.imdbID)
-      : [...user.fav, { id: movie.imdbID, post: movie.Poster }];
+      ? user.fav.filter((a) => a.id !== movie.id)
+      : [
+          ...user.fav,
+          {
+            Actors: movie.Actors,
+            imdbRating: movie.imdbRating,
+            Plot: movie.Plot,
+            Director: movie.Director,
+            id: movie.id,
+            post: movie.post,
+            Year: movie.Year,
+            Title: movie.Title,
+            Type: movie.Type,
+            Runtime: movie.Runtime,
+            Genre: movie.Genre,
+          },
+        ];
     updateUser({ user, newFav });
   }
   return (

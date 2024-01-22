@@ -6,31 +6,37 @@ import SelectMovie from "./SelectMovie";
 import MovieData from "./MovieData";
 import Spinner from "../../ui/Spinner";
 
-function Share({ user }) {
+function ShareV2({ user }) {
   const { CreatePost, isUpdating } = useCreatPost();
   const [text, settext] = useState();
-  const [movie, setmovie] = useState();
-  console.log(movie);
+  const [moviename, setmoviename] = useState();
+  const [movieyear, setmovieyear] = useState();
+  const [movietype, setmovietype] = useState("movie");
+  const [img, setimg] = useState();
 
   if (isUpdating) return <Spinner />;
+  console.log({ moviename, movieyear, movietype, img });
 
   function handlerText() {
     console.log(user);
     const newPost = {
       createBy: user.name,
       caption: text,
-      movie: movie,
+      moviename: moviename,
+      movieyear: movieyear,
+      movietype: movietype,
+      img: img,
       likes: [],
       createById: user.id,
-      movieid: movie.imdbID,
       comments: [],
       createat: Date.now(),
     };
-    setmovie("");
 
     CreatePost(newPost, {
       onSettled: () => {
         settext(" ");
+        setmoviename("");
+        setmovieyear("");
       },
     });
   }
@@ -53,11 +59,20 @@ function Share({ user }) {
         </div>
         <div className=" self-end  items-center ml-1 ">
           <div>
-            <SelectMovie SelectMovie={movie} setmovie={setmovie} />
-            <MovieData />
+            {/* <SelectMovie SelectMovie={movie} setmovie={setmovie} /> */}
+            <MovieData
+              moviename={moviename}
+              movieyear={movieyear}
+              movietype={movietype}
+              img={img}
+              setmoviename={setmoviename}
+              setmovietype={setmovietype}
+              setmovieyear={setmovieyear}
+              setimg={setimg}
+            />
           </div>
           <button
-            disabled={!movie && true}
+            disabled={!moviename && true}
             onClick={handlerText}
             className={`text-sm  disabled:opacity-50     w-24 text-center  mt-2   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full `}
           >
@@ -69,4 +84,4 @@ function Share({ user }) {
   );
 }
 
-export default Share;
+export default ShareV2;
