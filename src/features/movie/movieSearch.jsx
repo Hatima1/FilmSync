@@ -27,7 +27,7 @@ function MovieSearch() {
   return (
     <>
       <button
-        className=" hover:text-gray-950  flex items-center  text-sm  sm:text-lg"
+        className=" hover:text-gray-950  flex items-center text-base  sm:text-lg"
         onClick={() => setOpenModal(true)}
       >
         <FaSearch /> Search

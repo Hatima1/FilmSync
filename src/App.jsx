@@ -1,14 +1,13 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import Singup from "./pages/Singup";
-
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AppLayout from "./ui/AppLayout";
 import { Suspense, lazy, useState } from "react";
-import { UseUserInfo } from "./features/login/useUserInfo";
+import Spinner from "./ui/Spinner";
+
 const Home = lazy(() => import("./pages/Home"));
 const Timeline = lazy(() => import("./pages/Timeline"));
 const Details = lazy(() => import("./pages/Details"));
@@ -29,6 +28,8 @@ const queryClient = new QueryClient({
 
 function App() {
   const [movie, setmovoe] = useState();
+  const [man, setman] = useState();
+  console.log(man);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -37,7 +38,7 @@ function App() {
         <Routes>
           <Route
             element={
-              <ProtectedRoute>
+              <ProtectedRoute setman={setman}>
                 <AppLayout />
               </ProtectedRoute>
             }
@@ -59,7 +60,7 @@ function App() {
           <Route
             path="*"
             element={
-              <Suspense fallback={<p>loooasdas</p>}>
+              <Suspense fallback={<Spinner />}>
                 <PageNotFound />
               </Suspense>
             }
@@ -67,7 +68,7 @@ function App() {
           <Route
             path="Login"
             element={
-              <Suspense fallback={<p>loooasdas</p>}>
+              <Suspense fallback={<Spinner />}>
                 <Login />
               </Suspense>
             }

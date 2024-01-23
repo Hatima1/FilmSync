@@ -37,24 +37,24 @@ function Header({ user, setmovoe }) {
             </div>
           </div>
 
-          <p className="  text-xs  md:text-sm font-semibold text-gray-800  mb-3  pr-10  ">
+          <div className="  text-xs  md:text-sm font-semibold text-gray-800  mb-3  pr-10  ">
             {user.bio ? user.bio : <p className=" text-gray-800 ">NO Bio </p>}
-          </p>
+          </div>
           <div className=" flex gap-3">
-            <p className=" uppercase      font-semibold  text-black  md:text-base   text-sm        ">
+            <div className=" uppercase      font-semibold  text-black  md:text-base   text-sm        ">
               {user.following?.length}{" "}
               <span className=" text-gray-700  md:text-base text-xs ">
                 {" "}
                 following
               </span>
-            </p>
-            <p className=" uppercase      font-semibold  text-black  md:text-base    text-sm   ">
+            </div>
+            <div className=" uppercase      font-semibold  text-black  md:text-base    text-sm   ">
               {user.follower?.length}
               <span className=" text-gray-700  text-xs md:text-base ">
                 {" "}
                 followers
               </span>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@ function Header({ user, setmovoe }) {
 
       {/* favmovie */}
       <div className="mb-9 ">
-        <div className="sm:grid-cols-6 grid grid-cols-3      gap-x-4  gap-y-9 px-3  ">
+        <div className="sm:grid-cols-6 grid grid-cols-4      gap-x-1  gap-y-9 px-1  ">
           {active === "fav" &&
             FavMovie?.map((postar) => (
               <Fav setmovoe={setmovoe} post={postar} key={postar.id} />

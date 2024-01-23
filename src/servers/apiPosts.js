@@ -4,9 +4,13 @@ const apiKey = "7a77ec3a";
 
 export async function CreatePost(newpost) {
   const { img, createat } = newpost;
-  let data, error;
+  let data, error, Movieshare;
 
-  if (img) {
+  if (typeof img !== "object") {
+    Movieshare = img?.includes("https://m.media-amazon.com/images/");
+  }
+
+  if (img && !Movieshare) {
     const fileName = `avatar-${createat}-${Math.random()}`;
 
     const { error: storageError } = await supabase.storage
@@ -33,7 +37,7 @@ export async function CreatePost(newpost) {
       throw new Error("post could not be add");
     }
   }
-  if (!img) {
+  if (!img || Movieshare) {
     {
       data, error;
     }
@@ -50,15 +54,13 @@ export async function CreatePost(newpost) {
 
 export async function GetPost(x) {
   let query = supabase.from("Posts");
-  // if (x)
-  //   query = query
-  //     .select("createById,createat,caption,createBy")
-  //     .eq("movieid", x);
-  if (!x)
+  if (x)
     query = query
       .select("*")
-      .order("created_at", { ascending: false })
-      .limit(20);
+      .eq("createById", x)
+      .order("createat", { ascending: false });
+  if (!x)
+    query = query.select("*").order("createat", { ascending: false }).limit(20);
 
   let { data, error } = await query;
 

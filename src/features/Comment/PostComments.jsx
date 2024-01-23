@@ -17,7 +17,7 @@ function PublicComment({ posts, user }) {
       id: user.id,
       comment: commentt,
       name: user.name,
-      createAt: new Date(),
+      createAt: Date.now(),
     };
     // const comment = [
     //   ...posts.comments,
@@ -27,9 +27,9 @@ function PublicComment({ posts, user }) {
   }
   return (
     <div className="   ">
-      <div className=" flex  py-4  border-b     gap-1 mb-2  ">
+      <div className=" flex  py-3  border-b px-2     gap-1 mb-2  ">
         <img
-          className="  w-9   h-9     rounded-full "
+          className="  w-8   h-8     rounded-full "
           src={user.avatar ? user.avatar : "../../public/download.jpeg"}
           alt=" post  photo"
         />

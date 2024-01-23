@@ -9,7 +9,7 @@ import { useEffect } from "react";
 //
 
 function Home({ setmovoe }) {
-  const { isLoading, user } = UseUserInfo();
+  const { isLoading } = UseUserInfo();
 
   useEffect(() => {
     // Scroll to the top when the component mounts
@@ -18,8 +18,7 @@ function Home({ setmovoe }) {
   if (isLoading) return <p>loding</p>;
 
   return (
-    <div className=" px-3    ">
-      <p> hi {user?.name} </p>
+    <div className=" px-3  pt-7   ">
       {/* <Navbar /> */}
       <Header />
       <About />

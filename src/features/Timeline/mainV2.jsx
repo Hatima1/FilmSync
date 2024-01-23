@@ -7,7 +7,7 @@ import UseUserPr from "../Timeline/useUserProfilrPic";
 import { timeAgo } from "../../ui/Timeago";
 
 function MainV2({ posts, user }) {
-  const { updatePost, isUpdating } = UseUpdatePosts();
+  const { updatePost } = UseUpdatePosts();
 
   const { isLoading, userProfile } = UseUserPr(posts.createById);
   const navigate = useNavigate();
@@ -33,8 +33,8 @@ function MainV2({ posts, user }) {
         <div className=" justify-between  flex ">
           <div className=" flex gap-x-2">
             <img
-              className="     w-24  md:w-[100px] rounded-lg  "
-              src={posts.img ? posts.img : "@nullmedias.jpeg"}
+              className="     w-24  md:w-[120px] rounded-lg  "
+              src={posts.img ? posts.img : "../@nullmedias.jpeg"}
               alt="movie img"
               width="90"
               height="auto"
@@ -43,7 +43,7 @@ function MainV2({ posts, user }) {
             <div className="   ">
               <div
                 // onClick={() => navigate(`/details/${posts.movie.imdbID}`)}
-                className="  hover:underline cursor-pointer  md:w-auto        font-semibold md:text-lg text-base   text-gray-950  "
+                className="    md:w-auto        font-semibold md:text-lg text-base   text-gray-950  "
               >
                 {posts.moviename}
               </div>{" "}
@@ -94,7 +94,7 @@ function MainV2({ posts, user }) {
               onClick={() => navigate(`/comment/${posts.id}`)}
               className="  cursor-pointer flex items-center gap-1   pl-7    "
             >
-              <div className="  hover:bg-slate-100 ">
+              <div className="   ">
                 <FaRegComment style={{ fontSize: "20px" }} />
               </div>
               <div>
@@ -107,7 +107,7 @@ function MainV2({ posts, user }) {
 
             <button
               onClick={handlerEdit}
-              className=" hover:font-black gap-1   flex items-center pr-7 "
+              className="  gap-1   flex items-center pr-7 "
             >
               {isLike ? (
                 <FaHeart style={{ fontSize: "20px", color: "black" }} />

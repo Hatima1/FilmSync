@@ -1,4 +1,3 @@
-import Main from "../features/Timeline/Main";
 import MainV2 from "../features/Timeline/mainV2";
 // import Share from "../features/Timeline/Share";
 import ShareV2 from "../features/Timeline/ShareV2";
@@ -30,7 +29,7 @@ function Timeline() {
 
   return (
     <div className="bg-gray-50 min-h-screen  ">
-      <div className="max-w-7xl mx-auto pt-10  md:pt-14    ">
+      <div className="max-w-7xl mx-auto pt-12  md:pt-14    ">
         <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]   ">
           <div>
             <SelectTimline timeline={timeline} settimeline={settimeline} />

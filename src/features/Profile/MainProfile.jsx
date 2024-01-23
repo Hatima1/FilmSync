@@ -1,22 +1,23 @@
 import Header from "./Header";
 
-import useProfile from "./useProfile";
 import Sidebar from "./sidebar";
 
 import usePosts from "../Timeline/usePosts";
 import Main from "../Timeline/Main";
 import { useEffect } from "react";
 import Spinner from "../../ui/Spinner";
+import MainV2 from "../Timeline/mainV2";
 
-function MainProfile({ setmovoe }) {
-  const { user, isLoading } = useProfile();
-  const { Posts, isLoading: lodingpost } = usePosts();
+function MainProfile({ user, setmovoe }) {
+  // const { user, isLoading } = useProfile();
+  const userid = user.id;
+  const { Posts, isLoading: lodingpost } = usePosts(userid);
   useEffect(() => {
     // Scroll to the top when the component mounts
     window.scrollTo(0, 0);
   }, []);
-  if (isLoading || lodingpost) return <Spinner />;
-  const ProfilePosts = Posts.filter((post) => post.createById === user.id);
+  if (lodingpost) return <Spinner />;
+  const ProfilePosts = Posts;
 
   return (
     <div className="   pl-3 mt-10 sm:mt-14 ">
@@ -40,7 +41,7 @@ function MainProfile({ setmovoe }) {
             </p>
           )}
           {ProfilePosts.map((posts) => (
-            <Main user={user} posts={posts} key={posts.id} />
+            <MainV2 user={user} posts={posts} key={posts.id} />
           ))}
         </div>
         <div className="  border-l  hidden md:block     pt-10 ">

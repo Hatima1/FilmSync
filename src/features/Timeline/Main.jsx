@@ -33,18 +33,15 @@ function Main({ posts, user }) {
         <div className=" justify-between  flex ">
           <div className=" flex gap-x-2">
             <img
-              className="    w-22  md:w-[100px] rounded-lg  "
-              src={posts.movie?.Poster}
+              className="    w-24  md:w-[120px] rounded-lg  "
+              src={posts.img}
               alt="movie img"
               width="90"
               height="auto"
               loading="lazy"
             />
             <div className="   ">
-              <div
-                onClick={() => navigate(`/details/${posts.movie.imdbID}`)}
-                className="  hover:underline cursor-pointer  md:w-auto        font-semibold md:text-lg text-base   text-gray-950  "
-              >
+              <div className="    md:w-auto        font-semibold md:text-lg text-base   text-gray-950  ">
                 {posts.movie?.Title}
               </div>{" "}
               <p className=" text-gray-700 text-sm font-semibold">
@@ -94,7 +91,7 @@ function Main({ posts, user }) {
               onClick={() => navigate(`/comment/${posts.id}`)}
               className="  cursor-pointer flex items-center gap-1   pl-7    "
             >
-              <div className="  hover:bg-slate-100 ">
+              <div className="  ">
                 <FaRegComment style={{ fontSize: "20px" }} />
               </div>
               <div>
@@ -107,7 +104,7 @@ function Main({ posts, user }) {
 
             <button
               onClick={handlerEdit}
-              className=" hover:font-black gap-1   flex items-center pr-7 "
+              className="  gap-1   flex items-center pr-7 "
             >
               {isLike ? (
                 <FaHeart style={{ fontSize: "20px", color: "black" }} />

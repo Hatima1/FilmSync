@@ -2,42 +2,29 @@ import { useState } from "react";
 
 import { useCreatPost } from "../Timeline/useNewPosts";
 
-import SelectMovie from "./SelectMovie";
-import MovieData from "./MovieData";
-import Spinner from "../../ui/Spinner";
-
-function ShareV2({ user }) {
+function ShareMovie({ user, movie }) {
   const { CreatePost, isUpdating } = useCreatPost();
   const [text, settext] = useState();
-  const [moviename, setmoviename] = useState();
-  const [movieyear, setmovieyear] = useState();
-  const [movietype, setmovietype] = useState("movie");
-  const [img, setimg] = useState();
-
-  console.log({ moviename, movieyear, movietype, img });
 
   function handlerText() {
     console.log(user);
+
     const newPost = {
       createBy: user.name,
       caption: text,
-      moviename: moviename,
-      movieyear: movieyear,
-      movietype: movietype,
-      img: img,
+      moviename: movie.Title,
+      movieyear: movie.Year,
+      movietype: movie.Type,
+      img: movie.post,
       likes: [],
       createById: user.id,
       comments: [],
       createat: Date.now(),
     };
-    setmoviename("");
+    settext(" ");
 
     CreatePost(newPost, {
-      onSettled: () => {
-        settext(" ");
-        setmoviename("");
-        setmovieyear("");
-      },
+      onSettled: () => {},
     });
   }
 
@@ -60,21 +47,8 @@ function ShareV2({ user }) {
           />
         </div>
         <div className=" self-end  items-center ml-1 ">
-          <div>
-            {/* <SelectMovie SelectMovie={movie} setmovie={setmovie} /> */}
-            <MovieData
-              moviename={moviename}
-              movieyear={movieyear}
-              movietype={movietype}
-              img={img}
-              setmoviename={setmoviename}
-              setmovietype={setmovietype}
-              setmovieyear={setmovieyear}
-              setimg={setimg}
-            />
-          </div>
           <button
-            disabled={!moviename && true}
+            disabled={!text && true}
             onClick={handlerText}
             className={`text-sm  disabled:opacity-50     w-24 text-center  mt-2   p-2  font-semibold  text-white  border    bg-teal-950   rounded-full `}
           >
@@ -86,4 +60,4 @@ function ShareV2({ user }) {
   );
 }
 
-export default ShareV2;
+export default ShareMovie;

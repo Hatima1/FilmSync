@@ -1,7 +1,4 @@
-import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import MovieDetails from "../features/Details/MovieDetails";
-import Details from "../pages/Details";
 
 function Fav({ post, setmovoe }) {
   const navigate = useNavigate();
@@ -25,7 +22,7 @@ function Fav({ post, setmovoe }) {
       className=" cursor-pointer    relative    hover:-translate-y-2 transition-all duration-300 shadow-xl   "
     >
       <img
-        className="  rounded-md      w-auto  sm:w-full sm:h-full        "
+        className="  rounded-md  w-full  h-40    sm:w-full sm:h-full        "
         src={post.post}
         alt=" movie poast "
         loading="lazy"

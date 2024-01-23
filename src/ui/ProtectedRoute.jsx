@@ -5,10 +5,11 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { UseUserInfo } from "../features/login/useUserInfo";
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ children, setman }) {
   // const { isLoading, isaAthenticated, user } = UseUser();
   const navigate = useNavigate();
   const { isLoading, user } = UseUserInfo();
+  console.log(user);
 
   useEffect(() => {
     if (user === null && !isLoading) navigate("/login");

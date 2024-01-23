@@ -2,8 +2,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { login as loginApi } from "../../servers/apiAuth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { UseUserInfo } from "../login/useUserInfo";
 
 export function useLogin() {
+  const { user } = UseUserInfo();
   const queryClient = useQueryClient();
   // queryClient.getQueryCache(["user", user]); //get the data from the Cache
   const navigate = useNavigate();
@@ -13,7 +15,6 @@ export function useLogin() {
     onSuccess: (user) => {
       queryClient.invalidateQueries({ queryKey: ["loginuser"] });
 
-      navigate("/");
       // queryClient.invalidateQueries({ queryKey: ["loginuser"] });
 
       // navigate("/home");
@@ -23,6 +24,9 @@ export function useLogin() {
       toast.error("Provided email or password are incorrect");
     },
   });
+  if (login && user) {
+    navigate("/");
+  }
 
   return { login, isLoading };
 }

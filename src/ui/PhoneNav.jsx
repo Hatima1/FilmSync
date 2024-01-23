@@ -10,7 +10,7 @@ function PhoneNav() {
   if (isLoading || !user) return <p>e</p>;
   const userFirstName = user.name.split(" ").slice(0, 1)?.join("");
   return (
-    <div className=" w-full text-gray-600  flex bottom-0  md:hidden  fixed     z-50  opacity-100 bg-gray-50  justify-between items-center  p-2 mt-4  shadow-2xl ">
+    <div className=" w-full text-gray-600  flex bottom-0  md:hidden  fixed     z-50  opacity-100 bg-gray-50  justify-between items-center  p-3 mt-4  shadow-2xl ">
       <div className=" gap-1    hover:text-gray-950   text-base  flex items-center ">
         <div
           className={`  ${
@@ -30,7 +30,7 @@ function PhoneNav() {
         </div>
       </div>
 
-      <div className=" gap-1    hover:text-gray-950  text-base  flex items-center ">
+      <div className=" gap-1    hover:text-gray-950  text-base flex items-center ">
         <div
           className={`   ${
             location.pathname === "/timeline" ? " text-gray-950" : ""

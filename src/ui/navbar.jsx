@@ -5,13 +5,11 @@ import { UseUserInfo } from "../features/login/useUserInfo";
 import { Uselogout } from "../features/Auth/useLogout";
 import MovieSearch from "../features/movie/movieSearch";
 
-import { MdMovie } from "react-icons/md";
-
 function Navbar() {
   const { user, isLoading } = UseUserInfo();
   const { logout } = Uselogout();
   const location = useLocation();
-  if (isLoading || !user) return <p>lol</p>;
+  if (isLoading) return <p>lol</p>;
 
   const userFirstName = user?.name.split(" ").slice(0, 1)?.join("");
 
@@ -21,7 +19,7 @@ function Navbar() {
         <div className=" flex  items-center ">
           <img
             className="  h-8 w-auto"
-            src="icons8-comedy-100.png"
+            src="../icons8-comedy-100.png"
             alt=" logo"
             height="8"
             width="auto"

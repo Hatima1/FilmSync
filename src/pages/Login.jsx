@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
-import useUsers from "../features/login/useAllusers";
-import useCreateCapin from "../features/login/ucreCreateUsers";
+import { useState } from "react";
+
 import { useLogin } from "../features/Auth/useLogin";
-import { UseUser } from "../features/Auth/useUser";
-import { useNavigate } from "react-router-dom";
-import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+
+import { Label, TextInput } from "flowbite-react";
 import { useSignup } from "../features/Auth/UseSingup";
 import { UseUserInfo } from "../features/login/useUserInfo";
 
 function Login() {
-  const navgate = useNavigate();
   const [newAcount, setnewAcount] = useState(false);
   const [name, setname] = useState("");
   const [email, setemail] = useState("");

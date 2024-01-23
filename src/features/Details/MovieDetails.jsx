@@ -39,7 +39,7 @@ const movieee = {
 
 function MovieDetails({ moviee }) {
   console.log(moviee);
-  const { movie, isLoading } = useMovieDetails();
+  // const { movie, isLoading } = useMovieDetails();
   useEffect(() => {
     // Scroll to the top when the component mounts
     window.scrollTo(0, 0);
@@ -48,13 +48,13 @@ function MovieDetails({ moviee }) {
 
   const { user } = UseUserInfo();
 
-  if (!moviee)
-    return (
-      <div className=" w-full text-center ">
-        {" "}
-        <Spinner />
-      </div>
-    );
+  // if (!moviee)
+  //   return (
+  //     <div className=" w-full text-center ">
+  //       {" "}
+  //       <Spinner />
+  //     </div>
+  //   );
 
   return (
     <>
