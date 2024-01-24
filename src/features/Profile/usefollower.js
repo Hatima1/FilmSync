@@ -10,7 +10,7 @@ export default function useEditfollower() {
     mutationFn: ({ profileUser, updatefo }) =>
       edittt({ profileUser, updatefo }),
     onSuccess: () => {
-      queryClientt.invalidateQueries({ queryKey: ["users"] });
+      queryClientt.invalidateQueries({ queryKey: ["profile"] });
     },
     onError: (er) => toast.error(er.message),
   });

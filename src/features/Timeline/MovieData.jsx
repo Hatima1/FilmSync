@@ -54,7 +54,7 @@ function Component({
                     movie img{" "}
                     <span className=" text-xs">
                       {" "}
-                      (the default is Samurai img){" "}
+                      (if you dont have one,thers default imge){" "}
                     </span>{" "}
                   </Label>
                 </div>

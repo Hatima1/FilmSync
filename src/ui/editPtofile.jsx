@@ -13,7 +13,6 @@ import { useUpdateUser } from "../features/Profile/useUpdateUser";
 import toast from "react-hot-toast";
 
 function Component({ user }) {
-  console.log(user);
   const { updateUser, isUpdating } = useUpdateUser();
 
   const [openModal, setOpenModal] = useState(false);

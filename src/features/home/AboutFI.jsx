@@ -68,7 +68,7 @@ function AboutFI() {
           <div className=" flex justify-center row-start-1  md:row-auto      ">
             <img
               className=" self-center   md:w-full  w-3/4 "
-              src="public/Fight Club (1999) [935 1350] by Saajan.jpg"
+              src="Fight Club (1999) [935 1350] by Saajan.jpg"
               alt="Fight Club imge"
               loading="lazy"
             />

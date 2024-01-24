@@ -4,7 +4,6 @@ import { timeAgo } from "../../ui/Timeago";
 
 function UsersComments({ comment }) {
   const time = timeAgo(comment.createAt);
-  console.log(comment);
 
   const { isLoading, userProfile } = UseUserPr(comment.id);
   const navigate = useNavigate();

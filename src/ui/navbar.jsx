@@ -16,7 +16,7 @@ function Navbar({ setmovoe }) {
   return (
     <div className=" md:rounded-md rounded  z-50 bg-slate-50  absolute md:p-0    md:fixed w-full shadow-lg  ">
       <div className=" text-sm max-w-7xl mx-auto   font-medium text-gray-700  flex justify-between items-center p-2">
-        <div className=" flex  items-center ">
+        <Link to="/" className=" flex  items-center ">
           <img
             className="  h-8 w-auto"
             src="../icons8-comedy-100.png"
@@ -28,10 +28,13 @@ function Navbar({ setmovoe }) {
           <div className=" font-semibold text-gray-900  text-sm   md:text-lg">
             FilmSync{" "}
           </div>
-        </div>
+        </Link>
 
         <div className="  hidden  md:flex  ">
-          <div className=" gap-1    hover:text-gray-950  mr-20 text-lg flex items-center ">
+          <Link
+            to="/home"
+            className=" gap-1    hover:text-gray-950  mr-20 text-lg flex items-center "
+          >
             <div
               className={`   ${
                 location.pathname === "/home" ? " text-gray-950" : ""
@@ -46,10 +49,13 @@ function Navbar({ setmovoe }) {
                   : ""
               }`}
             >
-              <Link to="/home">Home</Link>
+              Home
             </div>
-          </div>
-          <div className=" gap-1    hover:text-gray-950  mr-20 text-lg flex items-center ">
+          </Link>
+          <Link
+            to="/timeline"
+            className=" gap-1    hover:text-gray-950  mr-20 text-lg flex items-center "
+          >
             <div
               className={`   ${
                 location.pathname === "/timeline" ? " text-gray-950" : ""
@@ -64,9 +70,9 @@ function Navbar({ setmovoe }) {
                   : ""
               }`}
             >
-              <Link to="/timeline">Explore</Link>
+              Explore
             </div>
-          </div>
+          </Link>
 
           <div className="  text-lg flex items-center">
             <MovieSearch setmovoe={setmovoe} />
@@ -86,7 +92,7 @@ function Navbar({ setmovoe }) {
               >
                 <img
                   className="  w-8   h-8 mr-1     rounded-full "
-                  src={user.avatar ? user.avatar : "../../public/download.jpeg"}
+                  src={user.avatar ? user.avatar : "../download.jpeg"}
                   alt="profile"
                 />
                 <FaRegUser />

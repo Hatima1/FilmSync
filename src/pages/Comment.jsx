@@ -31,14 +31,10 @@ function Comment() {
           <MyPost />
         </div>
 
-        <div className="  border-l border-r  hidden md:block   pt-28 ">
+        <div className="  border-l border-r  hidden md:block   pt-20 ">
           <p className=" text-gray-950 font-bold text-lg ml-2 "> suggestion </p>
           <div className="flex border-t  flex-col gap-3  bg-gray-100  p-2  rounded-tr-xl rounded-br-xl ">
-            {/* <Sidebar />
             <Sidebar />
-            <Sidebar />
-            <Sidebar />
-            <Sidebar /> */}
           </div>
         </div>
       </div>

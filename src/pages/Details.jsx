@@ -11,7 +11,7 @@ import PageNotFound from "./PageNotFound";
 // import StarRating from "../ui/StarRating";
 function Details({ moviee }) {
   const { user } = UseUserInfo();
-  console.log(moviee);
+
   // const { MovieId } = useParams();
   // const { Posts, isLoading } = usePosts(MovieId);
 
@@ -35,7 +35,7 @@ function Details({ moviee }) {
             leave a comment
             <span className=" text-xs  ">
               {" "}
-              (your comment will be post im timline){" "}
+              (your comment will be post in timline){" "}
             </span>
           </p>
           <div className="   w-28    xl:w-36   border-b-2 border-teal-900    space-y-5  "></div>

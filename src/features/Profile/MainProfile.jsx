@@ -51,11 +51,7 @@ function MainProfile({ user, setmovoe }) {
             suggestion{" "}
           </p>
           <div className=" hidden border-t  md:flex   flex-col gap-2  bg-gray-100  p-2  ">
-            {/* <Sidebar />
             <Sidebar />
-            <Sidebar />
-            <Sidebar />
-            <Sidebar /> */}
           </div>
         </div>
       </div>
