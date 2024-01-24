@@ -12,7 +12,7 @@ function AboutSe() {
           <div className=" flex justify-center    ">
             <img
               className=" self-center  w-2/3   md:w-[25rem]   "
-              src="public/Se7en poster by drMIERZWIAK on deviantART.jpg"
+              src="Se7en poster by drMIERZWIAK on deviantART.jpg"
               alt="Se7en "
               loading="lazy"
             />

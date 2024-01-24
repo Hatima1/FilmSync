@@ -11,7 +11,7 @@ function MainV2({ posts, user }) {
 
   const { isLoading, userProfile } = UseUserPr(posts.createById);
   const navigate = useNavigate();
-  if (isLoading) return <></>;
+  if (isLoading) return <>p</>;
 
   const { avatar: profilePic, name } = userProfile;
 
@@ -23,7 +23,7 @@ function MainV2({ posts, user }) {
     const newLike = isLike
       ? posts.likes.filter((a) => a.id !== user.id)
       : [...posts.likes, { id: user.id }];
-    console.log(isLike, newLike);
+
     updatePost({ posts, newLike });
   }
 
@@ -62,7 +62,7 @@ function MainV2({ posts, user }) {
               <img
                 onClick={() => navigate(`/profile/${posts.createById}`)}
                 className=" md:h-10 md:w-10    w-[33px] h-[33px]     rounded-full "
-                src={profilePic ? profilePic : "../../public/download.jpeg"}
+                src={profilePic ? profilePic : "../download.jpeg"}
                 alt=" profile img "
               />
             </div>

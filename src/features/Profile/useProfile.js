@@ -13,7 +13,7 @@ function useProfile() {
     error,
     data: user,
   } = useQuery({
-    queryKey: ["x", myname],
+    queryKey: ["profile", myname],
     queryFn: () => getdata(myname),
   });
   return { isLoading, user, error };

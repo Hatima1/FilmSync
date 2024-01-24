@@ -1,14 +1,14 @@
 import supabase from "./supabase";
 const supabaseUrl = "https://yhdlzkcezobnzcfvziho.supabase.co";
 
-export async function users() {
-  let { data: users, error } = await supabase.from("users").select("*");
-  if (error) {
-    console.log(error);
-  }
+// export async function users() {
+//   let { data: users, error } = await supabase.from("users").select("*");
+//   if (error) {
+//     console.log(error);
+//   }
 
-  return users;
-}
+//   return users;
+// }
 
 export default async function CreateUser(newusers) {
   console.log(newusers);

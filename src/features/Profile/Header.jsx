@@ -13,14 +13,14 @@ function Header({ user, setmovoe }) {
   function handlershow() {
     setshowMore((a) => !a);
   }
-  console.log(FavMovie);
+
   return (
     <>
       <div className="  pt-5 flex mb-9       ">
         <div className="  shrink-0      ">
           <img
             className=" rounded-full    h-16 w-16  md:w-24     md:h-24     "
-            src={user.avatar ? user.avatar : "../../public/download.jpeg"}
+            src={user.avatar ? user.avatar : "/download.jpeg"}
             alt="  profile pic "
             width="5"
             height="5"

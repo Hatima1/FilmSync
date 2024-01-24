@@ -11,7 +11,10 @@ function PhoneNav({ setmovoe }) {
   const userFirstName = user.name.split(" ").slice(0, 1)?.join("");
   return (
     <div className=" w-full text-gray-600  flex bottom-0  md:hidden  fixed     z-50  opacity-100 bg-gray-50  justify-between items-center  p-3 mt-4  shadow-2xl ">
-      <div className=" gap-1    hover:text-gray-950   text-base  flex items-center ">
+      <Link
+        to="/home"
+        className=" gap-1    hover:text-gray-950   text-base  flex items-center "
+      >
         <div
           className={`  ${
             location.pathname === "/home" ? " text-gray-950" : ""
@@ -26,11 +29,14 @@ function PhoneNav({ setmovoe }) {
               : ""
           }`}
         >
-          <Link to="/home">Home</Link>
+          Home
         </div>
-      </div>
+      </Link>
 
-      <div className=" gap-1    hover:text-gray-950  text-base flex items-center ">
+      <Link
+        to="/timeline"
+        className=" gap-1    hover:text-gray-950  text-base flex items-center "
+      >
         <div
           className={`   ${
             location.pathname === "/timeline" ? " text-gray-950" : ""
@@ -45,9 +51,9 @@ function PhoneNav({ setmovoe }) {
               : ""
           }`}
         >
-          <Link to="/timeline">Explore</Link>
+          Explore
         </div>
-      </div>
+      </Link>
 
       <div className="  text-base  flex items-center">
         <MovieSearch setmovoe={setmovoe} />
@@ -66,7 +72,7 @@ function PhoneNav({ setmovoe }) {
         >
           <img
             className="  w-6   h-6 mr-1     rounded-full "
-            src={user.avatar ? user.avatar : "../../public/download.jpeg"}
+            src={user.avatar ? user.avatar : "../download.jpeg"}
             alt="profile"
             width="6"
             height="6"

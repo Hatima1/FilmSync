@@ -12,7 +12,6 @@ import { useEffect } from "react";
 import toast from "react-hot-toast";
 
 function MovieDetails({ moviee }) {
-  console.log(moviee);
   // const { movie, isLoading } = useMovieDetails();
   useEffect(() => {
     // Scroll to the top when the component mounts

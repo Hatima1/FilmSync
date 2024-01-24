@@ -16,7 +16,6 @@ function MovieSearch({ setmovoe }) {
 
   // const { movies, isLoading: lodingmovie, error } = useMovies(mov);
 
-
   const movies =
     mov.length > 1
       ? movie.filter((a) =>
@@ -90,7 +89,7 @@ function MovieSearch({ setmovoe }) {
                   setmovoe={setmovoe}
                   setOpenModal={setOpenModal}
                   movie={movie}
-                  key={movie.imdbID}
+                  key={movie.id}
                 />
               ))}
             </div>

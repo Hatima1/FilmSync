@@ -12,7 +12,7 @@ function AboutSha() {
           <div className=" flex justify-center    ">
             <img
               className=" self-center   w-2/3  md:w-2/3   "
-              src="public/The Shawshank Redemption _ Die Verurteilten (1994).jpg"
+              src="The Shawshank Redemption _ Die Verurteilten (1994).jpg"
               alt="The Shawshank Redemption"
               loading="lazy"
             />
