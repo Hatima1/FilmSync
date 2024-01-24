@@ -5,26 +5,15 @@ import TecketForm from "./TecketForm";
 import MovieDet from "./MovieDet";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useMoveBack } from "../../hooks/useMoveBack";
-import useMovieDetails from "./useMovieDetails";
+
 import { UseUserInfo } from "../login/useUserInfo";
-import Spinner from "../../ui/Spinner";
+
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
-// const {
-//   Title: title,
-//   Year: year,
-//   Poster: poster,
-//   Runtime: runtime,
-//   imdbRating,
-//   Plot: plot,
-//   Released: released,
-//   Actors: actors,
-//   Director: director,
-//   Genre: genre,
-// } = movie;
-
-function MovieDetails() {
-  const { movie, isLoading } = useMovieDetails();
+function MovieDetails({ moviee }) {
+  console.log(moviee);
+  // const { movie, isLoading } = useMovieDetails();
   useEffect(() => {
     // Scroll to the top when the component mounts
     window.scrollTo(0, 0);
@@ -33,13 +22,13 @@ function MovieDetails() {
 
   const { user } = UseUserInfo();
 
-  if (isLoading)
-    return (
-      <div className=" w-full text-center ">
-        {" "}
-        <Spinner />
-      </div>
-    );
+  // if (!moviee)
+  //   return (
+  //     <div className=" w-full text-center ">
+  //       {" "}
+  //       <Spinner />
+  //     </div>
+  //   );
 
   return (
     <>
@@ -55,7 +44,7 @@ function MovieDetails() {
       </button>
       <div className="      border-t mb-16  bg-gray-50      rounded-lg shadow-xl   ">
         <div className="  grid  xl:px-0     xl:grid-cols-[auto_minmax(540px,_1fr)_minmax(0,_1fr)]         rounded-lg  grid-cols-1   ">
-          <MovieDet movie={movie} user={user} />
+          <MovieDet movie={moviee} user={user} />
 
           {/*            Ticket         */}
 
@@ -70,7 +59,10 @@ function MovieDetails() {
               <TecketSelect />
             </div>
             <div className=" flex  justify-center w-full    ">
-              <button className="  text-gray-100  bg-teal-950 p-2  w-screen  text-lg font-semibold hover:bg-teal-900  ">
+              <button
+                onClick={() => toast.success("see you soon")}
+                className="   text-gray-100  bg-teal-950 p-2  w-screen  text-lg font-semibold hover:bg-teal-900  "
+              >
                 Checkout
               </button>
             </div>

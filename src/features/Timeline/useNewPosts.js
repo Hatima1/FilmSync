@@ -4,15 +4,15 @@ import { toast } from "react-hot-toast";
 
 export function useCreatPost() {
   const queryClientt = useQueryClient();
-  const { mutate: CreatePost, isLoading: isUpdating } = useMutation({
+  const { mutate: CreatePost, isLoading } = useMutation({
     mutationFn: (newpost) => CreatePostApi(newpost),
     onSuccess: (post) => {
       queryClientt.invalidateQueries({ queryKey: ["Posts"] });
-      console.log(post);
-      toast.success("done");
+
+      // toast.success("done");
     },
     onError: (er) => toast.error(er.message),
   });
 
-  return { CreatePost, isUpdating };
+  return { CreatePost, isLoading };
 }

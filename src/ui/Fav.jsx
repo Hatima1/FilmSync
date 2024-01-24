@@ -1,7 +1,6 @@
-import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-function Fav({ post }) {
+function Fav({ post, setmovoe }) {
   const navigate = useNavigate();
 
   //  {   !post && return (
@@ -10,18 +9,23 @@ function Fav({ post }) {
   //       </div>
   //     )}
 
+  function handlerclick() {
+    setmovoe(post);
+    navigate(`/Details/${post.id}`);
+  }
+
   return (
     <div
-      onClick={() => navigate(`/Details/${post.id}`)}
-      className=" cursor-pointer   relative    hover:-translate-y-2 transition-all duration-300 shadow-xl   "
+      onClick={() => {
+        handlerclick();
+      }}
+      className=" cursor-pointer    relative    hover:-translate-y-2 transition-all duration-300 shadow-xl   "
     >
       <img
-        className="  rounded-md  h-full "
+        className="  rounded-md  w-full  h-36   sm:w-full sm:h-full        "
         src={post.post}
         alt=" movie poast "
         loading="lazy"
-        width="auto"
-        height="100"
       />
       <div className="  top-0  absolute "></div>
     </div>

@@ -1,23 +1,47 @@
-function sidebar() {
+import SidebarUser from "../../ui/Sidebaruser";
+import usePosts from "../Timeline/usePosts";
+
+function Sidebar() {
+  // const { isLoading, Posts } = usePosts();
+  const posts = [
+    {
+      id: "768f40e4-16fb-4356-8844-f5bb44e7aefd",
+
+      createBy: "Daniel",
+
+      createById: "d4d66ae2-7f17-435a-a487-3fb1f6537bda",
+
+      img: "https://m.media-amazon.com/images/M/MV5BMTYxMjk0NDg4Ml5BMl5BanBnXkFtZTgwODcyNjA5OTE@._V1_SX300.jpg",
+    },
+    {
+      id: "768f40e4-16fb-4356-8844-f5bb44e7aefd",
+
+      createBy: "omer",
+
+      createById: "d4d66ae2-7f17-435a-a487-3fb1f6537bda",
+
+      img: "https://yhdlzkcezobnzcfvziho.supabase.co/storage/v1/object/public/profile/avatar-22458aef-0e0d-4f91-aad0-273cf43a2b7b-0.8831647411959453",
+    },
+    {
+      id: "768f40e4-16fb-4356-8844-f5bb44e7aefd",
+
+      createBy: "hatim",
+
+      createById: "d4d66ae2-7f17-435a-a487-3fb1f6537bda",
+
+      img: "https://yhdlzkcezobnzcfvziho.supabase.co/storage/v1/object/public/profile/avatar-22458aef-0e0d-4f91-aad0-273cf43a2b7b-0.5842352443863664",
+    },
+  ];
+  // if (isLoading) return <></>;
+  // const user = Posts.slice(0, 6);
+  // console.log(user);
   return (
-    <div className="   p-1   border-b border-gray-200 w-80      flex justify-between">
-      <div className=" flex gap-2 ">
-        <img
-          className="  w-10 h-10     rounded-full "
-          src="/download.jpeg "
-          width={10}
-          height={10}
-          alt="profile photo"
-        />
-        <div className="">
-          <p className="   text-base  font-semibold  text-gray-900 ">
-            hatim ahmed{" "}
-          </p>
-          <p className="   text-xs  font-semibold text-gray-700"> asd</p>
-        </div>
-      </div>
-    </div>
+    <>
+      {posts.map((a) => (
+        <SidebarUser user={a} key={a.id} />
+      ))}
+    </>
   );
 }
 
-export default sidebar;
+export default Sidebar;

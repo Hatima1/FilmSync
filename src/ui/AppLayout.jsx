@@ -2,13 +2,17 @@ import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./navbar";
 import PhoneNav from "./PhoneNav";
+import { UseUserInfo } from "../features/login/useUserInfo";
+import Spinner from "./Spinner";
 
-function AppLayout() {
+function AppLayout({ setmovoe }) {
+  const { user, isLoading } = UseUserInfo();
+  if (isLoading) return <Spinner />;
   return (
-    <div className="">
-      <Suspense fallback={<p>loding dsdcsdcsd</p>}>
-        <Navbar />
-        <PhoneNav />
+    <div className=" overflow-hidden ">
+      <Suspense fallback={<Spinner />}>
+        <Navbar setmovoe={setmovoe} />
+        <PhoneNav setmovoe={setmovoe} />
         <Outlet />
       </Suspense>
     </div>

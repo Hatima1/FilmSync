@@ -1,12 +1,10 @@
-import { CiHeart } from "react-icons/ci";
-import { FaComment, FaRegComment } from "react-icons/fa";
 import PublicComment from "./PostComments";
-import { IoIosCopy } from "react-icons/io";
+
 import { UseUserInfo } from "../login/useUserInfo";
-import Main from "../Timeline/Main";
-import usePosts from "../Timeline/usePosts";
+
 import useCurPost from "./useCurPost";
 import Spinner from "../../ui/Spinner";
+import MainV2 from "../Timeline/mainV2";
 
 function MyPost() {
   const { user, isLoading } = UseUserInfo();
@@ -22,7 +20,7 @@ function MyPost() {
 
   return (
     <>
-      <Main posts={posts} user={user} />
+      <MainV2 posts={posts} user={user} />
       <PublicComment posts={posts} user={user} />
     </>
   );

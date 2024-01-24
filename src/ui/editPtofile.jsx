@@ -10,6 +10,7 @@ import {
 } from "flowbite-react";
 import { useState } from "react";
 import { useUpdateUser } from "../features/Profile/useUpdateUser";
+import toast from "react-hot-toast";
 
 function Component({ user }) {
   console.log(user);
@@ -30,9 +31,10 @@ function Component({ user }) {
       name,
       bio,
     };
-    console.log(UpdateDetails);
-    updateUser({ user, UpdateDetails });
+
+    toast.success(` done  `);
     setOpenModal(false);
+    updateUser({ user, UpdateDetails });
   }
 
   return (
@@ -45,16 +47,17 @@ function Component({ user }) {
         edit profile
       </button>
       <Modal show={openModal} size="md" onClose={onCloseModal} popup>
-        <Modal.Header />
+        <Modal.Header>
+          <p className=" mt-2    ml-4 text-base font-medium text-gray-900 dark:text-white">
+            edit your profile
+          </p>
+        </Modal.Header>
         <Modal.Body>
           <div className="space-y-3">
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-              Edit your profile
-            </h3>
             <div>
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="file-upload" value="Upload file" />
+                  <Label htmlFor="file-upload" value="imge " />
                 </div>
                 <FileInput
                   onChange={(e) => setAvatar(e.target.files[0])}
@@ -86,7 +89,10 @@ function Component({ user }) {
             </div>
 
             <div className="w-full">
-              <Button className="   bg-teal-950 " onClick={confim}>
+              <Button
+                className=" hover:bg-teal-900   bg-teal-950 "
+                onClick={confim}
+              >
                 Update profile
               </Button>
             </div>

@@ -1,15 +1,52 @@
 import supabase from "./supabase";
+const supabaseUrl = "https://yhdlzkcezobnzcfvziho.supabase.co";
 const apiKey = "7a77ec3a";
 
 export async function CreatePost(newpost) {
-  const { data, error } = await supabase
-    .from("Posts")
-    .insert([newpost])
-    .select();
+  const { img, createat } = newpost;
+  let data, error, Movieshare;
 
-  if (error) {
-    console.error(error);
-    throw new Error("users could not be add");
+  if (typeof img !== "object") {
+    Movieshare = img?.includes("https://m.media-amazon.com/images/");
+  }
+
+  if (img && !Movieshare) {
+    const fileName = `avatar-${createat}-${Math.random()}`;
+
+    const { error: storageError } = await supabase.storage
+      .from("post")
+      .upload(fileName, img);
+
+    if (storageError) throw new Error(storageError.message);
+
+    {
+      data, error;
+    }
+    await supabase
+      .from("Posts")
+      .insert([
+        {
+          ...newpost,
+          img: `${supabaseUrl}/storage/v1/object/public/post/${fileName}`,
+        },
+      ])
+      .select();
+
+    if (error) {
+      console.error(error);
+      throw new Error("post could not be add");
+    }
+  }
+  if (!img || Movieshare) {
+    {
+      data, error;
+    }
+    await supabase.from("Posts").insert([newpost]).select();
+
+    if (error) {
+      console.error(error);
+      throw new Error("post could not be add");
+    }
   }
 
   return data;
@@ -19,13 +56,11 @@ export async function GetPost(x) {
   let query = supabase.from("Posts");
   if (x)
     query = query
-      .select("createById,createat,caption,createBy")
-      .eq("movieid", x);
-  if (!x)
-    query = query
       .select("*")
-      .order("created_at", { ascending: false })
-      .limit(20);
+      .eq("createById", x)
+      .order("createat", { ascending: false });
+  if (!x)
+    query = query.select("*").order("createat", { ascending: false }).limit(20);
 
   let { data, error } = await query;
 

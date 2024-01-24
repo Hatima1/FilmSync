@@ -1,45 +1,15 @@
 import { useState } from "react";
 import Fav from "../../ui/Fav";
+import { movie } from "../../ui/ListOfMovie";
 
-function Main() {
-  const [showMore, setshowMore] = useState(false);
-  const movie = [
-    {
-      id: "tt1486185",
-      post: "https://m.media-amazon.com/images/M/MV5BMTc4NjYyMzQ5MV5BMl5BanBnXkFtZTcwNjE5Mjc3NA@@._V1_SX300.jpg",
-    },
-    {
-      id: "tt1486185",
-      post: "https://m.media-amazon.com/images/M/MV5BMTc4NjYyMzQ5MV5BMl5BanBnXkFtZTcwNjE5Mjc3NA@@._V1_SX300.jpg",
-    },
-    {
-      id: "tt1486185",
-      post: "https://m.media-amazon.com/images/M/MV5BMTc4NjYyMzQ5MV5BMl5BanBnXkFtZTcwNjE5Mjc3NA@@._V1_SX300.jpg",
-    },
-    {
-      id: "tt1486185",
-      post: "https://m.media-amazon.com/images/M/MV5BMTc4NjYyMzQ5MV5BMl5BanBnXkFtZTcwNjE5Mjc3NA@@._V1_SX300.jpg",
-    },
-    {
-      id: "tt1486185",
-      post: "https://m.media-amazon.com/images/M/MV5BMTc4NjYyMzQ5MV5BMl5BanBnXkFtZTcwNjE5Mjc3NA@@._V1_SX300.jpg",
-    },
-    {
-      id: "tt1821694",
-      post: "https://m.media-amazon.com/images/M/MV5BMjI2ODQ4ODY3Nl5BMl5BanBnXkFtZTcwNTc2NzE1OQ@@._V1_SX300.jpg",
-    },
-    {
-      id: "tt3401882",
-      post: "https://m.media-amazon.com/images/M/MV5BMTg0NzkyMjE5NF5BMl5BanBnXkFtZTgwMDE5NTg3MDI@._V1_SX300.jpg",
-    },
-    {
-      id: "tt15307126",
-      post: "https://m.media-amazon.com/images/M/MV5BMzIwMzk2NjQtNjRmZS00YWQxLTk3MTgtN2YyYjEwNTc4OTMwXkEyXkFqcGdeQXVyMjE4ODEzODA@._V1_SX300.jpg",
-    },
-  ];
-  const FavMovie = showMore ? movie : movie.slice(0, 7);
+function Main({ setmovoe }) {
+  const [showMore, setshowMore] = useState(13);
+
+  const showless = movie.length < showMore;
+
+  const FavMovie = movie.slice(0, showMore);
   function handlershow() {
-    setshowMore((a) => !a);
+    setshowMore((a) => a + 13);
   }
   return (
     <>
@@ -51,17 +21,26 @@ function Main() {
         </div>
         <div className="md:grid-cols-7 grid grid-cols-4     gap-x-2  gap-y-9  ">
           {FavMovie.map((postar) => (
-            <Fav post={postar} key={postar.id} />
+            <Fav setmovoe={setmovoe} post={postar} key={postar.id} />
           ))}
         </div>
-        <div className=" text-end  font-bold   text-black  text-sm mr-2 mt-4 ">
-          <button
-            className="  hover:underline underline-offset-4 "
-            onClick={handlershow}
-          >
-            {" "}
-            {showMore ? "SHOW LESS" : "SHOW MORE"}
-          </button>
+        <div className=" text-end  font-bold pb-4   text-black  text-sm mr-2 mt-4 ">
+          {!showless ? (
+            <button
+              className="  hover:underline underline-offset-4 "
+              onClick={handlershow}
+            >
+              {" "}
+              {"SHOW MORE"}
+            </button>
+          ) : (
+            <button
+              className="  hover:underline underline-offset-4 "
+              onClick={() => setshowMore(7)}
+            >
+              SHOW LESS
+            </button>
+          )}
         </div>
       </div>
     </>

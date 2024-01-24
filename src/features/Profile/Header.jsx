@@ -3,13 +3,12 @@ import { useState } from "react";
 import Fav from "../../ui/Fav";
 import FollowBotton from "./FollowBotton";
 
-function Header({ user }) {
+function Header({ user, setmovoe }) {
   const [showMore, setshowMore] = useState(false);
   const [active, setactive] = useState("fav");
   // const FavMovie = showMore ? movie : movie.slice(0, 7);
   const FavMovie = showMore ? user?.fav : user.fav.slice(0, 4);
   const WhatchList = showMore ? user?.watchlist : user.watchlist.slice(0, 4);
-  console.log(WhatchList);
 
   function handlershow() {
     setshowMore((a) => !a);
@@ -23,8 +22,9 @@ function Header({ user }) {
             className=" rounded-full    h-16 w-16  md:w-24     md:h-24     "
             src={user.avatar ? user.avatar : "../../public/download.jpeg"}
             alt="  profile pic "
-            width="16"
-            height="16"
+            width="5"
+            height="5"
+            loading="lazy"
           />
         </div>
         <div className="md:pl-5 pl-3">
@@ -37,24 +37,24 @@ function Header({ user }) {
             </div>
           </div>
 
-          <p className="  text-xs  md:text-sm font-semibold text-gray-800  mb-3  pr-10  ">
+          <div className="  text-sm  md:text-sm font-semibold text-gray-800  mb-3  pr-10  ">
             {user.bio ? user.bio : <p className=" text-gray-800 ">NO Bio </p>}
-          </p>
+          </div>
           <div className=" flex gap-3">
-            <p className=" uppercase      font-semibold  text-black  md:text-base   text-sm        ">
+            <div className=" uppercase      font-semibold  text-black  md:text-base   text-sm        ">
               {user.following?.length}{" "}
               <span className=" text-gray-700  md:text-base text-xs ">
                 {" "}
                 following
               </span>
-            </p>
-            <p className=" uppercase      font-semibold  text-black  md:text-base    text-sm   ">
+            </div>
+            <div className=" uppercase      font-semibold  text-black  md:text-base    text-sm   ">
               {user.follower?.length}
               <span className=" text-gray-700  text-xs md:text-base ">
                 {" "}
                 followers
               </span>
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -90,11 +90,15 @@ function Header({ user }) {
 
       {/* favmovie */}
       <div className="mb-9 ">
-        <div className="sm:grid-cols-6 grid grid-cols-4     auto-cols-auto  gap-x-4  gap-y-9 px-3  ">
+        <div className="sm:grid-cols-6 grid grid-cols-4      gap-x-1  gap-y-9 px-1  ">
           {active === "fav" &&
-            FavMovie?.map((postar) => <Fav post={postar} key={postar.id} />)}
+            FavMovie?.map((postar) => (
+              <Fav setmovoe={setmovoe} post={postar} key={postar.id} />
+            ))}
           {active === "whatch" &&
-            WhatchList?.map((postar) => <Fav post={postar} key={postar.id} />)}
+            WhatchList?.map((postar) => (
+              <Fav setmovoe={setmovoe} post={postar} key={postar.id} />
+            ))}
         </div>
         <div className=" text-end  font-bold   text-black  text-sm mr-2 mt-4 ">
           <button

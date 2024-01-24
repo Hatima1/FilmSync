@@ -73,8 +73,14 @@ function About() {
             </div>
             <div className=" flex justify-center  row-start-1 md:row-auto    ">
               <img
-                className=" self-center   w-3/4    md:w-3/4 "
-                src="public/12 angry men (1).jpg"
+                className=" self-center     w-3/5   md:w-3/4 "
+                // srcSet="12 angry men (1).jpg 320w,
+                //   12 angry men (1).jpg 480w,
+                //   12 angry men (1).jpg 800w"
+                // sizes="(max-width: 320px) 280px,
+                //  (max-width: 480px) 440px,
+                //  800px"
+                src="12 angry men (1).jpg"
                 alt="angry men imge"
                 loading="lazy"
               />

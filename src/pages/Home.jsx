@@ -6,24 +6,25 @@ import About from "../features/home/About";
 import { UseUserInfo } from "../features/login/useUserInfo";
 
 import { useEffect } from "react";
+import Spinner from "../ui/Spinner";
 //
 
-function Home() {
-  const { isLoading, user } = UseUserInfo();
+function Home({ setmovoe }) {
+  const { isLoading } = UseUserInfo();
+
   useEffect(() => {
     // Scroll to the top when the component mounts
     window.scrollTo(0, 0);
   }, []);
-  if (isLoading) return <p>loding</p>;
+  if (isLoading) return <Spinner />;
 
   return (
-    <div className=" px-3    ">
-      <p> hi {user?.name} </p>
+    <div className=" px-3  pt-7   ">
       {/* <Navbar /> */}
       <Header />
       <About />
 
-      <Main />
+      <Main setmovoe={setmovoe} />
 
       {/* <Hedeing> hi </Hedeing> */}
       {/* <Logout /> */}

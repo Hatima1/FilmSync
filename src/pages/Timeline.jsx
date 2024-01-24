@@ -1,5 +1,6 @@
-import Main from "../features/Timeline/Main";
-import Share from "../features/Timeline/Share";
+import MainV2 from "../features/Timeline/mainV2";
+// import Share from "../features/Timeline/Share";
+import ShareV2 from "../features/Timeline/ShareV2";
 import usePosts from "../features/Timeline/usePosts";
 import Sidebar from "../features/Profile/sidebar";
 
@@ -28,14 +29,19 @@ function Timeline() {
 
   return (
     <div className="bg-gray-50 min-h-screen  ">
-      <div className="max-w-7xl mx-auto pt-10  md:pt-14    ">
-        <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]   ">
+      <div className="max-w-7xl mx-auto pt-12  md:pt-14     ">
+        <div className="  grid-cols-1 border-l  pb-12    grid  md:grid-cols-[2fr_auto]   ">
           <div>
             <SelectTimline timeline={timeline} settimeline={settimeline} />
-            <Share user={user} />
+            {/* <Share user={user} /> */}
+            <ShareV2 user={user} />
 
-            {TimeLine.map((postss) => (
+            {/* {TimeLine.map((postss) => (
               <Main user={user} posts={postss} key={postss.id} />
+            ))}
+          </div> */}
+            {TimeLine.map((postss) => (
+              <MainV2 user={user} posts={postss} key={postss.id} />
             ))}
           </div>
 
@@ -45,10 +51,6 @@ function Timeline() {
               suggestion{" "}
             </h1>
             <div className="flex border-t  border-b flex-col gap-3  bg-gray-100  p-2   ">
-              <Sidebar />
-              <Sidebar />
-              <Sidebar />
-              <Sidebar />
               <Sidebar />
             </div>
           </div>
