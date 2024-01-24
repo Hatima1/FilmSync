@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import MovieSearch from "../features/movie/movieSearch";
 import { UseUserInfo } from "../features/login/useUserInfo";
 
-function PhoneNav() {
+function PhoneNav({ setmovoe }) {
   const { user, isLoading } = UseUserInfo();
   const location = useLocation();
   if (isLoading || !user) return <p>e</p>;
@@ -50,7 +50,7 @@ function PhoneNav() {
       </div>
 
       <div className="  text-base  flex items-center">
-        <MovieSearch />
+        <MovieSearch setmovoe={setmovoe} />
       </div>
 
       <div
@@ -70,6 +70,7 @@ function PhoneNav() {
             alt="profile"
             width="6"
             height="6"
+            loading="lazy"
           />
           <FaRegUser />
 

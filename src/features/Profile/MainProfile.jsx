@@ -1,23 +1,24 @@
 import Header from "./Header";
 
+// import useProfile from "./useProfile";
 import Sidebar from "./sidebar";
 
 import usePosts from "../Timeline/usePosts";
-import Main from "../Timeline/Main";
+
 import { useEffect } from "react";
 import Spinner from "../../ui/Spinner";
 import MainV2 from "../Timeline/mainV2";
 
 function MainProfile({ user, setmovoe }) {
   // const { user, isLoading } = useProfile();
-  const userid = user.id;
-  const { Posts, isLoading: lodingpost } = usePosts(userid);
+  // const { Posts, isLoading: lodingpost } = usePosts(user.id);
+  const { Posts, isLoading: lodingpost } = usePosts();
   useEffect(() => {
     // Scroll to the top when the component mounts
     window.scrollTo(0, 0);
   }, []);
   if (lodingpost) return <Spinner />;
-  const ProfilePosts = Posts;
+  const ProfilePosts = Posts.filter((post) => post.createById === user.id);
 
   return (
     <div className="   pl-3 mt-10 sm:mt-14 ">
@@ -50,11 +51,11 @@ function MainProfile({ user, setmovoe }) {
             suggestion{" "}
           </p>
           <div className=" hidden border-t  md:flex   flex-col gap-2  bg-gray-100  p-2  ">
+            {/* <Sidebar />
             <Sidebar />
             <Sidebar />
             <Sidebar />
-            <Sidebar />
-            <Sidebar />
+            <Sidebar /> */}
           </div>
         </div>
       </div>

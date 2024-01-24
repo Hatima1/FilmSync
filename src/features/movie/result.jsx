@@ -1,7 +1,7 @@
 import { FaCalendarDay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-function Result({ movie, setOpenModal }) {
+function Result({ setmovoe, movie, setOpenModal }) {
   const navigate = useNavigate();
   return (
     <>
@@ -10,7 +10,7 @@ function Result({ movie, setOpenModal }) {
           <div>
             <img
               className=" rounded-lg    w-[5rem]   "
-              src={movie.Poster}
+              src={movie.post}
               alt=" post  photo"
             />
           </div>
@@ -18,7 +18,8 @@ function Result({ movie, setOpenModal }) {
             <p
               onClick={() => {
                 setOpenModal(false);
-                navigate(`/details/${movie.imdbID}`);
+                setmovoe(movie);
+                navigate(`/details/${movie.id}`);
               }}
               className=" cursor-pointer hover:underline font-semibold text-base text-gray-900"
             >

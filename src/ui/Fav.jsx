@@ -22,7 +22,7 @@ function Fav({ post, setmovoe }) {
       className=" cursor-pointer    relative    hover:-translate-y-2 transition-all duration-300 shadow-xl   "
     >
       <img
-        className="  rounded-md  w-full  h-40    sm:w-full sm:h-full        "
+        className="  rounded-md  w-full  h-36   sm:w-full sm:h-full        "
         src={post.post}
         alt=" movie poast "
         loading="lazy"

@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./ui/ProtectedRoute";
@@ -28,18 +28,15 @@ const queryClient = new QueryClient({
 
 function App() {
   const [movie, setmovoe] = useState();
-  const [man, setman] = useState();
-  console.log(man);
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={true} />
       <BrowserRouter>
         <Routes>
           <Route
             element={
-              <ProtectedRoute setman={setman}>
-                <AppLayout />
+              <ProtectedRoute>
+                <AppLayout setmovoe={setmovoe} />
               </ProtectedRoute>
             }
           >
@@ -92,10 +89,10 @@ function App() {
 
           style: {
             fontSize: "16px",
-            maxWidth: "500px",
-            padding: "16px 24px",
-            backgroundColor: "teal",
-            color: "white",
+            maxWidth: "450px",
+            padding: "13px 20px",
+
+            color: "black",
             zIndex: 10,
           },
         }}

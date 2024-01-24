@@ -12,7 +12,7 @@ function MainV2({ posts, user }) {
   const { isLoading, userProfile } = UseUserPr(posts.createById);
   const navigate = useNavigate();
   if (isLoading) return <></>;
-  console.log(userProfile);
+
   const { avatar: profilePic, name } = userProfile;
 
   const isLike = JSON.stringify(posts.likes).includes(`${user.id}`);
@@ -36,9 +36,10 @@ function MainV2({ posts, user }) {
               className="     w-24  md:w-[120px] rounded-lg  "
               src={posts.img ? posts.img : "../@nullmedias.jpeg"}
               alt="movie img"
-              width="90"
-              height="auto"
               loading="lazy"
+              sizes="(max-width: 320px) 280px,
+             (max-width: 480px) 440px,
+             800px"
             />
             <div className="   ">
               <div
@@ -63,8 +64,6 @@ function MainV2({ posts, user }) {
                 className=" md:h-10 md:w-10    w-[33px] h-[33px]     rounded-full "
                 src={profilePic ? profilePic : "../../public/download.jpeg"}
                 alt=" profile img "
-                height="36"
-                width="36"
               />
             </div>
 
@@ -83,7 +82,7 @@ function MainV2({ posts, user }) {
         <div className="   text-gray-800  py-2 text-left space-y-4">
           <p
             onClick={() => navigate(`/comment/${posts.id}`)}
-            className=" cursor-pointer md:text-base   text-sm font-semibold  text-gray-800"
+            className=" cursor-pointer md:text-base   text-sm  font-semibold  text-gray-800"
           >
             {" "}
             {posts.caption}{" "}

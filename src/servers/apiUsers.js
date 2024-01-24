@@ -65,19 +65,19 @@ export async function updateCurrentUser({
       .update({ ...user, watchlist: newWhatch })
       .eq("id", user.id)
       .select();
-  if (UpdateDetails)
+  if (!UpdateDetails?.avatar && UpdateDetails)
     query = query
       .update({ name: UpdateDetails.name, bio: UpdateDetails.bio })
       .eq("id", user.id);
 
   const { data, error } = await query.select();
-  console.log(data[0]);
+  // console.log(data[0]);
 
   if (error) throw new Error(error.message);
   if (!UpdateDetails?.avatar) return data;
 
   // 2. Upload the avatar image
-  console.log(UpdateDetails.avatar);
+  // console.log(UpdateDetails.avatar);
   // const fileName = `${Math.random()}${UpdateDetails.avatar.name}`;
   // const imgePath = `${supabaseUrl}/storage/v1/object/public/profile/${UpdateDetails.avatar.name}`;
   const fileName = `avatar-${data[0].id}-${Math.random()}`;
@@ -101,6 +101,8 @@ export async function updateCurrentUser({
     .from("users")
     .update({
       ...user,
+      name: UpdateDetails.name,
+      bio: UpdateDetails.bio,
       avatar: `${supabaseUrl}/storage/v1/object/public/profile/${fileName}`,
     })
     .eq("id", user.id)
@@ -125,7 +127,6 @@ export async function getdata(myname) {
   return data;
 }
 export async function userId(id) {
-  console.log(id);
   // console.log(username);
 
   const { data, error } = await supabase
@@ -135,7 +136,6 @@ export async function userId(id) {
     .single();
 
   if (error) throw new Error(error.message);
-  console.log(data);
 
   return data;
 }
@@ -150,7 +150,6 @@ export async function username(name) {
     .eq("name", name);
 
   if (error) throw new Error(error.message);
-  console.log(data);
 
   return data;
 }

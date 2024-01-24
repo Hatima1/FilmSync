@@ -5,37 +5,11 @@ import TecketForm from "./TecketForm";
 import MovieDet from "./MovieDet";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useMoveBack } from "../../hooks/useMoveBack";
-import useMovieDetails from "./useMovieDetails";
+
 import { UseUserInfo } from "../login/useUserInfo";
-import Spinner from "../../ui/Spinner";
+
 import { useEffect } from "react";
-
-// const {
-//   Title: title,
-//   Year: year,
-//   Poster: poster,
-//   Runtime: runtime,
-//   imdbRating,
-//   Plot: plot,
-//   Released: released,
-//   Actors: actors,
-//   Director: director,
-//   Genre: genre,
-// } = movie;
-
-const movieee = {
-  id: "tt3262342",
-  Plot: "In a story depicted in oil painted animation, a young man comes to the last hometown of painter Vincent van Gogh to deliver the troubled artist's final letter and ends up investigating his final days there.",
-  Type: "movie",
-  Year: "2017",
-  post: "https://m.media-amazon.com/images/M/MV5BMTU3NjE2NjgwN15BMl5BanBnXkFtZTgwNDYzMzEwMzI@._V1_SX300.jpg",
-  Genre: "Animation, Drama, Mystery",
-  Title: "Loving Vincent",
-  Actors: "Douglas Booth, Jerome Flynn, Robert Gulaczyk",
-  Runtime: "94 min",
-  Director: "DK Welchman, Hugh Welchman",
-  imdbRating: "7.8",
-};
+import toast from "react-hot-toast";
 
 function MovieDetails({ moviee }) {
   console.log(moviee);
@@ -85,7 +59,10 @@ function MovieDetails({ moviee }) {
               <TecketSelect />
             </div>
             <div className=" flex  justify-center w-full    ">
-              <button className="  text-gray-100  bg-teal-950 p-2  w-screen  text-lg font-semibold hover:bg-teal-900  ">
+              <button
+                onClick={() => toast.success("see you soon")}
+                className="   text-gray-100  bg-teal-950 p-2  w-screen  text-lg font-semibold hover:bg-teal-900  "
+              >
                 Checkout
               </button>
             </div>

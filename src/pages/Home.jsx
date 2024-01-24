@@ -6,6 +6,7 @@ import About from "../features/home/About";
 import { UseUserInfo } from "../features/login/useUserInfo";
 
 import { useEffect } from "react";
+import Spinner from "../ui/Spinner";
 //
 
 function Home({ setmovoe }) {
@@ -15,7 +16,7 @@ function Home({ setmovoe }) {
     // Scroll to the top when the component mounts
     window.scrollTo(0, 0);
   }, []);
-  if (isLoading) return <p>loding</p>;
+  if (isLoading) return <Spinner />;
 
   return (
     <div className=" px-3  pt-7   ">

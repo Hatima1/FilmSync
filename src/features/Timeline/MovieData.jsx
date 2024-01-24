@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Button,
-  FileInput,
-  Label,
-  Modal,
-  TextInput,
-  Textarea,
-} from "flowbite-react";
+import { Button, FileInput, Label, Modal, TextInput } from "flowbite-react";
 import { useState } from "react";
 // import { useUpdateUser } from "../features/Profile/useUpdateUser";
 
@@ -46,16 +39,24 @@ function Component({
         {moviename ? moviename : "Select Movie First"}
       </button>
       <Modal show={openModal} size="md" onClose={onCloseModal} popup>
-        <Modal.Header />
+        <Modal.Header>
+          <div className="text-base font-semibold mt-1 ml-3  text-gray-900 dark:text-white">
+            select movie details
+          </div>
+        </Modal.Header>
         <Modal.Body>
-          <div className="space-y-3">
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-              Edit your profile
-            </h3>
+          <div className="space-y-2">
             <div>
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="file-upload" value="Upload file" />
+                  <Label htmlFor="file-upload">
+                    {" "}
+                    movie img{" "}
+                    <span className=" text-xs">
+                      {" "}
+                      (the default is Samurai img){" "}
+                    </span>{" "}
+                  </Label>
                 </div>
                 <FileInput
                   onChange={(e) => setimg(e.target.files[0])}
@@ -68,7 +69,7 @@ function Component({
               <TextInput
                 value={moviename}
                 id="text"
-                placeholder=" movie name"
+                placeholder=" movie or series name"
                 onChange={(event) => setmoviename(event.target.value)}
                 required
               />
@@ -83,7 +84,6 @@ function Component({
                 id="yeat"
                 type="text"
                 placeholder="year"
-                required
               />
             </div>
             <div className=" mb-3  w-full    ">

@@ -9,7 +9,6 @@ function Header({ user, setmovoe }) {
   // const FavMovie = showMore ? movie : movie.slice(0, 7);
   const FavMovie = showMore ? user?.fav : user.fav.slice(0, 4);
   const WhatchList = showMore ? user?.watchlist : user.watchlist.slice(0, 4);
-  console.log(WhatchList);
 
   function handlershow() {
     setshowMore((a) => !a);
@@ -23,8 +22,9 @@ function Header({ user, setmovoe }) {
             className=" rounded-full    h-16 w-16  md:w-24     md:h-24     "
             src={user.avatar ? user.avatar : "../../public/download.jpeg"}
             alt="  profile pic "
-            width="16"
-            height="16"
+            width="5"
+            height="5"
+            loading="lazy"
           />
         </div>
         <div className="md:pl-5 pl-3">
@@ -37,7 +37,7 @@ function Header({ user, setmovoe }) {
             </div>
           </div>
 
-          <div className="  text-xs  md:text-sm font-semibold text-gray-800  mb-3  pr-10  ">
+          <div className="  text-sm  md:text-sm font-semibold text-gray-800  mb-3  pr-10  ">
             {user.bio ? user.bio : <p className=" text-gray-800 ">NO Bio </p>}
           </div>
           <div className=" flex gap-3">
@@ -96,7 +96,9 @@ function Header({ user, setmovoe }) {
               <Fav setmovoe={setmovoe} post={postar} key={postar.id} />
             ))}
           {active === "whatch" &&
-            WhatchList?.map((postar) => <Fav post={postar} key={postar.id} />)}
+            WhatchList?.map((postar) => (
+              <Fav setmovoe={setmovoe} post={postar} key={postar.id} />
+            ))}
         </div>
         <div className=" text-end  font-bold   text-black  text-sm mr-2 mt-4 ">
           <button

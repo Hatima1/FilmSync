@@ -33,7 +33,6 @@ function FollowBotton({ profileUser }) {
 
     const update = [...authUserFollowingData, profileUserr];
     const updatefo = [...otherUserFolloweD, myuser];
-    console.log(myuser, "lol");
 
     edituser({ user, update });
     editFollower({ profileUser, updatefo });

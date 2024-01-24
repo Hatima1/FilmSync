@@ -29,8 +29,8 @@ function Timeline() {
 
   return (
     <div className="bg-gray-50 min-h-screen  ">
-      <div className="max-w-7xl mx-auto pt-12  md:pt-14    ">
-        <div className="  grid-cols-1 border-l    grid  md:grid-cols-[2fr_auto]   ">
+      <div className="max-w-7xl mx-auto pt-12  md:pt-14     ">
+        <div className="  grid-cols-1 border-l  pb-12    grid  md:grid-cols-[2fr_auto]   ">
           <div>
             <SelectTimline timeline={timeline} settimeline={settimeline} />
             {/* <Share user={user} /> */}
@@ -51,10 +51,6 @@ function Timeline() {
               suggestion{" "}
             </h1>
             <div className="flex border-t  border-b flex-col gap-3  bg-gray-100  p-2   ">
-              <Sidebar />
-              <Sidebar />
-              <Sidebar />
-              <Sidebar />
               <Sidebar />
             </div>
           </div>

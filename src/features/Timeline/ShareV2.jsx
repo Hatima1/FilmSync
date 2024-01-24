@@ -2,9 +2,7 @@ import { useState } from "react";
 
 import { useCreatPost } from "../Timeline/useNewPosts";
 
-import SelectMovie from "./SelectMovie";
 import MovieData from "./MovieData";
-import Spinner from "../../ui/Spinner";
 
 function ShareV2({ user }) {
   const { CreatePost, isUpdating } = useCreatPost();
@@ -14,10 +12,9 @@ function ShareV2({ user }) {
   const [movietype, setmovietype] = useState("movie");
   const [img, setimg] = useState();
 
-  console.log({ moviename, movieyear, movietype, img });
+
 
   function handlerText() {
-    console.log(user);
     const newPost = {
       createBy: user.name,
       caption: text,

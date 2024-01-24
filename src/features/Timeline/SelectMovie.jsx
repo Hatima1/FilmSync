@@ -1,4 +1,4 @@
-import { Button, Modal, Spinner, TextInput } from "flowbite-react";
+import { Modal, Spinner, TextInput } from "flowbite-react";
 import { useState } from "react";
 
 import { useMovies } from "../movie/useMovie";
@@ -10,7 +10,6 @@ function MovieSearch({ setmovie, SelectMovie }) {
   const { movies, isLoading, error } = useMovies(mov);
 
   //   const test = movie({ namee });
-  console.log(movies);
 
   return (
     <>

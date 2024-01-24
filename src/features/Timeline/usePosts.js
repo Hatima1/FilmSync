@@ -8,8 +8,8 @@ function usePosts(MovieId) {
     error,
     data: Posts,
   } = useQuery({
-    queryKey: ["Posts", MovieId],
-    queryFn: () => GetPost(MovieId),
+    queryKey: ["Posts"],
+    queryFn: () => GetPost(),
   });
   return { isLoading, Posts, error };
 }

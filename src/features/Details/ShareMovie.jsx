@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { useCreatPost } from "../Timeline/useNewPosts";
+import toast from "react-hot-toast";
 
 function ShareMovie({ user, movie }) {
   const { CreatePost, isUpdating } = useCreatPost();
@@ -24,12 +25,14 @@ function ShareMovie({ user, movie }) {
     settext(" ");
 
     CreatePost(newPost, {
-      onSettled: () => {},
+      onSettled: () => {
+        toast.success(` done  `);
+      },
     });
   }
 
   return (
-    <div className=" flex  py-4  border-b     gap-1 mb-2  ">
+    <div className=" flex  py-4  border-b     gap-1 mb-10  ">
       <img
         className="  w-8   h-8     rounded-full "
         src={user.avatar ? user.avatar : "../../public/download.jpeg"}

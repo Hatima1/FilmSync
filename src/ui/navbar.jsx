@@ -5,7 +5,7 @@ import { UseUserInfo } from "../features/login/useUserInfo";
 import { Uselogout } from "../features/Auth/useLogout";
 import MovieSearch from "../features/movie/movieSearch";
 
-function Navbar() {
+function Navbar({ setmovoe }) {
   const { user, isLoading } = UseUserInfo();
   const { logout } = Uselogout();
   const location = useLocation();
@@ -23,6 +23,7 @@ function Navbar() {
             alt=" logo"
             height="8"
             width="auto"
+            loading="lazy"
           />
           <div className=" font-semibold text-gray-900  text-sm   md:text-lg">
             FilmSync{" "}
@@ -68,7 +69,7 @@ function Navbar() {
           </div>
 
           <div className="  text-lg flex items-center">
-            <MovieSearch />
+            <MovieSearch setmovoe={setmovoe} />
           </div>
         </div>
         <div>

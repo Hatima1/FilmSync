@@ -41,6 +41,9 @@ function Login() {
               FilmSync{" "}
             </div>
           </div>
+          <div className="uppercase font-semibold text-xs  md:text-sm text-center  text-gray-900 ">
+            Your films, our community. Join and share now!
+          </div>
           {newAcount && (
             <div>
               <div className="mb-2 block">
@@ -101,7 +104,7 @@ function Login() {
             <div className=" text-center  text-sm font-semibold text-gray-800">
               Already have an acount?
               <button
-                disabled={isLoading}
+                disabled={isLoading || l || lo}
                 onClick={() => setnewAcount(false)}
                 className=" text-gray-950 font-bold text-base "
               >

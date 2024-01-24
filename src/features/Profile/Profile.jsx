@@ -7,7 +7,7 @@ function Profile({ setmovoe }) {
   if (isLoading) return <Spinner />;
   return (
     <div className=" bg-gray-50   ">
-      <div className=" min-h-screen border bg-gray-50 max-w-7xl mx-auto  ">
+      <div className=" min-h-screen border bg-gray-50 max-w-7xl mx-auto   pb-12  ">
         <MainProfile setmovoe={setmovoe} user={user} />
       </div>
     </div>

@@ -5,14 +5,14 @@ import PhoneNav from "./PhoneNav";
 import { UseUserInfo } from "../features/login/useUserInfo";
 import Spinner from "./Spinner";
 
-function AppLayout() {
+function AppLayout({ setmovoe }) {
   const { user, isLoading } = UseUserInfo();
   if (isLoading) return <Spinner />;
   return (
     <div className=" overflow-hidden ">
       <Suspense fallback={<Spinner />}>
-        <Navbar />
-        <PhoneNav />
+        <Navbar setmovoe={setmovoe} />
+        <PhoneNav setmovoe={setmovoe} />
         <Outlet />
       </Suspense>
     </div>

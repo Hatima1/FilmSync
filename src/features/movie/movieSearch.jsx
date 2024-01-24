@@ -1,20 +1,29 @@
 import { Modal, ModalHeader, Spinner, TextInput } from "flowbite-react";
 import { useState } from "react";
 
-import { useMovies } from "./useMovie";
 import Result from "./result";
+import { movie } from "../../ui/ListOfMovie";
 import UseUsersName from "./useUserByname";
 import UserResult from "./userResult";
 import { FaSearch } from "react-icons/fa";
 
-function MovieSearch() {
+function MovieSearch({ setmovoe }) {
   const [openModal, setOpenModal] = useState();
   const [userSerch, setuserSerch] = useState();
   const { isLoading, userNamea } = UseUsersName(userSerch);
   const [mov, setmove] = useState("");
   // const [usersREsult, setusersREsult] = useState("");
 
-  const { movies, isLoading: lodingmovie, error } = useMovies(mov);
+  // const { movies, isLoading: lodingmovie, error } = useMovies(mov);
+
+
+  const movies =
+    mov.length > 1
+      ? movie.filter((a) =>
+          a.Title.toLocaleLowerCase().includes(mov.toLocaleLowerCase())
+        )
+      : [];
+
   const [select, setselect] = useState("serchMovie");
   // if (isLoading) return <p>loding</p>;
 
@@ -22,8 +31,6 @@ function MovieSearch() {
   // const what = userNamea(name);
   // console.log(what);
 
-  console.log(userNamea);
-  console.log(error);
   return (
     <>
       <button
@@ -71,24 +78,21 @@ function MovieSearch() {
                 placeholder="search  movie"
                 onChange={(e) => setmove(e.target.value)}
               />
-              {lodingmovie && (
-                <div className=" w-full text-center ">
+              {movies.length === 0 && mov.length > 2 && (
+                <p className=" w-full text-center font-semibold ">
                   {" "}
-                  <Spinner />
-                </div>
+                  no movies found :{"("}
+                </p>
               )}
-              {error && <p className=" font-semibold text-center">{error}</p>}
-              {/* {movies.length === 0 && <p>movie not found</p>} */}
-              {!lodingmovie &&
-                !error &&
-                movies.length !== 0 &&
-                movies?.map((movie) => (
-                  <Result
-                    setOpenModal={setOpenModal}
-                    movie={movie}
-                    key={movie.imdbID}
-                  />
-                ))}
+
+              {movies.map((movie) => (
+                <Result
+                  setmovoe={setmovoe}
+                  setOpenModal={setOpenModal}
+                  movie={movie}
+                  key={movie.imdbID}
+                />
+              ))}
             </div>
           )}
           {select === "serchUser" && (

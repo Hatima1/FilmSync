@@ -8,8 +8,8 @@ export function useCreatPost() {
     mutationFn: (newpost) => CreatePostApi(newpost),
     onSuccess: (post) => {
       queryClientt.invalidateQueries({ queryKey: ["Posts"] });
-      console.log(post);
-      toast.success("done");
+
+      // toast.success("done");
     },
     onError: (er) => toast.error(er.message),
   });
