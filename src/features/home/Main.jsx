@@ -17,7 +17,7 @@ function Main({ setmovoe }) {
         <div className="mb-5 font-semibold text-sm md:text-lg md:mt-12  mt-4  text-gray-900   ">
           {" "}
           {/* popular movie add them to your fav or whatch list */}
-          select you favourite movie and ticket
+          choose your favourite movies and discover more
           <div className=" border-t-2  w-32  mt-1 border-teal-900 "></div>
         </div>
         <div className="md:grid-cols-7 grid grid-cols-4     gap-x-2  gap-y-9  ">

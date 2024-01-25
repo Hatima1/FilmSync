@@ -9,14 +9,14 @@ export function useSignup() {
     mutationFn: signupApi,
     onSuccess: (user) => {
       console.log(user);
-      toast.success(` welcome  `);
+      toast.success(` welcome `);
       queryClient.invalidateQueries({ queryKey: ["loginuser"] });
 
       // navigate("/home");
     },
     onError: (err) => {
       console.log("ERROR", err);
-      toast.error("email is already  use");
+      toast.error("password must be more than 5 characters and  ");
     },
   });
 

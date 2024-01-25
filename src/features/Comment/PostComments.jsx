@@ -6,11 +6,9 @@ function PublicComment({ posts, user }) {
   const { updatePost } = UseUpdatePosts();
   const [commentt, setComment] = useState();
 
-  console.log(posts);
   const sortedItemsDesc = posts?.comments?.sort(
     (a, b) => new Date(b.createAt) - new Date(a.createAt)
   );
-  console.log(posts.comments);
 
   function handlerAddcomment() {
     const comment = {

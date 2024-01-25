@@ -9,13 +9,13 @@ function UsersComments({ comment }) {
   const navigate = useNavigate();
   if (isLoading) return <></>;
 
-  const { avatar: profilePic } = userProfile;
+  const { avatar: profilePic, name } = userProfile;
   return (
     <>
       <div className=" flex gap-x-2 px-1 border-b py-3   ">
         <img
           className="   w-9   h-9     rounded-full "
-          src={profilePic ? profilePic : "../../public/download.jpeg"}
+          src={profilePic ? profilePic : "../download.jpeg"}
           alt="profilePic"
           width="11"
           height="11"
@@ -26,7 +26,7 @@ function UsersComments({ comment }) {
               onClick={() => navigate(`/profile/${comment.id}`)}
               className="cursor-pointer hover:underline"
             >
-              {comment.name}
+              {name}
             </span>{" "}
             <span className="  text-gray-400 text-xs">.{time}</span>
           </div>

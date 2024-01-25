@@ -60,7 +60,7 @@ export async function GetPost(x) {
       .eq("createById", x)
       .order("createat", { ascending: false });
   if (!x)
-    query = query.select("*").order("createat", { ascending: false }).limit(20);
+    query = query.select("*").order("createat", { ascending: false }).limit(40);
 
   let { data, error } = await query;
 
