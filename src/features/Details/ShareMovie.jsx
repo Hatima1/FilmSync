@@ -35,7 +35,7 @@ function ShareMovie({ user, movie }) {
     <div className=" flex  py-4  border-b     gap-1 mb-10  ">
       <img
         className="  w-8   h-8     rounded-full "
-        src={user.avatar ? user.avatar : "../../public/download.jpeg"}
+        src={user.avatar ? user.avatar : "../download.jpeg"}
         alt="public/Gravity-023.jpg  "
         height="9"
         width="9"
