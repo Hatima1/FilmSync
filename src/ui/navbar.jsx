@@ -9,7 +9,7 @@ function Navbar({ setmovoe }) {
   const { user, isLoading } = UseUserInfo();
   const { logout } = Uselogout();
   const location = useLocation();
-  if (isLoading) return <p>lol</p>;
+  if (isLoading) return <p>loding..</p>;
 
   const userFirstName = user?.name.split(" ").slice(0, 1)?.join("");
 

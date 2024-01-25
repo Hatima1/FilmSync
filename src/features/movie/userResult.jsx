@@ -7,7 +7,7 @@ function UserResult({ user, setOpenModal }) {
       <div className=" flex gap-2 ">
         <img
           className="  w-12 h-12     rounded-full "
-          src={user.avatar ? user.avatar : "../../public/download.jpeg"}
+          src={user.avatar ? user.avatar : "../download.jpeg"}
           alt="profile photo"
           height="12"
           width="12"
