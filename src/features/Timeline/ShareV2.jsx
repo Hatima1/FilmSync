@@ -12,8 +12,6 @@ function ShareV2({ user }) {
   const [movietype, setmovietype] = useState("movie");
   const [img, setimg] = useState();
 
-
-
   function handlerText() {
     const newPost = {
       createBy: user.name,
@@ -42,7 +40,7 @@ function ShareV2({ user }) {
     <div className=" flex  py-4  border-b     gap-1 mb-2  ">
       <img
         className="  w-8   h-8     rounded-full "
-        src={user.avatar ? user.avatar : "../../public/download.jpeg"}
+        src={user.avatar ? user.avatar : "../download.jpeg"}
         alt="public/Gravity-023.jpg  "
         height="9"
         width="9"
