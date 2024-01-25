@@ -31,7 +31,7 @@ function PublicComment({ posts, user }) {
       <div className=" flex  py-3  border-b px-2     gap-1 mb-2  ">
         <img
           className="  w-8   h-8     rounded-full "
-          src={user.avatar ? user.avatar : "../../public/download.jpeg"}
+          src={user.avatar ? user.avatar : "../download.jpeg"}
           alt=" post  photo"
         />
         <div className="  flex gap-x-1   ">
