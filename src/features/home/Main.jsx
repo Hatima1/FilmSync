@@ -13,7 +13,7 @@ function Main({ setmovoe }) {
   }
   return (
     <>
-      <div className=" max-w-6xl mx-auto px-2 border-t mb-10  ">
+      <div className=" max-w-6xl mx-auto px-2 mb-10  ">
         <div className="mb-5 font-semibold text-sm md:text-lg md:mt-12  mt-4  text-gray-900   ">
           {" "}
           {/* popular movie add them to your fav or whatch list */}

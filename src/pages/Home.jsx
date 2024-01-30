@@ -22,9 +22,8 @@ function Home({ setmovoe }) {
     <div className=" px-3  pt-7   ">
       {/* <Navbar /> */}
       <Header />
-      <About />
-
       <Main setmovoe={setmovoe} />
+      <About />
 
       {/* <Hedeing> hi </Hedeing> */}
       {/* <Logout /> */}
