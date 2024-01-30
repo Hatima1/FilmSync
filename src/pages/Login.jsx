@@ -66,7 +66,7 @@ function Login() {
               onChange={(e) => setemail(e.target.value)}
               id="email1"
               type="email"
-              placeholder="email"
+              placeholder="No need for a real email."
               required
             />
           </div>

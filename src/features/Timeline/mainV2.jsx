@@ -11,7 +11,7 @@ function MainV2({ posts, user }) {
 
   const { isLoading, userProfile } = UseUserPr(posts.createById);
   const navigate = useNavigate();
-  if (isLoading) return <>p</>;
+  if (isLoading) return <></>;
 
   const { avatar: profilePic, name } = userProfile;
 
@@ -82,7 +82,7 @@ function MainV2({ posts, user }) {
         <div className="   text-gray-800  py-2 text-left space-y-4">
           <p
             onClick={() => navigate(`/comment/${posts.id}`)}
-            className=" cursor-pointer md:text-base   text-sm  font-semibold  text-gray-800"
+            className=" cursor-pointer md:text-base   text-sm   font-medium  text-black "
           >
             {" "}
             {posts.caption}{" "}
