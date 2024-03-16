@@ -56,7 +56,7 @@ function PublicComment({ posts, user }) {
       {posts.comments.length === 0 && (
         <p className=" font-semibold text-base text-center  my-5 ">
           {" "}
-          no comment yet be the firist one {";) "}
+          no comment yet be the first one {";) "}
         </p>
       )}
     </div>

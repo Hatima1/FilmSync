@@ -15,6 +15,6 @@ export const timeAgo = (timestamp) => {
     return `${daysAgo}d`;
   } else {
     const weeksAgo = Math.floor(secondsAgo / 604800); // 7 days in seconds
-    return `${weeksAgo}w ago`;
+    return `${weeksAgo}w `;
   }
 };
