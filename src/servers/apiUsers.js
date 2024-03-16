@@ -142,12 +142,12 @@ export async function userId(id) {
 export async function username(name) {
   // console.log(username);
 
-  if (!name || name.length < 3) return null;
+  if (!name || name.length < 1) return null;
 
   const { data, error } = await supabase
     .from("users")
     .select("*")
-    .eq("name", name);
+    .like("name", `${name}%`);
 
   if (error) throw new Error(error.message);
 
