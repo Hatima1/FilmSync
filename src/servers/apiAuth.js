@@ -32,10 +32,13 @@ export async function logout() {
 }
 
 export async function signup({ email, password, name }) {
+  console.log({ email, password });
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
   });
+
+  console.log(data);
 
   if (data) {
     await CreateUser({

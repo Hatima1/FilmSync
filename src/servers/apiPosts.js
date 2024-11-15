@@ -1,5 +1,5 @@
 import supabase from "./supabase";
-const supabaseUrl = "https://yhdlzkcezobnzcfvziho.supabase.co";
+const supabaseUrl = "https://dnrckombqbaubfygygny.supabase.co";
 const apiKey = "7a77ec3a";
 
 export async function CreatePost(newpost) {

@@ -1,5 +1,5 @@
 import supabase from "./supabase";
-const supabaseUrl = "https://yhdlzkcezobnzcfvziho.supabase.co";
+const supabaseUrl = "https://dnrckombqbaubfygygny.supabase.co";
 
 // export async function users() {
 //   let { data: users, error } = await supabase.from("users").select("*");
