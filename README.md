@@ -1,8 +1,6 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Designed and implemented the platform using React, Tailwind CSS for styling, Supabase for database
+management, Supabase Auth for authentication system, and React Query for state management and user
+interaction.
+Added interactive features such as weekly film suggestions and user profile picture management to enhance
+user interaction with the platform.
+ Designed an intuitive user interface that makes it easy for users to explore and utilize all platform features
