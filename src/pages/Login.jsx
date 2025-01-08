@@ -9,8 +9,8 @@ import { UseUserInfo } from "../features/login/useUserInfo";
 function Login() {
   const [newAcount, setnewAcount] = useState(false);
   const [name, setname] = useState("");
-  const [email, setemail] = useState("");
-  const [password, setpas] = useState("");
+  const [email, setemail] = useState("test@gmail.com");
+  const [password, setpas] = useState("12345678");
 
   const { login, isLoading } = useLogin();
   const { isLoading: l, signup } = useSignup();
@@ -64,6 +64,7 @@ function Login() {
             </div>
             <TextInput
               onChange={(e) => setemail(e.target.value)}
+              value={email}
               id="email1"
               type="email"
               placeholder="No need for a real email."
@@ -75,6 +76,7 @@ function Login() {
               <Label htmlFor="password1" value="Your password" />
             </div>
             <TextInput
+              value={password}
               id="password1"
               type="password"
               required
